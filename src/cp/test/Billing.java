@@ -8,7 +8,7 @@ package cp.test;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
 
-import cp.util.TableRenderer;
+import city_planning.util.TableRenderer;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;

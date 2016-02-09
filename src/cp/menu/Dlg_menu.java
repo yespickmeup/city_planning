@@ -5,7 +5,7 @@
  */
 package cp.menu;
 
-import cp.util.Center;
+import city_planning.util.Center;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;

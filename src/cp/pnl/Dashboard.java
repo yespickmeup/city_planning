@@ -9,7 +9,7 @@ import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
 import cp.location.S1_household_members;
 import cp.location.S1_household_members.to_household_members;
-import cp.util.Focus_Fire;
+import city_planning.util.Focus_Fire;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;

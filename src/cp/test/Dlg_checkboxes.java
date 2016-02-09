@@ -5,10 +5,10 @@
  */
 package cp.test;
 
-import cp.util.CheckBox;
-import cp.util.Courier;
-import cp.util.Placeholder;
-import cp.util.TableCheckBoxRenderer;
+import city_planning.util.CheckBox;
+import city_planning.util.Courier;
+import city_planning.util.Placeholder;
+import city_planning.util.TableCheckBoxRenderer;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;

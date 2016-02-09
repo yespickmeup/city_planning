@@ -5,7 +5,7 @@
  */
 package cp.schools;
 
-import cp.util.MyConnection;
+import city_planning.util.MyConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -15,7 +15,7 @@ import mijzcx.synapse.desk.utils.KeyMapping;
 import mijzcx.synapse.desk.utils.KeyMapping.KeyAction;
 import synsoftech.fields.Button;
 import synsoftech.fields.Field;
-import tabbing.Dlg_city_planning;
+import city_planning.dlg.Dlg_city_planning;
 
 /**
  *

@@ -1,7 +1,7 @@
 package cp.location;
 
 
-import cp.util.MyConnection;
+import city_planning.util.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

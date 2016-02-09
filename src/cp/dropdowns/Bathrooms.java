@@ -8,7 +8,7 @@ package cp.dropdowns;
 
 import cp.location.S1_bathrooms;
 import cp.location.S1_walls;
-import cp.util.TableRenderer;
+import city_planning.util.TableRenderer;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;

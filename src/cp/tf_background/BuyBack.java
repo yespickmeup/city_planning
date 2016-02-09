@@ -19,7 +19,7 @@ import cp.location.S1_transportations;
 import cp.location.S1_walls;
 import cp.location.S1_water_sources;
 
-import cp.util.TableRenderer;
+import city_planning.util.TableRenderer;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JTextField;

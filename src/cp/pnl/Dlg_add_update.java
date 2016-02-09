@@ -9,13 +9,13 @@ import cp.tf_background.JXTextField;
 import cp.tf_background.BuyBack;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
-import cp.Update.dropdown_basicneeds_class;
+import city_planning.basic_needs.Basic_needs;
 import cp.Update.ext_consumption;
 import cp.Update.ext_consumption.cons_extension;
 import cp.Update.ext_employment.emp_extension;
 import cp.Update.ext_expenditures.exp_extension;
-import cp.assets.S1_assets;
-import cp.assets.S1_assets.to_assets;
+import cp.assets.Assets;
+import cp.assets.Assets.to_assets;
 import cp.location.S1_household_member_educational_background.to_household_member_educational_background;
 import cp.location.S1_barangays;
 import cp.location.S1_bathrooms;
@@ -32,11 +32,11 @@ import cp.location.S1_transportations.to_transportation_types;
 import cp.location.S1_walls;
 import cp.location.S1_water_sources;
 import cp.location.S1_year;
-import cp.util.CheckBox;
-import cp.util.Focus_Fire;
-import cp.util.Placeholder;
-import cp.util.TableCheckBoxRenderer;
-import cp.util.TableRenderer;
+import city_planning.util.CheckBox;
+import city_planning.util.Focus_Fire;
+import city_planning.util.Placeholder;
+import city_planning.util.TableCheckBoxRenderer;
+import city_planning.util.TableRenderer;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -8281,16 +8281,16 @@ public class Dlg_add_update extends javax.swing.JDialog {
     }
 
     ////////      BASIC NEEDS LIST    ////////
-    List<dropdown_basicneeds_class.to_basicneeds> basicneeds_list = new ArrayList();
+    List<Basic_needs.to_basicneeds> basicneeds_list = new ArrayList();
 
     private void init_basicneeds() {
 
         String where = " where basic_needs like '%" + tf_consumption_basicneeds.getText() + "%' order by basic_needs asc";
         basicneeds_list.clear();
-        basicneeds_list = dropdown_basicneeds_class.ret_data(where);
+        basicneeds_list = Basic_needs.ret_data(where);
         Object[][] obj = new Object[basicneeds_list.size()][1];
         int i = 0;
-        for (dropdown_basicneeds_class.to_basicneeds to : basicneeds_list) {
+        for (Basic_needs.to_basicneeds to : basicneeds_list) {
             obj[i][0] = " " + to.basic_needs;
 
             i++;
@@ -8305,7 +8305,7 @@ public class Dlg_add_update extends javax.swing.JDialog {
         tr.setCallback(new TableRenderer.Callback() {
             @Override
             public void ok(TableRenderer.OutputData data) {
-                dropdown_basicneeds_class.to_basicneeds to = (dropdown_basicneeds_class.to_basicneeds) basicneeds_list.get(data.selected_row);
+                Basic_needs.to_basicneeds to = (Basic_needs.to_basicneeds) basicneeds_list.get(data.selected_row);
                 tf_consumption_basicneeds.setText(to.basic_needs);
 
             }
@@ -8579,7 +8579,7 @@ public class Dlg_add_update extends javax.swing.JDialog {
 
     private void data_cols() {
         String where = "";
-        loadData_assets(S1_assets.ret_data(where));
+        loadData_assets(Assets.ret_data(where));
     }
 
     private void select_asset() {

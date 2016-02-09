@@ -5,8 +5,8 @@
  */
 package cp.location;
 
-import cp.assets.S1_assets.to_assets;
-import cp.util.MyConnection;
+import cp.assets.Assets.to_assets;
+import city_planning.util.MyConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

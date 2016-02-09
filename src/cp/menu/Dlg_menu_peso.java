@@ -5,7 +5,7 @@
  */
 package cp.menu;
 
-import cp.peso.Dlg_touchscreen_tabs;
+import cp.peso.Dlg_peso;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -320,13 +320,13 @@ public class Dlg_menu_peso extends javax.swing.JDialog {
 
     private void peso(){
         Window p = (Window) this;
-        Dlg_touchscreen_tabs nd = Dlg_touchscreen_tabs.create(p, true);
+        Dlg_peso nd = Dlg_peso.create(p, true);
         nd.setTitle("");
       
-        nd.setCallback(new Dlg_touchscreen_tabs.Callback() {
+        nd.setCallback(new Dlg_peso.Callback() {
             
             @Override
-            public void ok(CloseDialog closeDialog, Dlg_touchscreen_tabs.OutputData data) {
+            public void ok(CloseDialog closeDialog, Dlg_peso.OutputData data) {
                 closeDialog.ok();
                 
             }
