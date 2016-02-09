@@ -5694,7 +5694,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(244, 244, 244));
 
         jButton3.setBackground(new java.awt.Color(244, 244, 244));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/housefinal.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/housefinal.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setFocusable(false);
@@ -5711,7 +5711,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         });
 
         jButton4.setBackground(new java.awt.Color(244, 244, 244));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/household.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/household.png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setFocusable(false);
@@ -5728,7 +5728,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         });
 
         jButton5.setBackground(new java.awt.Color(244, 244, 244));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/expenses.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/expenses.png"))); // NOI18N
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setFocusable(false);
@@ -5740,7 +5740,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         });
 
         jButton6.setBackground(new java.awt.Color(244, 244, 244));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/fourthrow.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/fourthrow.png"))); // NOI18N
         jButton6.setContentAreaFilled(false);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusable(false);
@@ -5752,7 +5752,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         });
 
         jButton7.setBackground(new java.awt.Color(244, 244, 244));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/remove11.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/remove11.png"))); // NOI18N
         jButton7.setContentAreaFilled(false);
         jButton7.setFocusable(false);
         jButton7.setOpaque(true);
@@ -5763,7 +5763,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         });
 
         jButton1.setBackground(new java.awt.Color(244, 244, 244));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/comments.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/comments.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusable(false);
@@ -5775,7 +5775,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         });
 
         jButton2.setBackground(new java.awt.Color(244, 244, 244));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tabbing/persona.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/persona.png"))); // NOI18N
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setFocusable(false);
@@ -5824,7 +5824,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnl_holder, javax.swing.GroupLayout.DEFAULT_SIZE, 1031, Short.MAX_VALUE))
+                .addComponent(pnl_holder, javax.swing.GroupLayout.PREFERRED_SIZE, 1031, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
