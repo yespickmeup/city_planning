@@ -23,7 +23,8 @@ import mijzcx.synapse.desk.utils.SqlStringUtil;
 public class Achievements {
 
     public static class to_achievements {
-
+        
+        
         public final int id;
         public final String achievement;
 
@@ -35,6 +36,7 @@ public class Achievements {
 
     public static void add_data(to_achievements to_achievements) {
         try {
+            System.out.println("asdad");
             Connection conn = MyConnection.connect();
             String s0 = "insert into achievements("
                     + "achievement"
