@@ -26,7 +26,7 @@ public class MyFrame {
         final JInternalFrame p22 = new JInternalFrame(title, true, true, true, true);
         p22.add(pnl);
         p22.setSize(width, height);
-        p22.setFrameIcon(new ImageIcon(pane.getClass().getResource("/POS/img_menu/stock_status.png")));
+        p22.setFrameIcon(new ImageIcon(pane.getClass().getResource("/city_planning/img_menu/hot16.png")));
         try {
             if (p22.isVisible()) {
                 pane.remove(p22);
@@ -59,7 +59,7 @@ public class MyFrame {
         final JInternalFrame p22 = new JInternalFrame(title, true, true, true, true);
         p22.add(pnl);
         p22.setSize(width, height);
-        p22.setFrameIcon(new ImageIcon(pane.getClass().getResource("/POS/img_menu/stock_status.png")));
+        p22.setFrameIcon(new ImageIcon(pane.getClass().getResource("/city_planning/img_menu/hot16.png")));
         try {
             if (p22.isVisible()) {
                 pane.remove(p22);

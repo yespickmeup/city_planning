@@ -4,6 +4,8 @@
  */
 package city_planning.pnl;
 
+import city_planning.dlg.Dlg_city_planning;
+import city_planning.util.MyFrame;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -90,7 +92,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel51.setBackground(new java.awt.Color(234, 234, 234));
         jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/POS/icons4/menu53.png"))); // NOI18N
+        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/menu53.png"))); // NOI18N
         jLabel51.setOpaque(true);
         jLabel51.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,7 +102,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("V3.1.0");
+        jLabel1.setText("V0.0.0");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -127,7 +129,6 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/POS/img_menu2/FOLDER - DOCUMENTS_32x32-32.png"))); // NOI18N
         jLabel7.setText(" Profilling - City Planning");
         jLabel7.setOpaque(true);
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -392,7 +393,10 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_usernameActionPerformed
 
     private void tf_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_passwordActionPerformed
+        jPanel1.removeAll();
+        jPanel1.updateUI();
 
+        cardLayout.show(pnl_main_holder, "2");
     }//GEN-LAST:event_tf_passwordActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -484,6 +488,18 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void myInit() {
 
+        set_card_items();
+        jPanel6.setVisible(false);
+    }
+
+    CardLayout cardLayout = new CardLayout();
+
+    private void set_card_items() {
+        cardLayout = (CardLayout) pnl_main_holder.getLayout();
+
+        cardLayout.addLayoutComponent("1", pnl_login);
+        cardLayout.addLayoutComponent("2", jPanel1);
+
     }
 
     private void hover() {
@@ -509,17 +525,6 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
 
-
-    CardLayout cardLayout = new CardLayout();
-
-    private void set_card_items() {
-        cardLayout = (CardLayout) pnl_main_holder.getLayout();
-
-        cardLayout.addLayoutComponent("1", pnl_login);
-        cardLayout.addLayoutComponent("2", jPanel1);
-
-    }
-
     public JDesktopPane pane() {
         return jPanel1;
     }
@@ -530,8 +535,8 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     private void dlg_maximize() {
-//        Dlg_categories rpt = new Dlg_categories();
-//        MyFrame.set2(rpt.getSurface(), jPanel1, "Categories", rpt.getWidth(), rpt.getHeight());
+        Dlg_city_planning rpt = new Dlg_city_planning();
+        MyFrame.set2(rpt.getSurface(), jPanel1, "City Planning", rpt.getWidth(), rpt.getHeight());
     }
 
     private void menu() {
@@ -544,7 +549,7 @@ public class Dashboard extends javax.swing.JFrame {
             @Override
             public void minimize(CloseDialog closeDialog, Dlg_menu.OutputData data) {
                 closeDialog.ok();
-               Dashboard.this.setState(Frame.ICONIFIED);
+                Dashboard.this.setState(Frame.ICONIFIED);
             }
 
             @Override
@@ -570,19 +575,24 @@ public class Dashboard extends javax.swing.JFrame {
 
                 //<editor-fold defaultstate="collapsed" desc=" transactions ">
                 if (data.stmt.equals("Accounts Payable")) {
+                    dlg_same_size();
+                }
+
+                if (data.stmt.equals("Accounts Receivable")) {
+                    dlg_maximize();
                 }
                 //</editor-fold>
                 //<editor-fold defaultstate="collapsed" desc=" maintenance ">
                 if (data.stmt.equals("Branches")) {
-                   
+
                 }
-               
+
                 //</editor-fold>
                 //<editor-fold defaultstate="collapsed" desc=" Reports ">
                 if (data.stmt.equals("Customers Report")) {
-                   
+
                 }
-               
+
                 //</editor-fold>
             }
 

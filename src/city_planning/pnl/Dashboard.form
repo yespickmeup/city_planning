@@ -112,7 +112,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/POS/icons4/menu53.png"/>
+              <Image iconType="3" name="/city_planning/img_city_planning/menu53.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -126,7 +126,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="V3.1.0"/>
+            <Property name="text" type="java.lang.String" value="V0.0.0"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -143,9 +143,6 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/POS/img_menu2/FOLDER - DOCUMENTS_32x32-32.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value=" Profilling - City Planning"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
