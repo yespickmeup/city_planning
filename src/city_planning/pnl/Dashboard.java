@@ -533,7 +533,7 @@ public class Dashboard extends javax.swing.JFrame {
 //        Dlg_users dtc = new Dlg_users();
 //        MyFrame.set2(dtc.getSurface(), jPanel1, "Users");
     }
-
+    
     private void dlg_maximize() {
         Dlg_city_planning rpt = new Dlg_city_planning();
         MyFrame.set2(rpt.getSurface(), jPanel1, "City Planning", rpt.getWidth(), rpt.getHeight());

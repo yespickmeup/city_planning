@@ -457,7 +457,7 @@ CREATE TABLE `basic_needs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `basic_needs` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `basic_needs`
@@ -483,7 +483,8 @@ INSERT INTO `basic_needs` (`id`,`basic_needs`) VALUES
  (16,'Bio gas '),
  (17,'Transportation'),
  (18,'Fuel/Gas/Wood/Kerosene '),
- (19,'Others');
+ (19,'Others'),
+ (20,'pang chix');
 /*!40000 ALTER TABLE `basic_needs` ENABLE KEYS */;
 
 
@@ -505,7 +506,6 @@ CREATE TABLE `bathroom_types` (
 /*!40000 ALTER TABLE `bathroom_types` DISABLE KEYS */;
 INSERT INTO `bathroom_types` (`id`,`bathroom_type`) VALUES 
  (1,'Inside'),
- (2,'Inside'),
  (3,'Outside (Built)'),
  (4,'Outside (makeshift)'),
  (5,'None');
@@ -833,7 +833,7 @@ CREATE TABLE `cooking_lighting_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cooking_lighting_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cooking_lighting_types`
@@ -849,8 +849,7 @@ INSERT INTO `cooking_lighting_types` (`id`,`cooking_lighting_type`) VALUES
  (6,'Candle Wax'),
  (7,'Firewood'),
  (8,'Cow Dung or Gas(reeds)'),
- (9,'Charcoal'),
- (10,'Others');
+ (9,'Charcoal');
 /*!40000 ALTER TABLE `cooking_lighting_types` ENABLE KEYS */;
 
 
@@ -902,6 +901,31 @@ INSERT INTO `disabilities` (`id`,`disability`) VALUES
 
 
 --
+-- Definition of table `disposal_methods`
+--
+
+DROP TABLE IF EXISTS `disposal_methods`;
+CREATE TABLE `disposal_methods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `disposal_method` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `disposal_methods`
+--
+
+/*!40000 ALTER TABLE `disposal_methods` DISABLE KEYS */;
+INSERT INTO `disposal_methods` (`id`,`disposal_method`) VALUES 
+ (1,'Skip Bin'),
+ (2,'Pit'),
+ (3,'Heap'),
+ (4,'Garden'),
+ (5,'Burning');
+/*!40000 ALTER TABLE `disposal_methods` ENABLE KEYS */;
+
+
+--
 -- Definition of table `educational_statuses`
 --
 
@@ -942,7 +966,7 @@ CREATE TABLE `floor_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `floor_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `floor_types`
@@ -951,13 +975,10 @@ CREATE TABLE `floor_types` (
 /*!40000 ALTER TABLE `floor_types` DISABLE KEYS */;
 INSERT INTO `floor_types` (`id`,`floor_type`) VALUES 
  (1,'Concrete/Stone'),
- (2,'Bricks'),
- (3,'Bricks'),
  (4,'Bricks'),
  (5,'Cement screed'),
  (6,'Rammed earth'),
- (7,'Wood'),
- (8,'others');
+ (7,'Wood');
 /*!40000 ALTER TABLE `floor_types` ENABLE KEYS */;
 
 
@@ -984,6 +1005,250 @@ INSERT INTO `genders` (`id`,`gender`) VALUES
 
 
 --
+-- Definition of table `household_consumptions`
+--
+
+DROP TABLE IF EXISTS `household_consumptions`;
+CREATE TABLE `household_consumptions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `house_no` varchar(100) DEFAULT NULL,
+  `household_no` int(11) DEFAULT NULL,
+  `basic_need` varchar(100) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `consumption_date` date DEFAULT NULL,
+  `date_added` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_consumptions`
+--
+
+/*!40000 ALTER TABLE `household_consumptions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_consumptions` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_list`
+--
+
+DROP TABLE IF EXISTS `household_list`;
+CREATE TABLE `household_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `house_no` varchar(100) DEFAULT NULL,
+  `household_no` varchar(100) DEFAULT NULL,
+  `no_of_members` int(11) DEFAULT NULL,
+  `date_modified` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_list`
+--
+
+/*!40000 ALTER TABLE `household_list` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_list` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_member_certification`
+--
+
+DROP TABLE IF EXISTS `household_member_certification`;
+CREATE TABLE `household_member_certification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `household_member_id` int(11) DEFAULT NULL,
+  `certification` varchar(100) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_member_certification`
+--
+
+/*!40000 ALTER TABLE `household_member_certification` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_member_certification` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_member_educational_background`
+--
+
+DROP TABLE IF EXISTS `household_member_educational_background`;
+CREATE TABLE `household_member_educational_background` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `educational_status` varchar(100) DEFAULT NULL,
+  `household_member_id` int(11) DEFAULT NULL,
+  `name_of_school` varchar(100) DEFAULT NULL,
+  `highest_grade_computed` varchar(100) DEFAULT NULL,
+  `year` date DEFAULT NULL,
+  `achievements` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_member_educational_background`
+--
+
+/*!40000 ALTER TABLE `household_member_educational_background` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_member_educational_background` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_member_employment_status`
+--
+
+DROP TABLE IF EXISTS `household_member_employment_status`;
+CREATE TABLE `household_member_employment_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `household_member_id` int(11) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `employment_status` varchar(100) DEFAULT NULL,
+  `name_of_business` varchar(100) DEFAULT NULL,
+  `business_address` varchar(100) DEFAULT NULL,
+  `mailing_address` varchar(100) DEFAULT NULL,
+  `type_of_business` varchar(100) DEFAULT NULL,
+  `is_homebased_business` varchar(100) DEFAULT NULL,
+  `net_income_estimation` double DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `profession` varchar(100) DEFAULT NULL,
+  `financial_assistance_amount` double DEFAULT NULL,
+  `reason_for_migration` varchar(100) DEFAULT NULL,
+  `date_started` date DEFAULT NULL,
+  `date_ended` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_member_employment_status`
+--
+
+/*!40000 ALTER TABLE `household_member_employment_status` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_member_employment_status` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_member_health_status`
+--
+
+DROP TABLE IF EXISTS `household_member_health_status`;
+CREATE TABLE `household_member_health_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `household_member_id` int(11) DEFAULT NULL,
+  `is_seeing_a_doctor` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `name_of_doctor` varchar(100) DEFAULT NULL,
+  `level_of_disability` varchar(100) DEFAULT NULL,
+  `cause` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_member_health_status`
+--
+
+/*!40000 ALTER TABLE `household_member_health_status` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_member_health_status` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_member_medication`
+--
+
+DROP TABLE IF EXISTS `household_member_medication`;
+CREATE TABLE `household_member_medication` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `household_member_id` int(11) DEFAULT NULL,
+  `medication` varchar(100) DEFAULT NULL,
+  `doctor_name` varchar(100) DEFAULT NULL,
+  `prescription` varchar(100) DEFAULT NULL,
+  `dose` varchar(100) DEFAULT NULL,
+  `begin_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_member_medication`
+--
+
+/*!40000 ALTER TABLE `household_member_medication` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_member_medication` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_members`
+--
+
+DROP TABLE IF EXISTS `household_members`;
+CREATE TABLE `household_members` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `house_no` varchar(100) DEFAULT NULL,
+  `household_no` varchar(100) DEFAULT NULL,
+  `province` varchar(100) DEFAULT NULL,
+  `province_id` int(11) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `barangay_id` int(11) DEFAULT NULL,
+  `barangay` varchar(100) DEFAULT NULL,
+  `purok_id` int(11) DEFAULT NULL,
+  `purok` varchar(100) DEFAULT NULL,
+  `street_id` int(11) DEFAULT NULL,
+  `street` varchar(100) DEFAULT NULL,
+  `household_f_name` varchar(100) DEFAULT NULL,
+  `household_m_name` varchar(100) DEFAULT NULL,
+  `household_l_name` varchar(100) DEFAULT NULL,
+  `gender` varchar(100) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `marital_status` varchar(100) DEFAULT NULL,
+  `no_occupancy_year` date DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `birth_place` varchar(100) DEFAULT NULL,
+  `prior_residence` varchar(100) DEFAULT NULL,
+  `email_address` varchar(100) DEFAULT NULL,
+  `relation_to_household` varchar(100) DEFAULT NULL,
+  `citizenship` varchar(100) DEFAULT NULL,
+  `religion` varchar(100) DEFAULT NULL,
+  `skills` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_members`
+--
+
+/*!40000 ALTER TABLE `household_members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_members` ENABLE KEYS */;
+
+
+--
+-- Definition of table `household_members_educational_bacground`
+--
+
+DROP TABLE IF EXISTS `household_members_educational_bacground`;
+CREATE TABLE `household_members_educational_bacground` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `household_members_id` int(11) DEFAULT NULL,
+  `educational_status` varchar(100) DEFAULT NULL,
+  `name_of_school` varchar(100) DEFAULT NULL,
+  `highest_grade_computed` varchar(100) DEFAULT NULL,
+  `year` date DEFAULT NULL,
+  `achievements` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `household_members_educational_bacground`
+--
+
+/*!40000 ALTER TABLE `household_members_educational_bacground` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household_members_educational_bacground` ENABLE KEYS */;
+
+
+--
 -- Definition of table `household_positions`
 --
 
@@ -992,7 +1257,7 @@ CREATE TABLE `household_positions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `household_position` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `household_positions`
@@ -1008,8 +1273,7 @@ INSERT INTO `household_positions` (`id`,`household_position`) VALUES
  (6,'Parent of Head or Spouse'),
  (7,'Nephew/Niece'),
  (8,'Other relatives'),
- (9,'Kasambahay'),
- (10,'Others');
+ (9,'Kasambahay');
 /*!40000 ALTER TABLE `household_positions` ENABLE KEYS */;
 
 
@@ -1020,78 +1284,59 @@ INSERT INTO `household_positions` (`id`,`household_position`) VALUES
 DROP TABLE IF EXISTS `households`;
 CREATE TABLE `households` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `country_id` varchar(100) DEFAULT NULL,
-  `country` varchar(100) DEFAULT NULL,
-  `province_id` int(11) DEFAULT NULL,
+  `house_no` varchar(100) DEFAULT NULL,
+  `household_no` varchar(100) DEFAULT NULL,
   `province` varchar(100) DEFAULT NULL,
+  `province_id` int(11) DEFAULT NULL,
   `city_id` int(11) DEFAULT NULL,
   `city` varchar(100) DEFAULT NULL,
-  `barangay_id` varchar(100) DEFAULT NULL,
+  `barangay_id` int(11) DEFAULT NULL,
   `barangay` varchar(100) DEFAULT NULL,
-  `building_id` varchar(100) DEFAULT NULL,
-  `building_type` varchar(100) DEFAULT NULL,
-  `purok_id` varchar(100) DEFAULT NULL,
+  `purok_id` int(11) DEFAULT NULL,
   `purok` varchar(100) DEFAULT NULL,
-  `street_id` varchar(100) DEFAULT NULL,
+  `street_id` int(11) DEFAULT NULL,
   `street` varchar(100) DEFAULT NULL,
-  `toilet_type_id` varchar(100) DEFAULT NULL,
+  `building_type_id` int(11) DEFAULT NULL,
+  `building_type` varchar(100) DEFAULT NULL,
+  `building_condition_id` int(11) DEFAULT NULL,
+  `building_condition` varchar(100) DEFAULT NULL,
+  `no_rooms_for_sleeping` int(11) DEFAULT NULL,
+  `toilet_type_id` int(11) DEFAULT NULL,
   `toilet_type` varchar(100) DEFAULT NULL,
-  `bathroom_type_id` varchar(100) DEFAULT NULL,
+  `bathroom_type_id` int(11) DEFAULT NULL,
   `bathroom_type` varchar(100) DEFAULT NULL,
-  `disposal__type_id` varchar(100) DEFAULT NULL,
-  `disposal_method` varchar(100) DEFAULT NULL,
-  `kicthen_type_id` varchar(100) DEFAULT NULL,
-  `kicthen_type` varchar(100) DEFAULT NULL,
-  `communication_type_id` varchar(100) DEFAULT NULL,
-  `communication_type` varchar(100) DEFAULT NULL,
-  `transportation_type_id` varchar(100) DEFAULT NULL,
+  `solid_waste_disposal_method_id` int(11) DEFAULT NULL,
+  `solid_waste_disposal_method` varchar(100) DEFAULT NULL,
+  `kitchen_type_id` int(11) DEFAULT NULL,
+  `kitchen_type` varchar(100) DEFAULT NULL,
+  `transportation_type_id` int(11) DEFAULT NULL,
   `transportation_type` varchar(100) DEFAULT NULL,
-  `roof_type_id` varchar(100) DEFAULT NULL,
+  `roof_type_id` int(11) DEFAULT NULL,
   `roof_type` varchar(100) DEFAULT NULL,
-  `wall_type_id` varchar(100) DEFAULT NULL,
+  `wall_type_id` int(11) DEFAULT NULL,
   `wall_type` varchar(100) DEFAULT NULL,
-  `floor_type_id` varchar(100) DEFAULT NULL,
+  `floor_type_id` int(11) DEFAULT NULL,
   `floor_type` varchar(100) DEFAULT NULL,
-  `cooking_lighting_type_id` varchar(100) DEFAULT NULL,
-  `cooking_lighting_type` varchar(100) DEFAULT NULL,
-  `water_source_id` varchar(100) DEFAULT NULL,
+  `communication_type_id` int(11) DEFAULT NULL,
+  `communication_type` varchar(100) DEFAULT NULL,
+  `fuel_use_for_lighting_id` int(11) DEFAULT NULL,
+  `fuel_use_for_lighting` varchar(100) DEFAULT NULL,
+  `fuel_use_for_cooking_id` int(11) DEFAULT NULL,
+  `fuel_use_for_cooking` varchar(100) DEFAULT NULL,
+  `water_source_id` int(11) DEFAULT NULL,
   `water_source` varchar(100) DEFAULT NULL,
-  `asset_id` varchar(100) DEFAULT NULL,
-  `asset` varchar(100) DEFAULT NULL,
-  `gender_id` varchar(100) DEFAULT NULL,
-  `gender` varchar(100) DEFAULT NULL,
-  `marital_status_id` varchar(100) DEFAULT NULL,
-  `marital_status` varchar(100) DEFAULT NULL,
-  `household_position_id` varchar(100) DEFAULT NULL,
-  `household_position` varchar(100) DEFAULT NULL,
-  `citizenship_id` varchar(100) DEFAULT NULL,
-  `citizenship` varchar(100) DEFAULT NULL,
-  `religion_id` varchar(100) DEFAULT NULL,
-  `relgion` varchar(100) DEFAULT NULL,
-  `educational_status_id` varchar(100) DEFAULT NULL,
-  `educational_status` varchar(100) DEFAULT NULL,
-  `school_id` varchar(100) DEFAULT NULL,
-  `school` varchar(100) DEFAULT NULL,
-  `school_address` varchar(100) DEFAULT NULL,
-  `achievement_id` varchar(100) DEFAULT NULL,
-  `achievement` varchar(100) DEFAULT NULL,
-  `disability_id` varchar(100) DEFAULT NULL,
-  `disability` varchar(100) DEFAULT NULL,
-  `business_id` varchar(100) DEFAULT NULL,
-  `business` varchar(100) DEFAULT NULL,
-  `business_address` varchar(100) DEFAULT NULL,
-  `mailing_address` varchar(100) DEFAULT NULL,
-  `business_type` varchar(100) DEFAULT NULL,
-  `contact_no` varchar(100) DEFAULT NULL,
-  `remarks` varchar(100) DEFAULT NULL,
-  `profession_id` varchar(100) DEFAULT NULL,
-  `profession` varchar(100) DEFAULT NULL,
-  `skill_id` varchar(100) DEFAULT NULL,
-  `skill` varchar(100) DEFAULT NULL,
-  `certification_id` varchar(100) DEFAULT NULL,
-  `certification` varchar(100) DEFAULT NULL,
+  `drinking_water_source_distance` varchar(100) DEFAULT NULL,
+  `nearest_water_source_distance` varchar(100) DEFAULT NULL,
+  `no_of_household` varchar(100) DEFAULT NULL,
+  `no_of_household_members` varchar(100) DEFAULT NULL,
+  `occupancy_type` varchar(100) DEFAULT NULL,
+  `is_land_owner` varchar(100) DEFAULT NULL,
+  `is_bldg_owner` varchar(100) DEFAULT NULL,
+  `tenure` varchar(100) DEFAULT NULL,
+  `monthly_rental` varchar(100) DEFAULT NULL,
+  `household_assets` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `households`
@@ -1099,6 +1344,69 @@ CREATE TABLE `households` (
 
 /*!40000 ALTER TABLE `households` DISABLE KEYS */;
 /*!40000 ALTER TABLE `households` ENABLE KEYS */;
+
+
+--
+-- Definition of table `houses`
+--
+
+DROP TABLE IF EXISTS `houses`;
+CREATE TABLE `houses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `house_no` varchar(100) DEFAULT NULL,
+  `province` varchar(100) DEFAULT NULL,
+  `province_id` int(11) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `barangay_id` int(11) DEFAULT NULL,
+  `barangay` varchar(100) DEFAULT NULL,
+  `purok_id` int(11) DEFAULT NULL,
+  `purok` varchar(100) DEFAULT NULL,
+  `street_id` int(11) DEFAULT NULL,
+  `street` varchar(100) DEFAULT NULL,
+  `building_type_id` int(11) DEFAULT NULL,
+  `building_type` varchar(100) DEFAULT NULL,
+  `building_condition_id` int(11) DEFAULT NULL,
+  `building_condition` varchar(100) DEFAULT NULL,
+  `no_rooms_for_sleeping` int(11) DEFAULT NULL,
+  `toilet_type_id` int(11) DEFAULT NULL,
+  `toilet_type` varchar(100) DEFAULT NULL,
+  `bathroom_type_id` int(11) DEFAULT NULL,
+  `bathroom_type` varchar(100) DEFAULT NULL,
+  `solid_waste_disposal_method_id` int(11) DEFAULT NULL,
+  `solid_waste_disposal_method` varchar(100) DEFAULT NULL,
+  `kitchen_type_id` int(11) DEFAULT NULL,
+  `kitchen_type` varchar(100) DEFAULT NULL,
+  `transportation_type_id` int(11) DEFAULT NULL,
+  `transportation_type` varchar(100) DEFAULT NULL,
+  `roof_type_id` int(11) DEFAULT NULL,
+  `roof_type` varchar(100) DEFAULT NULL,
+  `wall_type_id` int(11) DEFAULT NULL,
+  `wall_type` varchar(100) DEFAULT NULL,
+  `floor_type_id` int(11) DEFAULT NULL,
+  `floor_type` varchar(100) DEFAULT NULL,
+  `communication_type_id` int(11) DEFAULT NULL,
+  `communication_type` varchar(100) DEFAULT NULL,
+  `fuel_use_for_lighting_id` int(11) DEFAULT NULL,
+  `fuel_use_for_lighting` varchar(100) DEFAULT NULL,
+  `fuel_use_for_cooking_id` int(11) DEFAULT NULL,
+  `fuel_use_for_cooking` varchar(100) DEFAULT NULL,
+  `water_source_id` int(11) DEFAULT NULL,
+  `water_source` varchar(100) DEFAULT NULL,
+  `drinking_water_source_distance` varchar(100) DEFAULT NULL,
+  `nearest_water_source_distance` varchar(100) DEFAULT NULL,
+  `assets` varchar(100) DEFAULT NULL,
+  `no_of_household` int(11) DEFAULT NULL,
+  `no_of_household_members` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `houses`
+--
+
+/*!40000 ALTER TABLE `houses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `houses` ENABLE KEYS */;
 
 
 --
@@ -1123,6 +1431,30 @@ INSERT INTO `kicthen_types` (`id`,`kicthen_type`) VALUES
  (3,'Outside (makeshift)'),
  (4,'None');
 /*!40000 ALTER TABLE `kicthen_types` ENABLE KEYS */;
+
+
+--
+-- Definition of table `kitchen_types`
+--
+
+DROP TABLE IF EXISTS `kitchen_types`;
+CREATE TABLE `kitchen_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kitchen_type` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kitchen_types`
+--
+
+/*!40000 ALTER TABLE `kitchen_types` DISABLE KEYS */;
+INSERT INTO `kitchen_types` (`id`,`kitchen_type`) VALUES 
+ (1,'Inside'),
+ (2,'Outside (built)'),
+ (3,'Outside (makeshift)'),
+ (4,'None');
+/*!40000 ALTER TABLE `kitchen_types` ENABLE KEYS */;
 
 
 --
@@ -3712,7 +4044,7 @@ CREATE TABLE `toilet_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `toilet_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `toilet_types`
@@ -3727,8 +4059,7 @@ INSERT INTO `toilet_types` (`id`,`toilet_type`) VALUES
  (5,'Uncovered Pit Latrine'),
  (6,'Flush Toilet(Private)'),
  (7,'Flush Toilet(Shared)'),
- (8,'Bush'),
- (9,'Others');
+ (8,'Bush');
 /*!40000 ALTER TABLE `toilet_types` ENABLE KEYS */;
 
 
@@ -3741,7 +4072,7 @@ CREATE TABLE `transportation_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `transportation_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transportation_types`
@@ -3753,8 +4084,7 @@ INSERT INTO `transportation_types` (`id`,`transportation_type`) VALUES
  (2,'Motor Cycle'),
  (3,'Bicycle'),
  (4,'Boat/Canoe'),
- (5,'Donkey'),
- (6,'Others');
+ (5,'Donkey');
 /*!40000 ALTER TABLE `transportation_types` ENABLE KEYS */;
 
 
@@ -3767,7 +4097,7 @@ CREATE TABLE `wall_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `wall_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wall_types`
@@ -3783,8 +4113,7 @@ INSERT INTO `wall_types` (`id`,`wall_type`) VALUES
  (6,'Unburnt Bricks with cement'),
  (7,'Unburnt Bricks with mud'),
  (8,'Wood'),
- (9,'Mud and Poles'),
- (10,'Others');
+ (9,'Mud and Poles');
 /*!40000 ALTER TABLE `wall_types` ENABLE KEYS */;
 
 
@@ -3797,7 +4126,7 @@ CREATE TABLE `water_sources` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `water_source` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `water_sources`
@@ -3811,8 +4140,7 @@ INSERT INTO `water_sources` (`id`,`water_source`) VALUES
  (4,'Rain Water'),
  (5,'Gravity Flow Scheme'),
  (6,'Open Water sources'),
- (7,'Water truck/water vendor'),
- (8,'Others');
+ (7,'Water truck/water vendor');
 /*!40000 ALTER TABLE `water_sources` ENABLE KEYS */;
 
 
