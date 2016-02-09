@@ -1,0 +1,470 @@
+ ///=======================EXPENSES TAB=====================================///
+    private ArrayListModel consumption_table_ALM;
+    private consumption_tblModel tbl_consumption_M;
+
+    private void init_consumption() {
+        consumption_table_ALM = new ArrayListModel();
+        tbl_consumption_M = new consumption_tblModel(consumption_table_ALM);
+        tbl_consumption.getTableHeader().setPreferredSize(new Dimension(100, 40));
+        tbl_consumption.setModel(tbl_consumption_M);
+        tbl_consumption.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tbl_consumption.setRowHeight(25);
+        int[] tbl_widths_students = {100, 50, 50, 50, 50};
+        for (int i = 0, n = tbl_widths_students.length; i < n; i++) {
+            if (i == 0) {
+                continue;
+            }
+            TableWidthUtilities.setColumnWidth(tbl_consumption, i, tbl_widths_students[i]);
+        }
+        Dimension d = tbl_consumption.getTableHeader().getPreferredSize();
+        d.height = 25;
+        tbl_consumption.getTableHeader().setPreferredSize(d);
+        tbl_consumption.getTableHeader().setFont(new java.awt.Font("Arial", 0, 11));
+        tbl_consumption.setRowHeight(25);
+        tbl_consumption.setFont(new java.awt.Font("Arial", 0, 11));
+    }
+
+    public static class consumption_tblModel extends AbstractTableAdapter {
+
+        public static String[] COLUMNS = {
+            "Consumption", "Amount", "Date", "Update ", "Delete "
+        };
+
+        public consumption_tblModel(ListModel listmodel) {
+            super(listmodel, COLUMNS);
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+
+            return false;
+        }
+
+        @Override
+        public Class getColumnClass(int col) {
+            if (col == 1000) {
+                return Boolean.class;
+            }
+            return Object.class;
+        }
+
+        @Override
+        public Object getValueAt(int row, int col) {
+            cons_extension tt = (cons_extension) getRow(row);
+            switch (col) {
+                case 0:
+                    return " " + tt.basic_need;
+                case 1:
+                    return " " + tt.amount;
+                case 2:
+                    return " " + tt.year_date;
+
+                case 3:
+                    return " Update";
+                default:
+                    return " Delete";
+            }
+        }
+    }
+
+    ////ADD CONSUMPTION
+    private void add_record() {
+
+        int year_date = yc_year_consumption.getYear();
+        String basic_need = tf_consumption_basicneeds.getText();
+        double amount = FitIn.toDouble(tf_consumption_amount.getText());
+
+        cons_extension to = new cons_extension(year_date, basic_need, amount);
+        consumption_table_ALM.add(to);
+        tbl_consumption_M.fireTableDataChanged();
+        clear_fields();
+        tf_consumption_basicneeds.grabFocus();
+
+    }
+
+    /////SELECT CONSUMPTION
+    private void select() {
+        int row = tbl_consumption.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        cons_extension to = (cons_extension) consumption_table_ALM.getElementAt(row);
+        int col = tbl_consumption.getSelectedColumn();
+
+        if (col < 3) {
+            tf_consumption_basicneeds.setText(to.basic_need);
+            yc_year_consumption.setYear(to.year_date);
+            tf_consumption_amount.setText(FitIn.fmt_woc(to.amount));
+
+        }
+
+        //update record
+        if (col == 3) {
+
+            int year_date = yc_year_consumption.getYear();
+            String basic_need = tf_consumption_basicneeds.getText();
+            double amount = FitIn.toDouble(tf_consumption_amount.getText());
+
+            to.setYear_date(year_date);
+            to.setBasic_need(basic_need);
+            to.setAmount(amount);
+
+            tbl_consumption_M.fireTableDataChanged();
+            clear_fields();
+
+        }
+        //delete record
+        if (col == 4) {
+            consumption_table_ALM.remove(row);
+            tbl_consumption_M.fireTableDataChanged();
+
+        }
+
+    }
+
+    private void loadData_students(List<ext_consumption.cons_extension> acc) {
+        consumption_table_ALM.clear();
+        consumption_table_ALM.addAll(acc);
+    }
+
+    public void clear_fields() {
+        tf_consumption_amount.setText("");
+        tf_consumption_basicneeds.setText("");
+        tf_hhe_fuel_expenses.setText("");
+        tf_hhe_internet_services.setText("");
+        tf_hhe_medical_expenses.setText("");
+        tf__hhe_hobbies_clubs.setText("");
+        tf_hhe_parties_social.setText("");
+
+    }
+
+    private void focus() {
+        JTextField[] tf = {tf_consumption_basicneeds, tf_consumption_amount};
+        Focus_Fire.onFocus_lostFocus(tf);
+        Focus_Fire.select_all(tf);
+    }
+
+    ////////      BASIC NEEDS LIST    ////////
+    List<dropdown_basicneeds_class.to_basicneeds> basicneeds_list = new ArrayList();
+
+    private void init_basicneeds() {
+        System.out.println("Init_basicneeds has been read");
+        String where = " where basic_needs like '%" + tf_consumption_basicneeds.getText() + "%' order by basic_needs asc";
+        basicneeds_list.clear();
+        basicneeds_list = dropdown_basicneeds_class.ret_data(where);
+        Object[][] obj = new Object[basicneeds_list.size()][1];
+        int i = 0;
+        for (dropdown_basicneeds_class.to_basicneeds to : basicneeds_list) {
+            obj[i][0] = " " + to.basic_needs;
+            i++;
+            System.out.println("looping");
+        }
+        JLabel[] labels = {};
+
+        int[] tbl_widths_customers = {tf_consumption_basicneeds.getWidth()};
+        String[] col_names = {""};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.setPopup(tf_consumption_basicneeds, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                dropdown_basicneeds_class.to_basicneeds to = (dropdown_basicneeds_class.to_basicneeds) basicneeds_list.get(data.selected_row);
+                tf_consumption_basicneeds.setText(to.basic_needs);
+
+            }
+        });
+    }
+   //=========================HOUSEHOLD EXPENDITURES============================
+
+    public void add_expenditures() {
+        //   int expenditures_year = yc_expenditures_year.getYear();
+        int expenditures_month = mc_expenditures_month.getMonth() + 1;
+        double fuel_expenses = FitIn.toDouble(tf_hhe_fuel_expenses.getText());
+        double internet_services = FitIn.toDouble(tf_hhe_internet_services.getText());
+        double medical_expenses = FitIn.toDouble(tf_hhe_medical_expenses.getText());
+        double cigarettes_tobacco = FitIn.toDouble(tf_hhe_cigarettes_tobacco.getText());
+        double hobbies_clubs = FitIn.toDouble(tf__hhe_hobbies_clubs.getText());
+        double parties_social = FitIn.toDouble(tf_hhe_parties_social.getText());
+        double load_expenses = FitIn.toDouble(tf_hhe_load_expenses.getText());
+        double electric_gas_oil = FitIn.toDouble(tf_hhe_electric_gas_oil.getText());
+        double gambling = FitIn.toDouble(tf_hhe_gambling.getText());
+        double personal_care = FitIn.toDouble(tf_hhe_personal_care.getText());
+        double cable_services = FitIn.toDouble(tf_hhe_cable_services.getText());
+        double water_bills = FitIn.toDouble(tf_hhe_water_bills.getText());
+        double vacations_travel = FitIn.toDouble(tf_hhe_vacations_travel.getText());
+        double alcohol = FitIn.toDouble(tf_hhe_alcohol.getText());
+        double misc = FitIn.toDouble(tf_hhe_misc.getText());
+        double books_newspaper = FitIn.toDouble(tf_hhe_books_newspaper.getText());
+        String household_id = "Ex1";
+        String house_id = "Ex_houseno1";
+        double total = fuel_expenses + internet_services + medical_expenses + cigarettes_tobacco + hobbies_clubs + parties_social + load_expenses
+                + electric_gas_oil + gambling + personal_care + cable_services + water_bills + vacations_travel + alcohol + misc + books_newspaper;
+        //to_expenditures_info to = new to_expenditures_info(household_id,house_id,books_newspaper,expenditures_year,expenditures_month,total,fuel_expenses,internet_services,medical_expenses,cigarettes_tobacco,hobbies_clubs,parties_social,load_expenses,electric_gas_oil,gambling,personal_care,cable_services,water_bills,vacations_travel,alcohol,misc);
+        expenditures_add_record(total, expenditures_month);
+        /* S1_expenditures.add_expenditures_info(to);*/
+
+    }
+    /////////////////TABLE EXPENDITURES/////////////////////////////////////////////
+    private ArrayListModel expenditures_table_ALM;
+    private expenditures_tblModel tbl_expenditures_M;
+
+    private void init_expenditures() {
+        expenditures_table_ALM = new ArrayListModel();
+        tbl_expenditures_M = new expenditures_tblModel(expenditures_table_ALM);
+        tbl_expenditures.getTableHeader().setPreferredSize(new Dimension(100, 40));
+        tbl_expenditures.setModel(tbl_expenditures_M);
+        tbl_expenditures.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tbl_expenditures.setRowHeight(25);
+        int[] tbl_widths_students = {100, 100, 50, 50};
+        for (int i = 0, n = tbl_widths_students.length; i < n; i++) {
+            if (i == 0) {
+                continue;
+            }
+            TableWidthUtilities.setColumnWidth(tbl_expenditures, i, tbl_widths_students[i]);
+        }
+        Dimension d = tbl_expenditures.getTableHeader().getPreferredSize();
+        d.height = 25;
+        tbl_expenditures.getTableHeader().setPreferredSize(d);
+        tbl_expenditures.getTableHeader().setFont(new java.awt.Font("Arial", 0, 11));
+        tbl_expenditures.setRowHeight(25);
+        tbl_expenditures.setFont(new java.awt.Font("Arial", 0, 11));
+    }
+
+    public static class expenditures_tblModel extends AbstractTableAdapter {
+
+        public static String[] COLUMNS = {
+            "Month", "Total", "Update ", "Delete "
+        };
+
+        public expenditures_tblModel(ListModel listmodel) {
+            super(listmodel, COLUMNS);
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+
+            return false;
+        }
+
+        @Override
+        public Class getColumnClass(int col) {
+            if (col == 1000) {
+                return Boolean.class;
+            }
+            return Object.class;
+        }
+
+        @Override
+        public Object getValueAt(int row, int col) {
+            exp_extension tt = (exp_extension) getRow(row);
+            switch (col) {
+                case 0:
+                    return " " + tt.month;
+                case 1:
+                    return " " + tt.total;
+                case 2:
+                    return " Update";
+                default:
+                    return " Delete";
+            }
+        }
+    }
+
+    private void compute_expenditures() {
+        List<exp_extension> datas = expenditures_table_ALM;
+        double total = 0;
+        for (exp_extension to : datas) {
+            total += to.total;
+        }
+
+        jLabel115.setText(FitIn.fmt_wc(total));
+    }
+
+    ////ADD CONSUMPTION
+    private void expenditures_add_record(double total, int expenditures_month) {
+        String month_string;
+        if (expenditures_month == 1) {
+            month_string = "January";
+        } else if (expenditures_month == 2) {
+            month_string = "February";
+        } else if (expenditures_month == 3) {
+            month_string = "March";
+        } else if (expenditures_month == 4) {
+            month_string = "April";
+        } else if (expenditures_month == 5) {
+            month_string = "May";
+        } else if (expenditures_month == 6) {
+            month_string = "June";
+        } else if (expenditures_month == 7) {
+            month_string = "July";
+        } else if (expenditures_month == 8) {
+            month_string = "August";
+        } else if (expenditures_month == 9) {
+            month_string = "September";
+        } else if (expenditures_month == 10) {
+            month_string = "October";
+        } else if (expenditures_month == 11) {
+            month_string = "November";
+        } else {
+            month_string = "February";
+        }
+        String month = month_string;
+        double tot = total;
+
+        exp_extension to = new exp_extension(tot, month);
+        expenditures_table_ALM.add(to);
+        tbl_expenditures_M.fireTableDataChanged();
+        clear_fields();
+        compute_expenditures();
+    //    tf_expenditure_basicneeds.grabFocus();
+
+    }
+
+    /////SELECT CONSUMPTION
+    private void expenditures_select() {
+        int row = tbl_expenditures.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        exp_extension to = (exp_extension) expenditures_table_ALM.getElementAt(row);
+        int col = tbl_expenditures.getSelectedColumn();
+
+         //update record
+         /*if (col == 3) {
+
+         int year_date = yc_year_consumption.getYear();
+         String basic_need = tf_consumption_basicneeds.getText();
+         double amount = FitIn.toDouble(tf_consumption_amount.getText());
+
+         to.setYear_date(year_date);
+         to.setBasic_need(basic_need);
+         to.setAmount(amount);
+
+         tbl_consumption_M.fireTableDataChanged();
+         clear_fields();
+          
+         }*/
+        //delete record
+        if (col == 4) {
+            expenditures_table_ALM.remove(row);
+            tbl_expenditures_M.fireTableDataChanged();
+
+        }
+
+    }
+
+    private void loadData_expenditures(List<ext_expenditures.exp_extension> acc) {
+        consumption_table_ALM.clear();
+        consumption_table_ALM.addAll(acc);
+    }
+    
+    /////////////////======HOUSEHOLD MEMBERS LIST====////////////////////////////////
+    
+     private ArrayListModel employment_table_ALM;
+    private employment_tblModel tbl_employment_M;
+
+    private void init_employment() {
+        employment_table_ALM = new ArrayListModel();
+        tbl_employment_M = new employment_tblModel(employment_table_ALM);
+        tb_employment_status.getTableHeader().setPreferredSize(new Dimension(100, 40));
+        tb_employment_status.setModel(tbl_employment_M);
+        tb_employment_status.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tb_employment_status.setRowHeight(25);
+        int[] tbl_widths_students = {75, 75, 50, 50};
+        for (int i = 0, n = tbl_widths_students.length; i < n; i++) {
+            if (i == 0) {
+                continue;
+            }
+            TableWidthUtilities.setColumnWidth(tb_employment_status, i, tbl_widths_students[i]);
+        }
+        Dimension d = tb_employment_status.getTableHeader().getPreferredSize();
+        d.height = 25;
+        tb_employment_status.getTableHeader().setPreferredSize(d);
+        tb_employment_status.getTableHeader().setFont(new java.awt.Font("Arial", 0, 11));
+        tb_employment_status.setRowHeight(25);
+        tb_employment_status.setFont(new java.awt.Font("Arial", 0, 11));
+    }
+
+    public static class employment_tblModel extends AbstractTableAdapter {
+
+        public static String[] COLUMNS = {
+            "Employment Status", "Company", "Update ", "Delete "
+        };
+
+        public employment_tblModel(ListModel listmodel) {
+            super(listmodel, COLUMNS);
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+
+            return false;
+        }
+
+        @Override
+        public Class getColumnClass(int col) {
+            if (col == 1000) {
+                return Boolean.class;
+            }
+            return Object.class;
+        }
+
+        @Override
+        public Object getValueAt(int row, int col) {
+            
+            emp_extension tt = (emp_extension) getRow(row);
+            switch (col) {
+                case 0:
+                    return " " + tt.employment_status;
+                case 1:
+                    return " " + tt.company;
+
+                case 3:
+                    return " Update";
+                default:
+                    return " Delete";
+            }
+        }
+    }
+    
+    public void employment_status(){
+      String status = null;
+       String employment_status = null;
+     if(cb_status_unemployed.isSelected()){
+         status="Unemployed";
+     }
+     else if(cb_status_employed.isSelected()){
+         status="Employed"; 
+     }
+     
+     if(cb_employment_worker.isSelected()){
+         employment_status="Worker";
+     }
+     else if(cb_employment_employee.isSelected()){
+         employment_status="Employee"; 
+     }
+     else if(cb_employment_self_employed.isSelected()){
+         employment_status="Self Employed and Contractor"; 
+     }
+     else if(cb_employment_director.isSelected()){
+         employment_status="Director"; 
+     }
+     else if(cb_employment_office_holder.isSelected()){
+         employment_status="Office Holder"; 
+     }
+     else if(cb_employment_ofw.isSelected()){
+         employment_status="OFW"; 
+     }
+     String company=tf_employment.getText();
+     employment_add_record(employment_status,company);
+    }
+    private void employment_add_record(String employment_status,String company) {
+
+       
+        emp_extension to = new emp_extension(employment_status,company);
+        employment_table_ALM.add(to);
+        tbl_employment_M.fireTableDataChanged();
+        clear_fields();
+        
+
+    }
