@@ -31,6 +31,7 @@ public class Achievements {
         public to_achievements(int id, String achievement) {
             this.id = id;
             this.achievement = achievement;
+            System.out.println("lol");
         }
     }
 
