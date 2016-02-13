@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package city_planning.toilet_types;
-
-import cp.location.S1_transportations.to_transportation_types;
 import city_planning.util.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -79,11 +77,11 @@ public class Toilet_types {
         }
     }
 
-    public static void delete_data(to_transportation_types to_transportation_types) {
+    public static void delete_data(to_toilet_types to_toilet_types) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "delete from transportation_types  "
-                    + " where id='" + to_transportation_types.id + "' "
+            String s0 = "delete from toilet_types  "
+                    + " where id='" + to_toilet_types.id + "' "
                     + " ";
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -96,24 +94,24 @@ public class Toilet_types {
         }
     }
 
-    public static List<to_transportation_types> ret_data(String where) {
-        List<to_transportation_types> datas = new ArrayList();
+    public static List<to_toilet_types> ret_data(String where) {
+        List<to_toilet_types> datas = new ArrayList();
 
         try {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",transportation_type"
-                    + " from transportation_types"
+                    + ",toilet_type"
+                    + " from toilet_types"
                     + " " + where;
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                String transportation_type = rs.getString(2);
+                String toilet_type = rs.getString(2);
 
-                to_transportation_types to = new to_transportation_types(id, transportation_type);
+                to_toilet_types to = new to_toilet_types(id, toilet_type);
                 datas.add(to);
             }
             return datas;

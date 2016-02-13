@@ -22,28 +22,28 @@ import mijzcx.synapse.desk.utils.SqlStringUtil;
  */
 public class Kitchen_types {
 
-    public static class to_kicthen_types {
+    public static class to_kitchen_types {
 
         public final int id;
-        public final String kicthen_type;
+        public final String kitchen_type;
 
-        public to_kicthen_types(int id, String kicthen_type) {
+        public to_kitchen_types(int id, String kitchen_type) {
             this.id = id;
-            this.kicthen_type = kicthen_type;
+            this.kitchen_type = kitchen_type;
         }
     }
 
-    public static void add_data(to_kicthen_types to_kicthen_types) {
+    public static void add_data(to_kitchen_types to_kitchen_types) {
         try {
             Connection conn = MyConnection.connect();
             String s0 = "insert into kitchen_types("
-                    + "kicthen_type"
+                    + "kitchen_type"
                     + ")values("
-                    + ":kicthen_type"
+                    + ":kitchen_type"
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("kicthen_type", to_kicthen_types.kicthen_type)
+                    .setString("kitchen_type", to_kitchen_types.kitchen_type)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -56,16 +56,16 @@ public class Kitchen_types {
         }
     }
 
-    public static void update_data(to_kicthen_types to_kicthen_types) {
+    public static void update_data(to_kitchen_types to_kitchen_types) {
         try {
             Connection conn = MyConnection.connect();
             String s0 = "update kitchen_types set "
-                    + "kicthen_type= :kicthen_type "
-                    + " where id='" + to_kicthen_types.id + "' "
+                    + "kitchen_type= :kitchen_type "
+                    + " where id='" + to_kitchen_types.id + "' "
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("kicthen_type", to_kicthen_types.kicthen_type)
+                    .setString("kitchen_type", to_kitchen_types.kitchen_type)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -78,11 +78,11 @@ public class Kitchen_types {
         }
     }
 
-    public static void delete_data(to_kicthen_types to_kicthen_types) {
+    public static void delete_data(to_kitchen_types to_kitchen_types) {
         try {
             Connection conn = MyConnection.connect();
             String s0 = "delete from kitchen_types  "
-                    + " where id='" + to_kicthen_types.id + "' "
+                    + " where id='" + to_kitchen_types.id + "' "
                     + " ";
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -95,14 +95,14 @@ public class Kitchen_types {
         }
     }
 
-    public static List<to_kicthen_types> ret_data(String where) {
-        List<to_kicthen_types> datas = new ArrayList();
+    public static List<to_kitchen_types> ret_data(String where) {
+        List<to_kitchen_types> datas = new ArrayList();
 
         try {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",kicthen_type"
+                    + ",kitchen_type"
                     + " from kitchen_types"
                     + " " + where;
 
@@ -110,9 +110,9 @@ public class Kitchen_types {
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                String kicthen_type = rs.getString(2);
+                String kitchen_type = rs.getString(2);
 
-                to_kicthen_types to = new to_kicthen_types(id, kicthen_type);
+                to_kitchen_types to = new to_kitchen_types(id, kitchen_type);
                 datas.add(to);
             }
             return datas;

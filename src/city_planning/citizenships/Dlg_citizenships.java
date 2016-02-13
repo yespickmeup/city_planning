@@ -3,79 +3,85 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package city_planning.citizenships;
 
-package city_planning.templates;
 
+import city_planning.citizenships.Citizenships.to_citizenships;
+import com.jgoodies.binding.adapter.AbstractTableAdapter;
+import com.jgoodies.binding.list.ArrayListModel;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.logging.Level;
+import javax.swing.JTable;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 import mijzcx.synapse.desk.utils.CloseDialog;
 import mijzcx.synapse.desk.utils.KeyMapping;
 import mijzcx.synapse.desk.utils.KeyMapping.KeyAction;
+import mijzcx.synapse.desk.utils.TableWidthUtilities;
 import synsoftech.fields.Button;
 import synsoftech.fields.Field;
 import synsoftech.fields.Label;
-
-
-
-
 
 /**
  *
  * @author Guinness
  */
-public class Dlg_template_crud extends javax.swing.JDialog {
+public class Dlg_citizenships extends javax.swing.JDialog {
 
-    /** Creates new form Dlg_simple_crud */
+    /**
+     * Creates new form Dlg_simple_crud
+     */
     //<editor-fold defaultstate="collapsed" desc=" callback ">
     private Callback callback;
 
     public void setCallback(Callback callback) {
         this.callback = callback;
 
-
-}
+    }
 
     public static interface Callback {
 
-    void ok(CloseDialog closeDialog, OutputData data);
-}
+        void ok(CloseDialog closeDialog, OutputData data);
+    }
 
-public static class InputData {
-}
+    public static class InputData {
+    }
 
-public static class OutputData {
-}
+    public static class OutputData {
+    }
 //</editor-fold>
- 
+
     //<editor-fold defaultstate="collapsed" desc=" Constructors ">
-private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
+    private Dlg_citizenships(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    private Dlg_template_crud(java.awt.Dialog parent, boolean modal) {
+    private Dlg_citizenships(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
-        setUndecorated(true);    
+        setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    public Dlg_template_crud() {
+    public Dlg_citizenships() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
 
     }
-    private Dlg_template_crud myRef;
+    private Dlg_citizenships myRef;
 
-    private void setThisRef(Dlg_template_crud myRef) {
+    private void setThisRef(Dlg_citizenships myRef) {
         this.myRef = myRef;
     }
-    private static java.util.Map<Object, Dlg_template_crud> dialogContainer = new java.util.HashMap();
+    private static java.util.Map<Object, Dlg_citizenships> dialogContainer = new java.util.HashMap();
 
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
@@ -83,7 +89,7 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
         }
     }
 
-    public static Dlg_template_crud create(java.awt.Window parent, boolean modal) {
+    public static Dlg_citizenships create(java.awt.Window parent, boolean modal) {
 
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
@@ -93,14 +99,14 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
 
     }
 
-    public static Dlg_template_crud create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
+    public static Dlg_citizenships create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
 
         if (parent instanceof java.awt.Frame) {
 
-            Dlg_template_crud dialog = dialogContainer.get(parent);
+            Dlg_citizenships dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_template_crud((java.awt.Frame) parent, false);
+                dialog = new Dlg_citizenships((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -114,10 +120,10 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
         }
 
         if (parent instanceof java.awt.Dialog) {
-            Dlg_template_crud dialog = dialogContainer.get(parent);
+            Dlg_citizenships dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_template_crud((java.awt.Dialog) parent, false);
+                dialog = new Dlg_citizenships((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -144,8 +150,7 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
             throw new RuntimeException(e);
         }
 
-
-        Dlg_template_crud dialog = Dlg_template_crud.create(new javax.swing.JFrame(), true);
+        Dlg_citizenships dialog = Dlg_citizenships.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
 
     }
@@ -153,7 +158,7 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
 
     //<editor-fold defaultstate="collapsed" desc=" added ">
     @Override
-        public void setVisible(boolean visible) {
+    public void setVisible(boolean visible) {
         super.setVisible(visible);
         if (visible == true) {
             getContentPane().removeAll();
@@ -161,7 +166,6 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
             myInit();
             repaint();
         }
-
 
     }
 
@@ -175,10 +179,10 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
     }
     //</editor-fold>
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -186,15 +190,14 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_citizenships = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new Field.Input();
+        tf_citizenship = new Field.Input();
         jTextField2 = new Field.Search();
-        jLabel5 = new Label.Separator();
         jButton1 = new Button.Warning();
         jButton2 = new Button.Info();
         jButton3 = new Button.Primary();
@@ -206,7 +209,7 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.setFocusable(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_citizenships.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -217,7 +220,12 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbl_citizenships.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_citizenshipsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbl_citizenships);
 
         jLabel1.setText("No. of rows:");
 
@@ -230,17 +238,18 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
         jLabel3.setText("Status:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Name:");
+        jLabel4.setText("Ctizenships:");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_citizenship.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -270,7 +279,6 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -283,7 +291,7 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(tf_citizenship))
                     .addComponent(jTextField2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -302,15 +310,13 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_citizenship, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -344,17 +350,24 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        add_citizenships();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        update_citizenships();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tbl_citizenshipsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_citizenshipsMouseClicked
+        select_citizenships();
+    }//GEN-LAST:event_tbl_citizenshipsMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        delete_citizenships();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -365,23 +378,24 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tbl_citizenships;
+    private javax.swing.JTextField tf_citizenship;
     // End of variables declaration//GEN-END:variables
 
     private void myInit() {
         init_key();
-        
+        init_tbl_citizenships(tbl_citizenships);
+        ret_data();
     }
 
-    public void do_pass(){
- 
+    public void do_pass() {
+
     }
+
     // <editor-fold defaultstate="collapsed" desc="Key">
     private void disposed() {
         this.dispose();
@@ -389,16 +403,151 @@ private Dlg_template_crud(java.awt.Frame parent, boolean modal) {
 
     private void init_key() {
         KeyMapping.mapKeyWIFW(getSurface(),
-                KeyEvent.VK_ESCAPE, new KeyAction() {
-            
+                              KeyEvent.VK_ESCAPE, new KeyAction() {
+
             @Override
-        public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
 //                btn_0.doClick();
                 disposed();
             }
         });
     }
     // </editor-fold>
-    
-    
+    //<editor-fold defaultstate="collapsed" desc=" citizenships "> 
+    public static ArrayListModel tbl_citizenships_ALM;
+    public static TblcitizenshipsModel tbl_citizenships_M;
+
+    public static void init_tbl_citizenships(JTable tbl_citizenships) {
+        tbl_citizenships_ALM = new ArrayListModel();
+        tbl_citizenships_M = new TblcitizenshipsModel(tbl_citizenships_ALM);
+        tbl_citizenships.setModel(tbl_citizenships_M);
+        tbl_citizenships.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tbl_citizenships.setRowHeight(25);
+        int[] tbl_widths_citizenships = {0, 100};
+        for (int i = 0, n = tbl_widths_citizenships.length; i < n; i++) {
+            if (i == 1) {
+                continue;
+            }
+            TableWidthUtilities.setColumnWidth(tbl_citizenships, i, tbl_widths_citizenships[i]);
+        }
+        Dimension d = tbl_citizenships.getTableHeader().getPreferredSize();
+        d.height = 25;
+        tbl_citizenships.getTableHeader().setPreferredSize(d);
+        tbl_citizenships.getTableHeader().setFont(new java.awt.Font("Arial", 0, 12));
+        tbl_citizenships.setRowHeight(25);
+        tbl_citizenships.setFont(new java.awt.Font("Arial", 0, 12));
+    }
+
+    public static void loadData_citizenships(List<to_citizenships> acc) {
+        tbl_citizenships_ALM.clear();
+        tbl_citizenships_ALM.addAll(acc);
+    }
+
+    public static class TblcitizenshipsModel extends AbstractTableAdapter {
+
+        public static String[] COLUMNS = {
+            "id", "Citizenship"
+        };
+
+        public TblcitizenshipsModel(ListModel listmodel) {
+            super(listmodel, COLUMNS);
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            if (column == 100) {
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public Class getColumnClass(int col) {
+            if (col == 1000) {
+                return Boolean.class;
+            }
+            return Object.class;
+        }
+
+        @Override
+        public Object getValueAt(int row, int col) {
+            to_citizenships tt = (to_citizenships) getRow(row);
+            switch (col) {
+                case 0:
+                    return tt.citizenship;
+                default:
+                    return tt.citizenship;
+            }
+        }
+    }
+//</editor-fold> 
+
+    private void ret_data() {
+        
+        String where = "order by citizenship asc";
+        List<to_citizenships> datas = Citizenships.ret_data(where);
+        loadData_citizenships(datas);
+
+    }
+
+    private void add_citizenships() {
+
+        int id = 0;
+        String citizenship = tf_citizenship.getText();
+
+        to_citizenships to = new to_citizenships(id, citizenship);
+       Citizenships.add_data(to);
+        tf_citizenship.setText("");
+
+        
+        ret_data();
+        System.out.println("Successfully Added!");
+                
+    }
+
+    private void select_citizenships() {
+
+        int row = tbl_citizenships.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        to_citizenships to = (to_citizenships) tbl_citizenships_ALM.get(row);
+        tf_citizenship.setText(to.citizenship);
+
+    }
+
+    private void update_citizenships() {
+
+        int row = tbl_citizenships.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        to_citizenships to = (to_citizenships) tbl_citizenships_ALM.get(row);
+        int id = to.id;
+        String citizenship = tf_citizenship.getText();
+
+        to_citizenships to1 = new to_citizenships(id, citizenship);
+        Citizenships.update_data(to1);
+        tf_citizenship.setText("");
+        ret_data();
+        System.out.println("successfully update!");
+
+    }
+
+    private void delete_citizenships() {
+
+        int row = tbl_citizenships.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        to_citizenships to = (to_citizenships) tbl_citizenships_ALM.get(row);
+        Citizenships.delete_data(to);
+        tf_citizenship.setText("");
+        
+        ret_data();
+        System.out.println("Successfully Delete!");
+
+    }
+  
+
 }
