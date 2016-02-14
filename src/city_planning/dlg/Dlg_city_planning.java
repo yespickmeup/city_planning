@@ -967,7 +967,7 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         pnl_twoA1Layout.setHorizontalGroup(
             pnl_twoA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_twoA1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(535, Short.MAX_VALUE)
                 .addGroup(pnl_twoA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_twoA1Layout.createSequentialGroup()
                         .addComponent(jButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)

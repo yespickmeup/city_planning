@@ -148,7 +148,7 @@
                           <Component id="lbl_purok1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="tf_purk1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel23" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="tf_street1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -407,7 +407,7 @@
                           <Component id="tf_communications" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabel205" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
