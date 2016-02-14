@@ -8281,7 +8281,7 @@ public class Dlg_add_update extends javax.swing.JDialog {
     }
 
     ////////      BASIC NEEDS LIST    ////////
-    List<Basic_needs.to_basicneeds> basicneeds_list = new ArrayList();
+    List<Basic_needs.to_basic_needs> basicneeds_list = new ArrayList();
 
     private void init_basicneeds() {
 
@@ -8290,7 +8290,7 @@ public class Dlg_add_update extends javax.swing.JDialog {
         basicneeds_list = Basic_needs.ret_data(where);
         Object[][] obj = new Object[basicneeds_list.size()][1];
         int i = 0;
-        for (Basic_needs.to_basicneeds to : basicneeds_list) {
+        for (Basic_needs.to_basic_needs to : basicneeds_list) {
             obj[i][0] = " " + to.basic_needs;
 
             i++;
@@ -8305,7 +8305,7 @@ public class Dlg_add_update extends javax.swing.JDialog {
         tr.setCallback(new TableRenderer.Callback() {
             @Override
             public void ok(TableRenderer.OutputData data) {
-                Basic_needs.to_basicneeds to = (Basic_needs.to_basicneeds) basicneeds_list.get(data.selected_row);
+                Basic_needs.to_basic_needs to = (Basic_needs.to_basic_needs) basicneeds_list.get(data.selected_row);
                 tf_consumption_basicneeds.setText(to.basic_needs);
 
             }

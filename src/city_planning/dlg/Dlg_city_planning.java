@@ -825,6 +825,12 @@ public class Dlg_city_planning extends javax.swing.JDialog {
         lbl_purok1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lbl_purok1.setText("Purok:");
 
+        tf_house_number1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_house_number1ActionPerformed(evt);
+            }
+        });
+
         tf_barangays.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_barangaysMouseClicked(evt);
@@ -6388,6 +6394,10 @@ public class Dlg_city_planning extends javax.swing.JDialog {
     private void tf_religions1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_religions1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_religions1MouseClicked
+
+    private void tf_house_number1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_house_number1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_house_number1ActionPerformed
 
     /**
      * @param args the command line arguments
