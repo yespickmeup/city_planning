@@ -466,7 +466,7 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
         jCheckBox223 = new javax.swing.JCheckBox();
         lbl_facilities17 = new javax.swing.JLabel();
         jButton10 = new Button.Default();
-        jButton11 = new Button.Success();
+        jButton12 = new Button.Success();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -2969,10 +2969,10 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
             }
         });
 
-        jButton11.setText("Save");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        jButton12.setText("Save");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                jButton12ActionPerformed(evt);
             }
         });
 
@@ -2985,7 +2985,7 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -2994,8 +2994,8 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
                 .addComponent(jTabbedPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -3301,6 +3301,10 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField40ActionPerformed
 
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3318,7 +3322,7 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
     private javax.swing.JCheckBox cb_status_unemployed2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
