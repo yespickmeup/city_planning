@@ -478,6 +478,11 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
         jTextField45.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField48.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField48ActionPerformed(evt);
+            }
+        });
 
         jLabel108.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel108.setText("Others specify:");
@@ -541,6 +546,11 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
         jLabel100.setText("Gender:");
 
         jTextField40.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField40ActionPerformed(evt);
+            }
+        });
 
         jDateChooser1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -2960,6 +2970,11 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
         });
 
         jButton11.setText("Save");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -3277,6 +3292,14 @@ private Dlg_household_members(java.awt.Frame parent, boolean modal) {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         disposed();
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jTextField48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField48ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField48ActionPerformed
+
+    private void jTextField40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40ActionPerformed
 
     /**
      * @param args the command line arguments
