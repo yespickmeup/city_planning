@@ -34,8 +34,8 @@ public class Initialize_search_record_field_types {
         provinces = Provinces.ret_data(" order by province asc ");
         cities = Cities.ret_data(" order by city asc ");
         barangays = Barangays.ret_data(" order by barangay asc ");
-        puroks = Puroks.ret_data(" order by puroks asc ");
-        regions = Regions.ret_data(" order by regions asc ");
+        puroks = Puroks.ret_data(" order by purok asc ");
+        regions = Regions.ret_data(" order by region asc ");
     }
 
     //<editor-fold defaultstate="collapsed" desc=" Regions "> 

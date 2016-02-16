@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.*;
 import mijzcx.synapse.desk.utils.TableWidthUtilities;
 
@@ -99,6 +101,36 @@ public class TableRenderer {
                     }
                 }
             }
+        });
+        tbl.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = tbl.getSelectedRow();
+                int i = 0;
+                for (JLabel lbl : labels) {
+                    lbl.setText(tbl.getModel().
+                            getValueAt(row, i).
+                            toString());
+                    i++;
+                }
+
+                String[] output = new String[tbl_widths_customers.length];
+                int u = 0;
+                for (int y : tbl_widths_customers) {
+                    output[u] = tbl.getModel().
+                            getValueAt(row, u).
+                            toString();
+
+                    u++;
+                }
+
+                tf.grabFocus();
+                popup.setVisible(false);
+
+                ok1(output, row);
+            }
+
         });
         tbl.addKeyListener(new KeyAdapter() {
 
