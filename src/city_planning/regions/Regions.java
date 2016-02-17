@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package city_planning.religions;
+package city_planning.regions;
 
 import city_planning.util.MyConnection;
 import java.sql.Connection;
@@ -20,39 +20,35 @@ import mijzcx.synapse.desk.utils.SqlStringUtil;
  *
  * @author Guinness
  */
-public class Religions {
+public class Regions {
 
-    public static class to_religions {
-
-        public static int size() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
+    public static class to_regions {
 
         public final int id;
-        public final String religion;
+        public final String region;
 
-        public to_religions(int id, String religion) {
+        public to_regions(int id, String region) {
             this.id = id;
-            this.religion = religion;
+            this.region = region;
         }
     }
 
-    public static void add_data(to_religions to_religions) {
+    public static void add_data(to_regions to_regions) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "insert into religions("
-                    + "religion"
+            String s0 = "insert into regions("
+                    + "region"
                     + ")values("
-                    + ":religion"
+                    + ":region"
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("religion", to_religions.religion)
+                    .setString("region", to_regions.region)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
             stmt.execute();
-            Lg.s(Religions.class, "Successfully Added");
+            Lg.s(Regions.class, "Successfully Added");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -60,21 +56,21 @@ public class Religions {
         }
     }
 
-    public static void update_data(to_religions to_religions) {
+    public static void update_data(to_regions to_regions) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "update religions set "
-                    + "religion= :religion "
-                    + " where id='" + to_religions.id + "' "
+            String s0 = "update regions set "
+                    + "region= :region "
+                    + " where id='" + to_regions.id + "' "
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("religion", to_religions.religion)
+                    .setString("region", to_regions.region)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
             stmt.execute();
-            Lg.s(Religions.class, "Successfully Updated");
+            Lg.s(Regions.class, "Successfully Updated");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -82,16 +78,16 @@ public class Religions {
         }
     }
 
-    public static void delete_data(to_religions to_religions) {
+    public static void delete_data(to_regions to_regions) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "delete from religions  "
-                    + " where id='" + to_religions.id + "' "
+            String s0 = "delete from regions  "
+                    + " where id='" + to_regions.id + "' "
                     + " ";
 
             PreparedStatement stmt = conn.prepareStatement(s0);
             stmt.execute();
-            Lg.s(Religions.class, "Successfully Deleted");
+            Lg.s(Regions.class, "Successfully Deleted");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -99,24 +95,24 @@ public class Religions {
         }
     }
 
-    public static List<to_religions> ret_data(String where) {
-        List<to_religions> datas = new ArrayList();
+    public static List<to_regions> ret_data(String where) {
+        List<to_regions> datas = new ArrayList();
 
         try {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",religion"
-                    + " from religions"
+                    + ",region"
+                    + " from regions"
                     + " " + where;
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                String religion = rs.getString(2);
+                String region = rs.getString(2);
 
-                to_religions to = new to_religions(id, religion);
+                to_regions to = new to_regions(id, region);
                 datas.add(to);
             }
             return datas;

@@ -245,6 +245,12 @@ public class Dlg_search_record extends javax.swing.JDialog {
 
         jLabel3.setText("Status:");
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         lbl_barangay1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbl_barangay1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_barangay1.setText("Region:");
@@ -253,6 +259,11 @@ public class Dlg_search_record extends javax.swing.JDialog {
         tf_barangays.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_barangaysMouseClicked(evt);
+            }
+        });
+        tf_barangays.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_barangaysActionPerformed(evt);
             }
         });
 
@@ -331,6 +342,11 @@ public class Dlg_search_record extends javax.swing.JDialog {
         tf_barangays4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_barangays4MouseClicked(evt);
+            }
+        });
+        tf_barangays4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_barangays4ActionPerformed(evt);
             }
         });
 
@@ -524,7 +540,7 @@ public class Dlg_search_record extends javax.swing.JDialog {
     }//GEN-LAST:event_tf_barangays4MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        Initialize_search_record_field_types.ret_data();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -542,6 +558,18 @@ public class Dlg_search_record extends javax.swing.JDialog {
     private void tf_barangays3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangays3ActionPerformed
         Initialize_search_record_field_types.init_barangays(tf_barangays3);
     }//GEN-LAST:event_tf_barangays3ActionPerformed
+
+    private void tf_barangaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangaysActionPerformed
+        Initialize_search_record_field_types.init_regions(tf_barangays);
+    }//GEN-LAST:event_tf_barangaysActionPerformed
+
+    private void tf_barangays4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangays4ActionPerformed
+        Initialize_search_record_field_types.init_puroks(tf_barangays4);
+    }//GEN-LAST:event_tf_barangays4ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -621,4 +649,5 @@ public class Dlg_search_record extends javax.swing.JDialog {
         nd.setLocationRelativeTo(this);
         nd.setVisible(true);
     }
+
 }

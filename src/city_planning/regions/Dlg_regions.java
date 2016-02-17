@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package city_planning.barangays;
+package city_planning.regions;
 
-import city_planning.barangays.Barangays.to_barangays;
+
+import city_planning.regions.Regions.to_regions;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
 import java.awt.Dimension;
@@ -28,7 +29,7 @@ import synsoftech.fields.Label;
  *
  * @author Guinness
  */
-public class Dlg_barangay extends javax.swing.JDialog {
+public class Dlg_regions extends javax.swing.JDialog {
 
     /**
      * Creates new form Dlg_simple_crud
@@ -54,33 +55,33 @@ public class Dlg_barangay extends javax.swing.JDialog {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Constructors ">
-    private Dlg_barangay(java.awt.Frame parent, boolean modal) {
+    private Dlg_regions(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    private Dlg_barangay(java.awt.Dialog parent, boolean modal) {
+    private Dlg_regions(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    public Dlg_barangay() {
+    public Dlg_regions() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
 
     }
-    private Dlg_barangay myRef;
+    private Dlg_regions myRef;
 
-    private void setThisRef(Dlg_barangay myRef) {
+    private void setThisRef(Dlg_regions myRef) {
         this.myRef = myRef;
     }
-    private static java.util.Map<Object, Dlg_barangay> dialogContainer = new java.util.HashMap();
+    private static java.util.Map<Object, Dlg_regions> dialogContainer = new java.util.HashMap();
 
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
@@ -88,7 +89,7 @@ public class Dlg_barangay extends javax.swing.JDialog {
         }
     }
 
-    public static Dlg_barangay create(java.awt.Window parent, boolean modal) {
+    public static Dlg_regions create(java.awt.Window parent, boolean modal) {
 
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
@@ -98,14 +99,14 @@ public class Dlg_barangay extends javax.swing.JDialog {
 
     }
 
-    public static Dlg_barangay create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
+    public static Dlg_regions create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
 
         if (parent instanceof java.awt.Frame) {
 
-            Dlg_barangay dialog = dialogContainer.get(parent);
+            Dlg_regions dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_barangay((java.awt.Frame) parent, false);
+                dialog = new Dlg_regions((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -119,10 +120,10 @@ public class Dlg_barangay extends javax.swing.JDialog {
         }
 
         if (parent instanceof java.awt.Dialog) {
-            Dlg_barangay dialog = dialogContainer.get(parent);
+            Dlg_regions dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_barangay((java.awt.Dialog) parent, false);
+                dialog = new Dlg_regions((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -149,7 +150,7 @@ public class Dlg_barangay extends javax.swing.JDialog {
             throw new RuntimeException(e);
         }
 
-        Dlg_barangay dialog = Dlg_barangay.create(new javax.swing.JFrame(), true);
+        Dlg_regions dialog = Dlg_regions.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
 
     }
@@ -189,23 +190,19 @@ public class Dlg_barangay extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_barangays = new javax.swing.JTable();
+        tbl_regions = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tf_province = new Field.Input();
+        tf_region = new Field.Input();
         jTextField2 = new Field.Search();
         jLabel5 = new Label.Separator();
         jButton1 = new Button.Warning();
         jButton2 = new Button.Info();
         jButton3 = new Button.Primary();
         jButton4 = new Button.Default();
-        tf_city = new Field.Input();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        tf_barangay = new Field.Input();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -213,7 +210,7 @@ public class Dlg_barangay extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.setFocusable(false);
 
-        tbl_barangays.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_regions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -224,12 +221,12 @@ public class Dlg_barangay extends javax.swing.JDialog {
 
             }
         ));
-        tbl_barangays.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl_regions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_barangaysMouseClicked(evt);
+                tbl_regionsMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tbl_barangays);
+        jScrollPane1.setViewportView(tbl_regions);
 
         jLabel1.setText("No. of rows:");
 
@@ -242,43 +239,43 @@ public class Dlg_barangay extends javax.swing.JDialog {
         jLabel3.setText("Status:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Province :");
+        jLabel4.setText("Regions:");
 
-        tf_province.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_region.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Add");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("New");
-
-        tf_city.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tf_city.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_cityActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("City:");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Barangay:");
-
-        tf_barangay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tf_barangay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_barangayActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -287,17 +284,8 @@ public class Dlg_barangay extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -309,49 +297,38 @@ public class Dlg_barangay extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_province))
+                        .addComponent(tf_region))
                     .addComponent(jTextField2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_city)
-                            .addComponent(tf_barangay))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_province, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
+                    .addComponent(tf_region, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_city, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_barangay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -376,17 +353,25 @@ public class Dlg_barangay extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbl_barangaysMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_barangaysMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbl_barangaysMouseClicked
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        add_regions();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void tf_barangayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_barangayActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        update_regions();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void tf_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_cityActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        delete_regions();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tbl_regionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_regionsMouseClicked
+        select_regions();
+    }//GEN-LAST:event_tbl_regionsMouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        ret_data();
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,21 +387,17 @@ public class Dlg_barangay extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTable tbl_barangays;
-    private javax.swing.JTextField tf_barangay;
-    private javax.swing.JTextField tf_city;
-    private javax.swing.JTextField tf_province;
+    private javax.swing.JTable tbl_regions;
+    private javax.swing.JTextField tf_region;
     // End of variables declaration//GEN-END:variables
 
     private void myInit() {
         init_key();
-        init_tbl_barangays(tbl_barangays);
+        init_tbl_regions(tbl_regions);
         ret_data();
 
     }
@@ -443,43 +424,43 @@ public class Dlg_barangay extends javax.swing.JDialog {
     }
     // </editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" barangays "> 
-    public static ArrayListModel tbl_barangays_ALM;
-    public static TblbarangaysModel tbl_barangays_M;
+ //<editor-fold defaultstate="collapsed" desc=" regions "> 
+    public static ArrayListModel tbl_regions_ALM;
+    public static TblregionsModel tbl_regions_M;
 
-    public static void init_tbl_barangays(JTable tbl_barangays) {
-        tbl_barangays_ALM = new ArrayListModel();
-        tbl_barangays_M = new TblbarangaysModel(tbl_barangays_ALM);
-        tbl_barangays.setModel(tbl_barangays_M);
-        tbl_barangays.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        tbl_barangays.setRowHeight(25);
-        int[] tbl_widths_barangays = {300, 100, 300, 0, 0, 0};
-        for (int i = 0, n = tbl_widths_barangays.length; i < n; i++) {
+    public static void init_tbl_regions(JTable tbl_regions) {
+        tbl_regions_ALM = new ArrayListModel();
+        tbl_regions_M = new TblregionsModel(tbl_regions_ALM);
+        tbl_regions.setModel(tbl_regions_M);
+        tbl_regions.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tbl_regions.setRowHeight(25);
+        int[] tbl_widths_regions = {0, 100};
+        for (int i = 0, n = tbl_widths_regions.length; i < n; i++) {
             if (i == 1) {
                 continue;
             }
-            TableWidthUtilities.setColumnWidth(tbl_barangays, i, tbl_widths_barangays[i]);
+            TableWidthUtilities.setColumnWidth(tbl_regions, i, tbl_widths_regions[i]);
         }
-        Dimension d = tbl_barangays.getTableHeader().getPreferredSize();
+        Dimension d = tbl_regions.getTableHeader().getPreferredSize();
         d.height = 25;
-        tbl_barangays.getTableHeader().setPreferredSize(d);
-        tbl_barangays.getTableHeader().setFont(new java.awt.Font("Arial", 0, 12));
-        tbl_barangays.setRowHeight(25);
-        tbl_barangays.setFont(new java.awt.Font("Arial", 0, 12));
+        tbl_regions.getTableHeader().setPreferredSize(d);
+        tbl_regions.getTableHeader().setFont(new java.awt.Font("Arial", 0, 12));
+        tbl_regions.setRowHeight(25);
+        tbl_regions.setFont(new java.awt.Font("Arial", 0, 12));
     }
 
-    public static void loadData_barangays(List<to_barangays> acc) {
-        tbl_barangays_ALM.clear();
-        tbl_barangays_ALM.addAll(acc);
+    public static void loadData_regions(List<to_regions> acc) {
+        tbl_regions_ALM.clear();
+        tbl_regions_ALM.addAll(acc);
     }
 
-    public static class TblbarangaysModel extends AbstractTableAdapter {
+    public static class TblregionsModel extends AbstractTableAdapter {
 
         public static String[] COLUMNS = {
-            "Province", "City", "Barangay", "City_id", "City", "Barangay"
+            "id", "Region"
         };
 
-        public TblbarangaysModel(ListModel listmodel) {
+        public TblregionsModel(ListModel listmodel) {
             super(listmodel, COLUMNS);
         }
 
@@ -501,96 +482,77 @@ public class Dlg_barangay extends javax.swing.JDialog {
 
         @Override
         public Object getValueAt(int row, int col) {
-            to_barangays tt = (to_barangays) getRow(row);
+            to_regions tt = (to_regions) getRow(row);
             switch (col) {
                 case 0:
-                    return tt.province;
-                case 1:
-                    return tt.city;
-                case 2:
-                    return tt.barangay;
-                case 3:
-                    return tt.city_id;
-                case 4:
-                    return tt.city;
+                    return tt.id;
                 default:
-                    return tt.barangay;
+                    return tt.region;
             }
         }
     }
 //</editor-fold> 
 
-    private void add_barangays() {
-
-        int id = 0;
-        int province_id = 0;
-        String province = tf_province.getText();
-        int city_id = 0;
-        String city = tf_city.getText();
-        String barangay = tf_barangay.getText();
-
-        to_barangays to = new to_barangays(id, province_id, province, city_id, city, barangay);
-        Barangays.add_data(to);
-
-        tf_province.setText("");
-        tf_city.setText("");
-        tf_barangay.setText("");
-
-    }
-
-    private void select_barangays() {
-
-        int row = tbl_barangays.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_barangays to = (to_barangays) tbl_barangays_ALM.get(row);
-        tf_province.setText(to.province);
-        tf_city.setText(to.city);
-        tf_barangay.setText(to.barangay);
-
-    }
-
-    private void update_barangays() {
-
-        int row = tbl_barangays.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_barangays to = (to_barangays) tbl_barangays_ALM.get(row);
-        int id = 0;
-        int province_id = 0;
-        String province = tf_province.getText();
-        int city_id = 0;
-        String city = tf_city.getText();
-        String barangay = tf_barangay.getText();
-
-        to_barangays to1 = new to_barangays(id, province_id, province, city_id, city, barangay);
-        Barangays.update_data(to1);
-        tf_province.setText("");
-        tf_city.setText("");
-        tf_barangay.setText("");
-
-    }
-
-    private void delete_barangays() {
-
-        int row = tbl_barangays.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_barangays to = (to_barangays) tbl_barangays_ALM.get(row);
-        Barangays.delete_data(to);
-        tf_province.setText("");
-        tf_city.setText("");
-        tf_barangay.setText("");
-
-    }
-
     private void ret_data() {
-        String where = " order by barangay asc";
-        List<to_barangays> datas = Barangays.ret_data(where);
-        loadData_barangays(datas);
+        String where = " order by region asc";
+        List<to_regions> datas = Regions.ret_data(where);
+        loadData_regions(datas);
+    }
+
+    private void add_regions() {
+
+        int id = 0;
+        String region = tf_region.getText();
+
+        to_regions to = new to_regions(id, region);
+        Regions.add_data(to);
+        tf_region.setText("");
+        ret_data();
+        System.out.println("Successfully Added");
+
+    }
+
+    private void select_regions() {
+
+        int row = tbl_regions.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        to_regions to = (to_regions) tbl_regions_ALM.get(row);
+        tf_region.setText(to.region);
+
+    }
+
+    private void update_regions() {
+
+        int row = tbl_regions.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        to_regions to = (to_regions) tbl_regions_ALM.get(row);
+        int id = to.id;
+        String region = tf_region.getText();
+
+        to_regions to1 = new to_regions(id, region);
+        Regions.update_data(to1);
+        tf_region.setText("");
+        ret_data();
+        System.out.println("Successfully Updated");
+
+    }
+
+    private void delete_regions() {
+
+        int row = tbl_regions.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        to_regions to = (to_regions) tbl_regions_ALM.get(row);
+        Regions.delete_data(to);
+        tf_region.setText("");
+        ret_data();
+        System.out.println("Successfully Deleted");
+
     }
 
 }

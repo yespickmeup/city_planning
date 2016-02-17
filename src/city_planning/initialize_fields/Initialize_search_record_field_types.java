@@ -8,6 +8,8 @@ package city_planning.initialize_fields;
 import city_planning.barangays.Barangays;
 import city_planning.cities.Cities;
 import city_planning.provinces.Provinces;
+import city_planning.puroks.Puroks;
+import city_planning.regions.Regions;
 import city_planning.util.TableRenderer;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +23,48 @@ import synsoftech.fields.Field;
  */
 public class Initialize_search_record_field_types {
 
+    static List<Regions.to_regions> regions = new ArrayList();
     static List<Provinces.to_provinces> provinces = new ArrayList();
     static List<Cities.to_cities> cities = new ArrayList();
     static List<Barangays.to_barangays> barangays = new ArrayList();
+    static List<Puroks.to_puroks> puroks = new ArrayList();
 
     public static void ret_data() {
 
         provinces = Provinces.ret_data(" order by province asc ");
         cities = Cities.ret_data(" order by city asc ");
         barangays = Barangays.ret_data(" order by barangay asc ");
+        puroks = Puroks.ret_data(" order by puroks asc ");
+        regions = Regions.ret_data(" order by regions asc ");
     }
 
-    //<editor-fold defaultstate="collapsed" desc=" Regions ">
+    //<editor-fold defaultstate="collapsed" desc=" Regions "> 
+    public static void init_regions(final JTextField tf) {
+
+        Object[][] obj = new Object[regions.size()][1];
+        int i = 0;
+        for (Regions.to_regions to : regions) {
+            obj[i][0] = " " + to.region;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Regions.to_regions to = regions.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf;
+                field.setText(to.region);
+                field.setId("" + to.id);
+            }
+        });
+    }
+//</editor-fold> 
+    //<editor-fold defaultstate="collapsed" desc=" Provinces ">
     public static void init_provinces(final JTextField tf) {
 
         Object[][] obj = new Object[provinces.size()][1];
@@ -111,5 +143,32 @@ public class Initialize_search_record_field_types {
             }
         });
     }
+
     //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc=" puroks "> 
+    public static void init_puroks(final JTextField tf) {
+
+        Object[][] obj = new Object[puroks.size()][1];
+        int i = 0;
+        for (Puroks.to_puroks to : puroks) {
+            obj[i][0] = " " + to.purok;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Puroks.to_puroks to = puroks.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf;
+                field.setText(to.purok);
+                field.setId("" + to.id);
+            }
+        });
+    }
+//</editor-fold> 
 }
