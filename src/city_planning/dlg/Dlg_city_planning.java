@@ -858,6 +858,11 @@ public class Dlg_city_planning extends javax.swing.JDialog {
                 tf_buildingsMouseClicked(evt);
             }
         });
+        tf_buildings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_buildingsActionPerformed(evt);
+            }
+        });
 
         jLabel152.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel152.setText("Toilet Type:");
@@ -6398,6 +6403,10 @@ public class Dlg_city_planning extends javax.swing.JDialog {
     private void tf_house_number1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_house_number1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_house_number1ActionPerformed
+
+    private void tf_buildingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_buildingsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_buildingsActionPerformed
 
     /**
      * @param args the command line arguments

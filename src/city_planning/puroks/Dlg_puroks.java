@@ -5,8 +5,11 @@
  */
 package city_planning.puroks;
 
+import city_planning.barangays.Barangays;
+import city_planning.cities.Cities;
 import city_planning.provinces.Provinces;
 import city_planning.puroks.Puroks.to_puroks;
+import city_planning.streets.Streets;
 import city_planning.util.TableRenderer;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
@@ -18,7 +21,6 @@ import java.util.List;
 import java.util.logging.Level;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import mijzcx.synapse.desk.utils.CloseDialog;
@@ -209,13 +211,13 @@ public class Dlg_puroks extends javax.swing.JDialog {
         tf_province = new Field.Combo();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        tf_city = new Field.Input();
+        tf_city = new Field.Combo();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        tf_barangay = new Field.Input();
-        tf_purok = new Field.Input();
-        tf_street = new Field.Input();
+        tf_barangay = new Field.Combo();
+        tf_purok = new Field.Combo();
+        tf_street = new Field.Combo();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -304,6 +306,16 @@ public class Dlg_puroks extends javax.swing.JDialog {
         jLabel8.setText("City:");
 
         tf_city.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_city.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_cityMouseClicked(evt);
+            }
+        });
+        tf_city.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_cityActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Barangay:");
@@ -315,10 +327,30 @@ public class Dlg_puroks extends javax.swing.JDialog {
         jLabel12.setText("Street:");
 
         tf_barangay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_barangay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_barangayMouseClicked(evt);
+            }
+        });
+        tf_barangay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_barangayActionPerformed(evt);
+            }
+        });
 
         tf_purok.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         tf_street.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_street.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_streetMouseClicked(evt);
+            }
+        });
+        tf_street.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_streetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -350,48 +382,47 @@ public class Dlg_puroks extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel12))
-                        .addGap(22, 22, 22)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf_purok, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tf_barangay)
-                            .addComponent(tf_street)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_street)
                             .addComponent(tf_province, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tf_city))))
+                            .addComponent(tf_city))
+                        .addGap(4, 4, 4)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_province, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_city, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tf_province, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(tf_city, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
                         .addComponent(tf_barangay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(tf_purok, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(tf_street, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
+                        .addComponent(tf_street, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -453,6 +484,30 @@ public class Dlg_puroks extends javax.swing.JDialog {
         init_provinces();
     }//GEN-LAST:event_tf_provinceMouseClicked
 
+    private void tf_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cityActionPerformed
+        init_cities();
+    }//GEN-LAST:event_tf_cityActionPerformed
+
+    private void tf_cityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_cityMouseClicked
+        init_cities();
+    }//GEN-LAST:event_tf_cityMouseClicked
+
+    private void tf_barangayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangayActionPerformed
+        init_barangays();
+    }//GEN-LAST:event_tf_barangayActionPerformed
+
+    private void tf_barangayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_barangayMouseClicked
+        init_barangays();
+    }//GEN-LAST:event_tf_barangayMouseClicked
+
+    private void tf_streetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_streetActionPerformed
+        init_streets();
+    }//GEN-LAST:event_tf_streetActionPerformed
+
+    private void tf_streetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_streetMouseClicked
+        init_streets();// TODO add your handling code here:
+    }//GEN-LAST:event_tf_streetMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -488,6 +543,9 @@ public class Dlg_puroks extends javax.swing.JDialog {
         init_tbl_puroks(tbl_puroks);
 
         provinces = Provinces.ret_data(" order by province asc ");
+        cities = Cities.ret_data("order by city asc");
+        barangays = Barangays.ret_data("order by barangay asc ");
+        street = Streets.ret_data("order by street asc" );
     }
 
     public void do_pass() {
@@ -603,6 +661,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
 
     //<editor-fold defaultstate="collapsed" desc=" Provinces ">
     List<Provinces.to_provinces> provinces = new ArrayList();
+   
 
     private void init_provinces() {
 
@@ -625,10 +684,91 @@ public class Dlg_puroks extends javax.swing.JDialog {
                 Field.Combo field = (Field.Combo) tf_province;
                 field.setText(to.province);
                 field.setId("" + to.id);
-              
+
             }
         });
     }
+
+     List<Cities.to_cities> cities = new ArrayList();
+    private void init_cities() {
+
+        Object[][] obj = new Object[cities.size()][1];
+        int i = 0;
+        for (Cities.to_cities to : cities) {
+            obj[i][0] = " " + to.city;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf_city.getWidth()};
+        String[] col_names = {"Cities"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf_city, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Cities.to_cities to = cities.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf_city;
+                field.setText(to.city);
+                field.setId("" + to.id);
+
+            }
+        });
+    }
+
+    List<Barangays.to_barangays> barangays = new ArrayList();
+    private void init_barangays() {
+
+        Object[][] obj = new Object[barangays.size()][1];
+        int i = 0;
+        for (Barangays.to_barangays to : barangays) {
+            obj[i][0] = " " + to.barangay;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf_barangay.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf_barangay, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Barangays.to_barangays to = barangays.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf_barangay;
+                field.setText(to.barangay);
+                field.setId("" + to.id);
+
+            }
+        });
+    }
+    List<Streets.to_streets> street = new ArrayList();
+    private void init_streets() {
+
+        Object[][] obj = new Object[street.size()][1];
+        int i = 0;
+        for (Streets.to_streets to : street) {
+            obj[i][0] = " " + to.province;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf_street.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf_street, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Streets.to_streets to = street.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf_street;
+                field.setText(to.province);
+                field.setId("" + to.id);
+
+            }
+        });
+    }
+
 
     //</editor-fold>
     private void add_puroks() {
