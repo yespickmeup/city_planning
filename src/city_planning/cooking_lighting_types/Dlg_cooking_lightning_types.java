@@ -33,7 +33,7 @@ import synsoftech.fields.Label;
  *
  * @author Guinness
  */
-public class Dlg_cooking_lightning extends javax.swing.JDialog {
+public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
 
     /**
      * Creates new form Dlg_simple_crud
@@ -59,33 +59,33 @@ public class Dlg_cooking_lightning extends javax.swing.JDialog {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Constructors ">
-    private Dlg_cooking_lightning(java.awt.Frame parent, boolean modal) {
+    private Dlg_cooking_lightning_types(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    private Dlg_cooking_lightning(java.awt.Dialog parent, boolean modal) {
+    private Dlg_cooking_lightning_types(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    public Dlg_cooking_lightning() {
+    public Dlg_cooking_lightning_types() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
 
     }
-    private Dlg_cooking_lightning myRef;
+    private Dlg_cooking_lightning_types myRef;
 
-    public void setThisRef(Dlg_cooking_lightning myRef) {
+    public void setThisRef(Dlg_cooking_lightning_types myRef) {
         this.myRef = myRef;
     }
-    private static java.util.Map<Object, Dlg_cooking_lightning> dialogContainer = new java.util.HashMap();
+    private static java.util.Map<Object, Dlg_cooking_lightning_types> dialogContainer = new java.util.HashMap();
 
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
@@ -93,7 +93,7 @@ public class Dlg_cooking_lightning extends javax.swing.JDialog {
         }
     }
 
-    public static Dlg_cooking_lightning create(java.awt.Window parent, boolean modal) {
+    public static Dlg_cooking_lightning_types create(java.awt.Window parent, boolean modal) {
 
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
@@ -103,14 +103,14 @@ public class Dlg_cooking_lightning extends javax.swing.JDialog {
 
     }
 
-    public static Dlg_cooking_lightning create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
+    public static Dlg_cooking_lightning_types create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
 
         if (parent instanceof java.awt.Frame) {
 
-            Dlg_cooking_lightning dialog = dialogContainer.get(parent);
+            Dlg_cooking_lightning_types dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_cooking_lightning((java.awt.Frame) parent, false);
+                dialog = new Dlg_cooking_lightning_types((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -124,10 +124,10 @@ public class Dlg_cooking_lightning extends javax.swing.JDialog {
         }
 
         if (parent instanceof java.awt.Dialog) {
-            Dlg_cooking_lightning dialog = dialogContainer.get(parent);
+            Dlg_cooking_lightning_types dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_cooking_lightning((java.awt.Dialog) parent, false);
+                dialog = new Dlg_cooking_lightning_types((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -154,7 +154,7 @@ public class Dlg_cooking_lightning extends javax.swing.JDialog {
             throw new RuntimeException(e);
         }
 
-        Dlg_cooking_lightning dialog = Dlg_cooking_lightning.create(new javax.swing.JFrame(), true);
+        Dlg_cooking_lightning_types dialog = Dlg_cooking_lightning_types.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
 
     }
