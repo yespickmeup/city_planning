@@ -461,19 +461,19 @@ public class Dlg_puroks extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void tbl_puroksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_puroksMouseClicked
-        select_puroks();        // TODO add your handling code here:
+        select_puroks();
     }//GEN-LAST:event_tbl_puroksMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        add_puroks();        // TODO add your handling code here:
+        add_puroks();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        update_puroks();        // TODO add your handling code here:
+        update_puroks();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        delete_puroks();        // TODO add your handling code here:
+        delete_puroks();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tf_provinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_provinceActionPerformed
@@ -505,7 +505,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
     }//GEN-LAST:event_tf_streetActionPerformed
 
     private void tf_streetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_streetMouseClicked
-        init_streets();// TODO add your handling code here:
+        init_streets();
     }//GEN-LAST:event_tf_streetMouseClicked
 
     /**
@@ -545,7 +545,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
         provinces = Provinces.ret_data(" order by province asc ");
         cities = Cities.ret_data("order by city asc");
         barangays = Barangays.ret_data("order by barangay asc ");
-        street = Streets.ret_data("order by street asc" );
+        street = Streets.ret_data("order by street asc");
     }
 
     public void do_pass() {
@@ -661,7 +661,6 @@ public class Dlg_puroks extends javax.swing.JDialog {
 
     //<editor-fold defaultstate="collapsed" desc=" Provinces ">
     List<Provinces.to_provinces> provinces = new ArrayList();
-   
 
     private void init_provinces() {
 
@@ -689,7 +688,8 @@ public class Dlg_puroks extends javax.swing.JDialog {
         });
     }
 
-     List<Cities.to_cities> cities = new ArrayList();
+    List<Cities.to_cities> cities = new ArrayList();
+
     private void init_cities() {
 
         Object[][] obj = new Object[cities.size()][1];
@@ -717,6 +717,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
     }
 
     List<Barangays.to_barangays> barangays = new ArrayList();
+
     private void init_barangays() {
 
         Object[][] obj = new Object[barangays.size()][1];
@@ -743,6 +744,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
         });
     }
     List<Streets.to_streets> street = new ArrayList();
+
     private void init_streets() {
 
         Object[][] obj = new Object[street.size()][1];
@@ -768,7 +770,6 @@ public class Dlg_puroks extends javax.swing.JDialog {
             }
         });
     }
-
 
     //</editor-fold>
     private void add_puroks() {
