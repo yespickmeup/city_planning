@@ -8,7 +8,6 @@ package city_planning.provinces;
 import city_planning.provinces.Provinces.to_provinces;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
-import cp.location.S1_provinces;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -388,7 +387,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
 
     private void myInit() {
         init_tbl_provinces(tbl_provinces);
-        data_disbursements();
+        ret_data();
     }
 
     public void do_pass() {
@@ -490,7 +489,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
         to_provinces to = new to_provinces(id, province);
         Provinces.add_data(to);
         tf_province.setText("");
-        data_disbursements();
+        ret_data();
         System.out.println("Successfully Added");
     }
 
@@ -519,7 +518,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
         Provinces.update_data(to1);
         tf_province.setText("");
 
-        data_disbursements();
+        ret_data();
         System.out.println("Successfully Updated");
     }
 
@@ -533,11 +532,11 @@ public class Dlg_provinces extends javax.swing.JDialog {
         Provinces.delete_data(to);
         tf_province.setText("");
 
-        data_disbursements();
+        ret_data();
         System.out.println("Successfully Deleted");
     }
 
-    private void data_disbursements() {
+    private void ret_data() {
         String where = "";
         List<Provinces.to_provinces> datas = Provinces.ret_data(where);
         loadData_provinces(datas);

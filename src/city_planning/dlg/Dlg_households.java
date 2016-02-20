@@ -1014,6 +1014,11 @@ public class Dlg_households extends javax.swing.JDialog {
 
         jTextField41.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField41.setText("Excellent/Adequate/Inadequate");
+        jTextField41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField41ActionPerformed(evt);
+            }
+        });
 
         jTextField42.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -1382,6 +1387,10 @@ public class Dlg_households extends javax.swing.JDialog {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField41ActionPerformed
+        
+    }//GEN-LAST:event_jTextField41ActionPerformed
 
     /**
      * @param args the command line arguments

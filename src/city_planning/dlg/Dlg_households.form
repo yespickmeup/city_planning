@@ -1809,6 +1809,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Excellent/Adequate/Inadequate"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField41ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Field.Input()"/>
                   </AuxValues>
