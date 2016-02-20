@@ -51,8 +51,7 @@ public class Initialize_search_record_field_types {
         int[] tbl_widths_customers = {tf.getWidth()};
         String[] col_names = {"Name"};
         TableRenderer tr = new TableRenderer();
-        TableRenderer.
-                setPopup(tf, obj, labels, tbl_widths_customers, col_names);
+        TableRenderer.setPopup(tf, obj, labels, tbl_widths_customers, col_names);
         tr.setCallback(new TableRenderer.Callback() {
             @Override
             public void ok(TableRenderer.OutputData data) {
@@ -65,6 +64,7 @@ public class Initialize_search_record_field_types {
     }
 //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc=" Provinces ">
+
     public static void init_provinces(final JTextField tf) {
 
         Object[][] obj = new Object[provinces.size()][1];

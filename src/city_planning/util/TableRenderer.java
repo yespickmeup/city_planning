@@ -103,7 +103,6 @@ public class TableRenderer {
             }
         });
         tbl.addMouseListener(new MouseAdapter() {
-
             @Override
             public void mouseClicked(MouseEvent e) {
                 int row = tbl.getSelectedRow();
@@ -114,23 +113,17 @@ public class TableRenderer {
                             toString());
                     i++;
                 }
-
                 String[] output = new String[tbl_widths_customers.length];
                 int u = 0;
                 for (int y : tbl_widths_customers) {
-                    output[u] = tbl.getModel().
-                            getValueAt(row, u).
-                            toString();
-
+                    output[u] = tbl.getModel().getValueAt(row, u).toString();
                     u++;
                 }
-
                 tf.grabFocus();
                 popup.setVisible(false);
-
                 ok1(output, row);
             }
-
+            
         });
         tbl.addKeyListener(new KeyAdapter() {
 
