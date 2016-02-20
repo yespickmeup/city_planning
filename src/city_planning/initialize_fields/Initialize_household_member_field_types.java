@@ -5,8 +5,10 @@
  */
 package city_planning.initialize_fields;
 
+import city_planning.blood_types.Blood_types;
 import city_planning.disabilities.Disabilities;
 import city_planning.genders.Genders;
+import static city_planning.initialize_fields.Initialize_household_member_field_types.blood_types;
 import city_planning.marital_statuses.Marital_statuses;
 import city_planning.util.TableRenderer;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class Initialize_household_member_field_types {
     static List<Disabilities.to_disabilities> disabilities = new ArrayList();
     static List<Genders.to_genders> genders = new ArrayList();
     static List<Marital_statuses.to_marital_statuses> marital_statuses = new ArrayList();
+    static List<Blood_types.to_blood_types> blood_types = new ArrayList();
 
     public static void ret_data() {
 
@@ -40,6 +43,23 @@ public class Initialize_household_member_field_types {
         marital_statuses.add(ms1);
         marital_statuses.add(ms2);
         marital_statuses.add(ms3);
+
+        Blood_types.to_blood_types tbt1 = new Blood_types.to_blood_types(0, "O+");
+        Blood_types.to_blood_types tbt2 = new Blood_types.to_blood_types(0, "O-");
+        Blood_types.to_blood_types tbt3 = new Blood_types.to_blood_types(0, "A+");
+        Blood_types.to_blood_types tbt4 = new Blood_types.to_blood_types(0, "A-");
+        Blood_types.to_blood_types tbt5 = new Blood_types.to_blood_types(0, "B+");
+        Blood_types.to_blood_types tbt6 = new Blood_types.to_blood_types(0, "B-");
+        Blood_types.to_blood_types tbt7 = new Blood_types.to_blood_types(0, "AB+");
+        Blood_types.to_blood_types tbt8 = new Blood_types.to_blood_types(0, "AB-");
+        blood_types.add(tbt1);
+        blood_types.add(tbt2);
+        blood_types.add(tbt3);
+        blood_types.add(tbt4);
+        blood_types.add(tbt5);
+        blood_types.add(tbt6);
+        blood_types.add(tbt7);
+        blood_types.add(tbt8);
 
     }
 
@@ -123,5 +143,31 @@ public class Initialize_household_member_field_types {
         });
     }
 //</editor-fold> 
+    //<editor-fold defaultstate="collapsed" desc=" Blood_types "> 
 
+    public static void init_blood_typess(final JTextField tf) {
+
+        Object[][] obj = new Object[marital_statuses.size()][1];
+        int i = 0;
+        for (Blood_types.to_blood_types to : blood_types) {
+            obj[i][0] = " " + to.blood_type;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Blood_types.to_blood_types to = blood_types.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf;
+                field.setText(to.blood_type);
+                field.setId("" + to.id);
+            }
+        });
+    }
+//</editor-fold> 
 }
