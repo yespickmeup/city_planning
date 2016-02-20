@@ -4,7 +4,7 @@
  */
 package city_planning.pnl;
 
-import city_planning.dlg.Dlg_city_planning;
+import city_planning.dlg.Dlg_search_record;
 import city_planning.util.MyFrame;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -535,8 +535,8 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     private void dlg_maximize() {
-        Dlg_city_planning rpt = new Dlg_city_planning();
-        MyFrame.set2(rpt.getSurface(), jPanel1, "City Planning", rpt.getWidth(), rpt.getHeight());
+        Dlg_search_record rpt = new Dlg_search_record();
+        MyFrame.set(rpt.getSurface(), jPanel1, "City Planning");
     }
 
     private void menu() {
