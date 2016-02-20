@@ -26,20 +26,20 @@ public class Dlg_household_members extends javax.swing.JDialog {
      */
     //<editor-fold defaultstate="collapsed" desc=" callback ">
     private Callback callback;
-
+    
     public void setCallback(Callback callback) {
         this.callback = callback;
-
+        
     }
-
+    
     public static interface Callback {
-
+        
         void ok(CloseDialog closeDialog, OutputData data);
     }
-
+    
     public static class InputData {
     }
-
+    
     public static class OutputData {
     }
 //</editor-fold>
@@ -51,50 +51,50 @@ public class Dlg_household_members extends javax.swing.JDialog {
         initComponents();
         myInit();
     }
-
+    
     private Dlg_household_members(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
-
+    
     public Dlg_household_members() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
-
+        
     }
     private Dlg_household_members myRef;
-
+    
     private void setThisRef(Dlg_household_members myRef) {
         this.myRef = myRef;
     }
     private static java.util.Map<Object, Dlg_household_members> dialogContainer = new java.util.HashMap();
-
+    
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
             dialogContainer.remove(parent);
         }
     }
-
+    
     public static Dlg_household_members create(java.awt.Window parent, boolean modal) {
-
+        
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
         }
-
+        
         return create(parent, ModalityType.MODELESS);
-
+        
     }
-
+    
     public static Dlg_household_members create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
-
+        
         if (parent instanceof java.awt.Frame) {
-
+            
             Dlg_household_members dialog = dialogContainer.get(parent);
-
+            
             if (dialog == null) {
                 dialog = new Dlg_household_members((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
@@ -106,12 +106,12 @@ public class Dlg_household_members extends javax.swing.JDialog {
                 dialog.setModalityType(modalType);
                 return dialog;
             }
-
+            
         }
-
+        
         if (parent instanceof java.awt.Dialog) {
             Dlg_household_members dialog = dialogContainer.get(parent);
-
+            
             if (dialog == null) {
                 dialog = new Dlg_household_members((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
@@ -123,26 +123,26 @@ public class Dlg_household_members extends javax.swing.JDialog {
                 dialog.setModalityType(modalType);
                 return dialog;
             }
-
+            
         }
-
+        
         return null;
-
+        
     }
     //</editor-fold>    
 
     //<editor-fold defaultstate="collapsed" desc=" main ">
     public static void main(String args[]) {
-
+        
         try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
+        
         Dlg_household_members dialog = Dlg_household_members.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-
+        
     }
     //</editor-fold>
 
@@ -156,13 +156,13 @@ public class Dlg_household_members extends javax.swing.JDialog {
             myInit();
             repaint();
         }
-
+        
     }
-
+    
     public javax.swing.JPanel getSurface() {
         return (javax.swing.JPanel) getContentPane();
     }
-
+    
     public void nullify() {
         myRef.setVisible(false);
         myRef = null;
@@ -208,7 +208,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
         tf_maritals = new Field.Combo();
         jLabel113 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
-        tf_religions1 = new Field.Combo();
+        tf_blood_type = new Field.Combo();
         tf_relations = new Field.Combo();
         jCheckBox28 = new javax.swing.JCheckBox();
         jLabel107 = new javax.swing.JLabel();
@@ -572,15 +572,15 @@ public class Dlg_household_members extends javax.swing.JDialog {
         jLabel105.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel105.setText("Birthdate:");
 
-        tf_religions1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tf_religions1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tf_blood_type.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_blood_type.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tf_religions1MouseClicked(evt);
+                tf_blood_typeMouseClicked(evt);
             }
         });
-        tf_religions1.addActionListener(new java.awt.event.ActionListener() {
+        tf_blood_type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_religions1ActionPerformed(evt);
+                tf_blood_typeActionPerformed(evt);
             }
         });
 
@@ -588,6 +588,11 @@ public class Dlg_household_members extends javax.swing.JDialog {
         tf_relations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_relationsMouseClicked(evt);
+            }
+        });
+        tf_relations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_relationsActionPerformed(evt);
             }
         });
 
@@ -611,6 +616,11 @@ public class Dlg_household_members extends javax.swing.JDialog {
         tf_religions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_religionsMouseClicked(evt);
+            }
+        });
+        tf_religions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_religionsActionPerformed(evt);
             }
         });
 
@@ -711,7 +721,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel113)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_religions1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_blood_type, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel114)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -790,7 +800,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
                     .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel111, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel113, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_religions1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_blood_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel114, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3043,16 +3053,16 @@ public class Dlg_household_members extends javax.swing.JDialog {
         Initialize_household_member_field_types.init_marital_statuses(tf_maritals);
     }//GEN-LAST:event_tf_maritalsMouseClicked
 
-    private void tf_religions1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_religions1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_religions1MouseClicked
+    private void tf_blood_typeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_blood_typeMouseClicked
+        Initialize_household_member_field_types.init_blood_types(tf_blood_type);
+    }//GEN-LAST:event_tf_blood_typeMouseClicked
 
     private void tf_relationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_relationsMouseClicked
-
+        Initialize_household_member_field_types.init_household_relations(tf_relations);
     }//GEN-LAST:event_tf_relationsMouseClicked
 
     private void tf_religionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_religionsMouseClicked
-
+        Initialize_household_member_field_types.init_religions(tf_religions);
     }//GEN-LAST:event_tf_religionsMouseClicked
 
     private void tf_disabilitiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_disabilitiesMouseClicked
@@ -3331,13 +3341,21 @@ public class Dlg_household_members extends javax.swing.JDialog {
         Initialize_household_member_field_types.init_genders(tf_genders);
     }//GEN-LAST:event_tf_gendersActionPerformed
 
-    private void tf_religions1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_religions1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_religions1ActionPerformed
+    private void tf_blood_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_blood_typeActionPerformed
+        Initialize_household_member_field_types.init_blood_types(tf_blood_type);
+    }//GEN-LAST:event_tf_blood_typeActionPerformed
 
     private void tf_maritalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_maritalsActionPerformed
         Initialize_household_member_field_types.init_marital_statuses(tf_maritals);
     }//GEN-LAST:event_tf_maritalsActionPerformed
+
+    private void tf_relationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_relationsActionPerformed
+        Initialize_household_member_field_types.init_household_relations(tf_relations);
+    }//GEN-LAST:event_tf_relationsActionPerformed
+
+    private void tf_religionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_religionsActionPerformed
+        Initialize_household_member_field_types.init_religions(tf_religions);
+    }//GEN-LAST:event_tf_religionsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3621,12 +3639,12 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_facilities8;
     private javax.swing.JLabel lbl_facilities9;
     private javax.swing.JTextField tf_achievements;
+    private javax.swing.JTextField tf_blood_type;
     private javax.swing.JTextField tf_disabilities;
     private javax.swing.JTextField tf_genders;
     private javax.swing.JTextField tf_maritals;
     private javax.swing.JTextField tf_relations;
     private javax.swing.JTextField tf_religions;
-    private javax.swing.JTextField tf_religions1;
     private javax.swing.JTextField tf_schools;
     // End of variables declaration//GEN-END:variables
 
@@ -3634,20 +3652,20 @@ public class Dlg_household_members extends javax.swing.JDialog {
         init_key();
         Initialize_household_member_field_types.ret_data();
     }
-
+    
     public void do_pass() {
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Key">
     private void disposed() {
         this.dispose();
     }
-
+    
     private void init_key() {
         KeyMapping.mapKeyWIFW(getSurface(),
                               KeyEvent.VK_ESCAPE, new KeyAction() {
-
+            
             @Override
             public void actionPerformed(ActionEvent e) {
 //                btn_0.doClick();

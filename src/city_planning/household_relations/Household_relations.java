@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package city_planning.blood_types;
+package city_planning.household_relations;
 
 import city_planning.util.MyConnection;
 import java.sql.Connection;
@@ -20,35 +20,35 @@ import mijzcx.synapse.desk.utils.SqlStringUtil;
  *
  * @author Arcinue
  */
-public class Blood_types {
+public class Household_relations {
 
-    public static class to_blood_types {
+    public static class to_household_relations {
 
         public final int id;
-        public final String blood_type;
+        public final String household_relation;
 
-        public to_blood_types(int id, String blood_type) {
+        public to_household_relations(int id, String household_relation) {
             this.id = id;
-            this.blood_type = blood_type;
+            this.household_relation = household_relation;
         }
     }
 
-    public static void add_data(to_blood_types to_blood_types) {
+    public static void add_data(to_household_relations to_household_relations) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "insert into blood_types("
-                    + "blood_type"
+            String s0 = "insert into household_relations("
+                    + "household_relation"
                     + ")values("
-                    + ":blood_type"
+                    + ":household_relation"
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("blood_type", to_blood_types.blood_type)
+                    .setString("household_relation", to_household_relations.household_relation)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
             stmt.execute();
-            Lg.s(Blood_types.class, "Successfully Added");
+            Lg.s(Household_relations.class, "Successfully Added");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -56,21 +56,21 @@ public class Blood_types {
         }
     }
 
-    public static void update_data(to_blood_types to_blood_types) {
+    public static void update_data(to_household_relations to_household_relations) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "update blood_types set "
-                    + "blood_type= :blood_type "
-                    + " where id='" + to_blood_types.id + "' "
+            String s0 = "update household_relations set "
+                    + "household_relation= :household_relation "
+                    + " where id='" + to_household_relations.id + "' "
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("blood_type", to_blood_types.blood_type)
+                    .setString("household_relation", to_household_relations.household_relation)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
             stmt.execute();
-            Lg.s(Blood_types.class, "Successfully Updated");
+            Lg.s(Household_relations.class, "Successfully Updated");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -78,16 +78,16 @@ public class Blood_types {
         }
     }
 
-    public static void delete_data(to_blood_types to_blood_types) {
+    public static void delete_data(to_household_relations to_household_relations) {
         try {
             Connection conn = MyConnection.connect();
-            String s0 = "delete from blood_types  "
-                    + " where id='" + to_blood_types.id + "' "
+            String s0 = "delete from household_relations  "
+                    + " where id='" + to_household_relations.id + "' "
                     + " ";
 
             PreparedStatement stmt = conn.prepareStatement(s0);
             stmt.execute();
-            Lg.s(Blood_types.class, "Successfully Deleted");
+            Lg.s(Household_relations.class, "Successfully Deleted");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -95,24 +95,24 @@ public class Blood_types {
         }
     }
 
-    public static List<to_blood_types> ret_data(String where) {
-        List<to_blood_types> datas = new ArrayList();
+    public static List<to_household_relations> ret_data(String where) {
+        List<to_household_relations> datas = new ArrayList();
 
         try {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",blood_type"
-                    + " from blood_types"
+                    + ",household_relation"
+                    + " from household_relations"
                     + " " + where;
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                String blood_type = rs.getString(2);
+                String household_relation = rs.getString(2);
 
-                to_blood_types to = new to_blood_types(id, blood_type);
+                to_household_relations to = new to_household_relations(id, household_relation);
                 datas.add(to);
             }
             return datas;

@@ -1,7 +1,7 @@
 --
 -- Definition of table `region`
 --
-DROP TABLE IF EXISTS `region`;
+DROP TABLE IF EXISTS `regions`;
 CREATE TABLE `regions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `region` varchar(100) DEFAULT NULL,
