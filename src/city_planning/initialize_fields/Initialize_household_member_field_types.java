@@ -11,6 +11,7 @@ import city_planning.genders.Genders;
 import city_planning.household_relations.Household_relations;
 import static city_planning.initialize_fields.Initialize_household_member_field_types.blood_types;
 import city_planning.marital_statuses.Marital_statuses;
+import city_planning.religions.Religions;
 import city_planning.util.TableRenderer;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +30,11 @@ public class Initialize_household_member_field_types {
     static List<Marital_statuses.to_marital_statuses> marital_statuses = new ArrayList();
     static List<Blood_types.to_blood_types> blood_types = new ArrayList();
     static List<Household_relations.to_household_relations> household_relations = new ArrayList();
-
+     static List<Religions.to_religions> religions = new ArrayList();
     public static void ret_data() {
 
         disabilities = Disabilities.ret_data(" order by disability asc ");
+        religions = Religions.ret_data("order by religion asc");
 
         Genders.to_genders g1 = new Genders.to_genders(0, "Male");
         Genders.to_genders g2 = new Genders.to_genders(0, "Female");
@@ -213,6 +215,33 @@ public class Initialize_household_member_field_types {
                 Household_relations.to_household_relations to = household_relations.get(data.selected_row);
                 Field.Combo field = (Field.Combo) tf;
                 field.setText(to.household_relation);
+                field.setId("" + to.id);
+            }
+        });
+    }
+//</editor-fold> 
+    //<editor-fold defaultstate="collapsed" desc=" Religions "> 
+
+    public static void init_religions(final JTextField tf) {
+
+        Object[][] obj = new Object[religions.size()][1];
+        int i = 0;
+        for (Religions.to_religions to : religions) {
+            obj[i][0] = " " + to.religion;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Religions.to_religions to = religions.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf;
+                field.setText(to.religion);
                 field.setId("" + to.id);
             }
         });
