@@ -26,20 +26,20 @@ public class Dlg_household_members extends javax.swing.JDialog {
      */
     //<editor-fold defaultstate="collapsed" desc=" callback ">
     private Callback callback;
-
+    
     public void setCallback(Callback callback) {
         this.callback = callback;
-
+        
     }
-
+    
     public static interface Callback {
-
+        
         void ok(CloseDialog closeDialog, OutputData data);
     }
-
+    
     public static class InputData {
     }
-
+    
     public static class OutputData {
     }
 //</editor-fold>
@@ -51,50 +51,50 @@ public class Dlg_household_members extends javax.swing.JDialog {
         initComponents();
         myInit();
     }
-
+    
     private Dlg_household_members(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
-
+    
     public Dlg_household_members() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
-
+        
     }
     private Dlg_household_members myRef;
-
+    
     private void setThisRef(Dlg_household_members myRef) {
         this.myRef = myRef;
     }
     private static java.util.Map<Object, Dlg_household_members> dialogContainer = new java.util.HashMap();
-
+    
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
             dialogContainer.remove(parent);
         }
     }
-
+    
     public static Dlg_household_members create(java.awt.Window parent, boolean modal) {
-
+        
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
         }
-
+        
         return create(parent, ModalityType.MODELESS);
-
+        
     }
-
+    
     public static Dlg_household_members create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
-
+        
         if (parent instanceof java.awt.Frame) {
-
+            
             Dlg_household_members dialog = dialogContainer.get(parent);
-
+            
             if (dialog == null) {
                 dialog = new Dlg_household_members((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
@@ -106,12 +106,12 @@ public class Dlg_household_members extends javax.swing.JDialog {
                 dialog.setModalityType(modalType);
                 return dialog;
             }
-
+            
         }
-
+        
         if (parent instanceof java.awt.Dialog) {
             Dlg_household_members dialog = dialogContainer.get(parent);
-
+            
             if (dialog == null) {
                 dialog = new Dlg_household_members((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
@@ -123,26 +123,26 @@ public class Dlg_household_members extends javax.swing.JDialog {
                 dialog.setModalityType(modalType);
                 return dialog;
             }
-
+            
         }
-
+        
         return null;
-
+        
     }
     //</editor-fold>    
 
     //<editor-fold defaultstate="collapsed" desc=" main ">
     public static void main(String args[]) {
-
+        
         try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
+        
         Dlg_household_members dialog = Dlg_household_members.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-
+        
     }
     //</editor-fold>
 
@@ -156,13 +156,13 @@ public class Dlg_household_members extends javax.swing.JDialog {
             myInit();
             repaint();
         }
-
+        
     }
-
+    
     public javax.swing.JPanel getSurface() {
         return (javax.swing.JPanel) getContentPane();
     }
-
+    
     public void nullify() {
         myRef.setVisible(false);
         myRef = null;
@@ -616,6 +616,11 @@ public class Dlg_household_members extends javax.swing.JDialog {
         tf_religions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_religionsMouseClicked(evt);
+            }
+        });
+        tf_religions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_religionsActionPerformed(evt);
             }
         });
 
@@ -3057,7 +3062,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
     }//GEN-LAST:event_tf_relationsMouseClicked
 
     private void tf_religionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_religionsMouseClicked
-
+        Initialize_household_member_field_types.init_religions(tf_religions);
     }//GEN-LAST:event_tf_religionsMouseClicked
 
     private void tf_disabilitiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_disabilitiesMouseClicked
@@ -3347,6 +3352,10 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private void tf_relationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_relationsActionPerformed
         Initialize_household_member_field_types.init_household_relations(tf_relations);
     }//GEN-LAST:event_tf_relationsActionPerformed
+
+    private void tf_religionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_religionsActionPerformed
+        Initialize_household_member_field_types.init_religions(tf_religions);
+    }//GEN-LAST:event_tf_religionsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3643,20 +3652,20 @@ public class Dlg_household_members extends javax.swing.JDialog {
         init_key();
         Initialize_household_member_field_types.ret_data();
     }
-
+    
     public void do_pass() {
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Key">
     private void disposed() {
         this.dispose();
     }
-
+    
     private void init_key() {
         KeyMapping.mapKeyWIFW(getSurface(),
                               KeyEvent.VK_ESCAPE, new KeyAction() {
-
+            
             @Override
             public void actionPerformed(ActionEvent e) {
 //                btn_0.doClick();
