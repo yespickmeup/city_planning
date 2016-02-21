@@ -8,6 +8,7 @@ package city_planning.initialize_fields;
 import city_planning.blood_types.Blood_types;
 import city_planning.disabilities.Disabilities;
 import city_planning.genders.Genders;
+import city_planning.household_relations.Household_relations;
 import static city_planning.initialize_fields.Initialize_household_member_field_types.blood_types;
 import city_planning.marital_statuses.Marital_statuses;
 import city_planning.util.TableRenderer;
@@ -27,6 +28,7 @@ public class Initialize_household_member_field_types {
     static List<Genders.to_genders> genders = new ArrayList();
     static List<Marital_statuses.to_marital_statuses> marital_statuses = new ArrayList();
     static List<Blood_types.to_blood_types> blood_types = new ArrayList();
+    static List<Household_relations.to_household_relations> household_relations = new ArrayList();
 
     public static void ret_data() {
 
@@ -60,6 +62,25 @@ public class Initialize_household_member_field_types {
         blood_types.add(tbt6);
         blood_types.add(tbt7);
         blood_types.add(tbt8);
+
+        Household_relations.to_household_relations thr1 = new Household_relations.to_household_relations(0, "Father");
+        Household_relations.to_household_relations thr2 = new Household_relations.to_household_relations(0, "Mother");
+        Household_relations.to_household_relations thr3 = new Household_relations.to_household_relations(0, "Son");
+        Household_relations.to_household_relations thr4 = new Household_relations.to_household_relations(0, "Daughter");
+        Household_relations.to_household_relations thr5 = new Household_relations.to_household_relations(0, "GrandFather");
+        Household_relations.to_household_relations thr6 = new Household_relations.to_household_relations(0, "GrandMother");
+        Household_relations.to_household_relations thr7 = new Household_relations.to_household_relations(0, "Nephew");
+        Household_relations.to_household_relations thr8 = new Household_relations.to_household_relations(0, "Niece");
+
+        household_relations.add(thr1);
+        household_relations.add(thr2);
+        household_relations.add(thr3);
+        household_relations.add(thr4);
+        household_relations.add(thr5);
+        household_relations.add(thr6);
+        household_relations.add(thr7);
+        household_relations.add(thr8);
+
 
     }
 
@@ -145,9 +166,9 @@ public class Initialize_household_member_field_types {
 //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc=" Blood_types "> 
 
-    public static void init_blood_typess(final JTextField tf) {
+    public static void init_blood_types(final JTextField tf) {
 
-        Object[][] obj = new Object[marital_statuses.size()][1];
+        Object[][] obj = new Object[blood_types.size()][1];
         int i = 0;
         for (Blood_types.to_blood_types to : blood_types) {
             obj[i][0] = " " + to.blood_type;
@@ -170,4 +191,32 @@ public class Initialize_household_member_field_types {
         });
     }
 //</editor-fold> 
+    //<editor-fold defaultstate="collapsed" desc=" Household_relations "> 
+
+    public static void init_household_relations(final JTextField tf) {
+
+        Object[][] obj = new Object[household_relations.size()][1];
+        int i = 0;
+        for (Household_relations.to_household_relations to : household_relations) {
+            obj[i][0] = " " + to.household_relation;
+            i++;
+        }
+        JLabel[] labels = {};
+        int[] tbl_widths_customers = {tf.getWidth()};
+        String[] col_names = {"Name"};
+        TableRenderer tr = new TableRenderer();
+        TableRenderer.
+                setPopup(tf, obj, labels, tbl_widths_customers, col_names);
+        tr.setCallback(new TableRenderer.Callback() {
+            @Override
+            public void ok(TableRenderer.OutputData data) {
+                Household_relations.to_household_relations to = household_relations.get(data.selected_row);
+                Field.Combo field = (Field.Combo) tf;
+                field.setText(to.household_relation);
+                field.setId("" + to.id);
+            }
+        });
+    }
+//</editor-fold> 
+
 }
