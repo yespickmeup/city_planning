@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package city_planning.provinces;
 
-import city_planning.initialize_fields.Initialize_search_record_field_types;
-import city_planning.provinces.Provinces.to_provinces;
-import city_planning.util.Alert;
+package city_planning_transportation_available;
+
+import static city_planning.initialize_fields.Initialize_search_record_field_types.ret_data;
+import city_planning_transportation_available.Transportation_types.to_transportation_types;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
 import java.awt.Dimension;
@@ -26,63 +26,66 @@ import synsoftech.fields.Button;
 import synsoftech.fields.Field;
 import synsoftech.fields.Label;
 
+
+
+
+
 /**
  *
  * @author Guinness
  */
-public class Dlg_provinces extends javax.swing.JDialog {
+public class Dlg_transportation_types extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Dlg_simple_crud
-     */
+    /** Creates new form Dlg_simple_crud */
     //<editor-fold defaultstate="collapsed" desc=" callback ">
     private Callback callback;
 
     public void setCallback(Callback callback) {
         this.callback = callback;
 
-    }
+
+}
 
     public static interface Callback {
 
-        void ok(CloseDialog closeDialog, OutputData data);
-    }
+    void ok(CloseDialog closeDialog, OutputData data);
+}
 
-    public static class InputData {
-    }
+public static class InputData {
+}
 
-    public static class OutputData {
-    }
+public static class OutputData {
+}
 //</editor-fold>
-
+ 
     //<editor-fold defaultstate="collapsed" desc=" Constructors ">
-    private Dlg_provinces(java.awt.Frame parent, boolean modal) {
+private Dlg_transportation_types(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    private Dlg_provinces(java.awt.Dialog parent, boolean modal) {
+    private Dlg_transportation_types(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
-        setUndecorated(true);
+        setUndecorated(true);    
         initComponents();
         myInit();
     }
 
-    public Dlg_provinces() {
+    public Dlg_transportation_types() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
 
     }
-    private Dlg_provinces myRef;
+    private Dlg_transportation_types myRef;
 
-    public void setThisRef(Dlg_provinces myRef) {
+    private void setThisRef(Dlg_transportation_types myRef) {
         this.myRef = myRef;
     }
-    private static java.util.Map<Object, Dlg_provinces> dialogContainer = new java.util.HashMap();
+    private static java.util.Map<Object, Dlg_transportation_types> dialogContainer = new java.util.HashMap();
 
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
@@ -90,7 +93,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
         }
     }
 
-    public static Dlg_provinces create(java.awt.Window parent, boolean modal) {
+    public static Dlg_transportation_types create(java.awt.Window parent, boolean modal) {
 
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
@@ -100,14 +103,14 @@ public class Dlg_provinces extends javax.swing.JDialog {
 
     }
 
-    public static Dlg_provinces create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
+    public static Dlg_transportation_types create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
 
         if (parent instanceof java.awt.Frame) {
 
-            Dlg_provinces dialog = dialogContainer.get(parent);
+            Dlg_transportation_types dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_provinces((java.awt.Frame) parent, false);
+                dialog = new Dlg_transportation_types((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -121,10 +124,10 @@ public class Dlg_provinces extends javax.swing.JDialog {
         }
 
         if (parent instanceof java.awt.Dialog) {
-            Dlg_provinces dialog = dialogContainer.get(parent);
+            Dlg_transportation_types dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_provinces((java.awt.Dialog) parent, false);
+                dialog = new Dlg_transportation_types((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -151,7 +154,8 @@ public class Dlg_provinces extends javax.swing.JDialog {
             throw new RuntimeException(e);
         }
 
-        Dlg_provinces dialog = Dlg_provinces.create(new javax.swing.JFrame(), true);
+
+        Dlg_transportation_types dialog = Dlg_transportation_types.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
 
     }
@@ -159,7 +163,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
 
     //<editor-fold defaultstate="collapsed" desc=" added ">
     @Override
-    public void setVisible(boolean visible) {
+        public void setVisible(boolean visible) {
         super.setVisible(visible);
         if (visible == true) {
             getContentPane().removeAll();
@@ -167,6 +171,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
             myInit();
             repaint();
         }
+
 
     }
 
@@ -180,10 +185,10 @@ public class Dlg_provinces extends javax.swing.JDialog {
     }
     //</editor-fold>
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -191,21 +196,19 @@ public class Dlg_provinces extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_provinces = new javax.swing.JTable();
+        tbl_transportation_types = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tf_province = new Field.Input();
+        tf_transportation_type = new Field.Input();
         jTextField2 = new Field.Search();
         jLabel5 = new Label.Separator();
         jButton1 = new Button.Warning();
         jButton2 = new Button.Info();
         jButton3 = new Button.Primary();
         jButton4 = new Button.Default();
-        jLabel6 = new javax.swing.JLabel();
-        tf_region = new Field.Combo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -213,7 +216,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.setFocusable(false);
 
-        tbl_provinces.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_transportation_types.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -224,12 +227,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
 
             }
         ));
-        tbl_provinces.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_provincesMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbl_provinces);
+        jScrollPane1.setViewportView(tbl_transportation_types);
 
         jLabel1.setText("No. of rows:");
 
@@ -242,16 +240,11 @@ public class Dlg_provinces extends javax.swing.JDialog {
         jLabel3.setText("Status:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Name:");
+        jLabel4.setText("Transportation Types");
 
-        tf_province.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_transportation_type.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -279,19 +272,9 @@ public class Dlg_provinces extends javax.swing.JDialog {
         });
 
         jButton4.setText("New");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Region:");
-
-        tf_region.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tf_region.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tf_regionMouseClicked(evt);
-            }
-        });
-        tf_region.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_regionActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -312,6 +295,10 @@ public class Dlg_provinces extends javax.swing.JDialog {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_transportation_type))
                     .addComponent(jTextField2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -321,28 +308,16 @@ public class Dlg_provinces extends javax.swing.JDialog {
                         .addGap(5, 5, 5)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_province)
-                            .addComponent(tf_region))))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_region, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_province, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_transportation_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -379,38 +354,26 @@ public class Dlg_provinces extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        add_provinces();        // TODO add your handling code here:
+        add_transportation_types();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        update_provinces();        // TODO add your handling code here:
+       update_transportation_types();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        delete_provinces();        // TODO add your handling code here:
+        delete_transportation_types();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void tbl_provincesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_provincesMouseClicked
-        select_provinces();
-    }//GEN-LAST:event_tbl_provincesMouseClicked
-
-    private void tf_regionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_regionMouseClicked
-        Initialize_search_record_field_types.init_regions(tf_region);
-    }//GEN-LAST:event_tf_regionMouseClicked
-
-    private void tf_regionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_regionActionPerformed
-        Initialize_search_record_field_types.init_regions(tf_region);
-        
-    }//GEN-LAST:event_tf_regionActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-       ret_data();
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -422,28 +385,30 @@ public class Dlg_provinces extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTable tbl_provinces;
-    private javax.swing.JTextField tf_province;
-    private javax.swing.JTextField tf_region;
+    private javax.swing.JTable tbl_transportation_types;
+    private javax.swing.JTextField tf_transportation_type;
     // End of variables declaration//GEN-END:variables
 
+    
     private void myInit() {
-
-        Initialize_search_record_field_types.ret_data();
-
-        init_tbl_provinces(tbl_provinces);
+        init_key();
+        init_tbl_transportation_types(tbl_transportation_types);
         ret_data();
     }
 
-    public void do_pass() {
-
+     private void ret_data() {
+        String where = "";
+        List<Transportation_types.to_transportation_types> datas = Transportation_types.ret_data(where);
+        loadData_transportation_types(datas);
     }
-
+    
+    public void do_pass(){
+ 
+    }
     // <editor-fold defaultstate="collapsed" desc="Key">
     private void disposed() {
         this.dispose();
@@ -451,160 +416,136 @@ public class Dlg_provinces extends javax.swing.JDialog {
 
     private void init_key() {
         KeyMapping.mapKeyWIFW(getSurface(),
-                              KeyEvent.VK_ESCAPE, new KeyAction() {
-
+                KeyEvent.VK_ESCAPE, new KeyAction() {
+            
             @Override
-            public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) {
 //                btn_0.doClick();
                 disposed();
             }
         });
     }
     // </editor-fold>
+    
+     //<editor-fold defaultstate="collapsed" desc=" transportation_types "> 
+public static ArrayListModel tbl_transportation_types_ALM; 
+public static Tbltransportation_typesModel tbl_transportation_types_M; 
 
-    //<editor-fold defaultstate="collapsed" desc=" provinces "> 
-    public static ArrayListModel tbl_provinces_ALM;
-    public static TblprovincesModel tbl_provinces_M;
+public static void init_tbl_transportation_types(JTable tbl_transportation_types) {
+tbl_transportation_types_ALM= new ArrayListModel(); 
+tbl_transportation_types_M=  new Tbltransportation_typesModel(tbl_transportation_types_ALM); 
+tbl_transportation_types.setModel(tbl_transportation_types_M); 
+tbl_transportation_types.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION); 
+tbl_transportation_types.setRowHeight(25); 
+int[] tbl_widths_transportation_types= {100,100}; 
+for (int i = 0, n = tbl_widths_transportation_types.length; i < n; i++) { 
+if (i == 1) { 
+continue;
+}TableWidthUtilities.setColumnWidth(tbl_transportation_types, i, tbl_widths_transportation_types[i]);
+}
+Dimension d = tbl_transportation_types.getTableHeader(). getPreferredSize();
+d.height = 25;
+tbl_transportation_types.getTableHeader().setPreferredSize(d);
+tbl_transportation_types.getTableHeader().setFont(new java.awt.Font("Arial",0, 12)); 
+tbl_transportation_types.setRowHeight(25); 
+ tbl_transportation_types.setFont(new java.awt.Font("Arial", 0, 12)); 
+}
+public static void loadData_transportation_types(List<to_transportation_types> acc) { 
+tbl_transportation_types_ALM.clear(); 
+tbl_transportation_types_ALM.addAll(acc); 
+}
 
-    public static void init_tbl_provinces(JTable tbl_provinces) {
-        tbl_provinces_ALM = new ArrayListModel();
-        tbl_provinces_M = new TblprovincesModel(tbl_provinces_ALM);
-        tbl_provinces.setModel(tbl_provinces_M);
-        tbl_provinces.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        tbl_provinces.setRowHeight(25);
-        int[] tbl_widths_provinces = {100, 250, 0, 0};
-        for (int i = 0, n = tbl_widths_provinces.length; i < n; i++) {
-            if (i == 0) {
-                continue;
-            }
-            TableWidthUtilities.setColumnWidth(tbl_provinces, i, tbl_widths_provinces[i]);
-        }
-        Dimension d = tbl_provinces.getTableHeader().getPreferredSize();
-        d.height = 25;
-        tbl_provinces.getTableHeader().setPreferredSize(d);
-        tbl_provinces.getTableHeader().setFont(new java.awt.Font("Arial", 0, 12));
-        tbl_provinces.setRowHeight(25);
-        tbl_provinces.setFont(new java.awt.Font("Arial", 0, 12));
-    }
+public static class Tbltransportation_typesModel extends AbstractTableAdapter { 
 
-    public static void loadData_provinces(List<to_provinces> acc) {
-        tbl_provinces_ALM.clear();
-        tbl_provinces_ALM.addAll(acc);
-    }
-
-    public static class TblprovincesModel extends AbstractTableAdapter {
-
-        public static String[] COLUMNS = {
-            "Province", "Region", "region_id", "province"
-        };
-
-        public TblprovincesModel(ListModel listmodel) {
-            super(listmodel, COLUMNS);
-        }
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            if (column == 100) {
-                return true;
-            }
-            return false;
-        }
-
-        @Override
-        public Class getColumnClass(int col) {
-            if (col == 1000) {
-                return Boolean.class;
-            }
-            return Object.class;
-        }
-
-        @Override
-        public Object getValueAt(int row, int col) {
-            to_provinces tt = (to_provinces) getRow(row);
-            switch (col) {
-                case 0:
-                    return " " + tt.province;
-                case 1:
-                    return " " + tt.region;
-                case 2:
-                    return tt.region_id;
-                default:
-                    return tt.province;
-            }
-        }
-    }
+public static String[] COLUMNS = {
+"id","transportation_type"
+ };
+public Tbltransportation_typesModel(ListModel listmodel) {
+ super(listmodel, COLUMNS); 
+}
+@Override 
+ public boolean isCellEditable(int row, int column) {
+if (column == 100) {
+  return true;
+ }
+ return false; 
+ } 
+@Override 
+ public Class getColumnClass(int col) {
+ if (col == 1000) {
+  return Boolean.class;
+ }
+ return Object.class;
+ } 
+@Override 
+ public Object getValueAt(int row, int col) {
+ to_transportation_types tt = (to_transportation_types) getRow(row);
+  switch (col) {
+ case 0:
+ return tt.id;default:
+ return tt.transportation_type;
+}
+}
+}
 //</editor-fold> 
 
-    private void add_provinces() {
-        Field.Combo region = (Field.Combo) tf_region;
-        if (region.getText().isEmpty()) {
-            Alert.set(0, "Please select region!");
-            return;
-        }
-        int id = 0;
-        String province = tf_province.getText();
-        to_provinces to = new to_provinces(id, region.getText(), region.getId(), province);
-        Provinces.add_data(to);
-        tf_province.setText("");
-        ret_data();
-        Alert.set(1, "");
+ private void add_transportation_types() { 
 
-    }
+ int id=0; 
+ String transportation_type = tf_transportation_type.getText(); 
 
-    private void select_provinces() {
+ to_transportation_types to = new to_transportation_types(id,transportation_type); 
+ Transportation_types.add_data(to); 
+ tf_transportation_type.setText(""); 
+ ret_data();
+        System.out.println("Successfully Added");
 
-        int row = tbl_provinces.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        Field.Combo region = (Field.Combo) tf_region;
+}
 
-        to_provinces to = (to_provinces) tbl_provinces_ALM.get(row);
-        tf_province.setText(to.province);
-        region.setText(to.region);
-        region.setId(to.region_id);
-    }
+ private void select_transportation_types() { 
 
-    private void update_provinces() {
-        Field.Combo region = (Field.Combo) tf_region;
-        if (region.getText().isEmpty()) {
-            Alert.set(0, "Please select region!");
-            return;
-        }
-        int row = tbl_provinces.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_provinces to = (to_provinces) tbl_provinces_ALM.get(row);
-        int id = to.id;
-        String province = tf_province.getText();
-        to_provinces to1 = new to_provinces(id, region.getText(), region.getId(), province);
-        Provinces.update_data(to1);
-        tf_province.setText("");
+ int row = tbl_transportation_types.getSelectedRow(); 
+ if (row < 0) { 
+ return;
+ } 
+ to_transportation_types to = (to_transportation_types) tbl_transportation_types_ALM.get(row); 
+ tf_transportation_type.setText(to.transportation_type); 
 
-        ret_data();
-        Alert.set(2, "");
-    }
+}
 
-    private void delete_provinces() {
+ private void update_transportation_types() { 
 
-        int row = tbl_provinces.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_provinces to = (to_provinces) tbl_provinces_ALM.get(row);
-        Provinces.delete_data(to);
-        tf_province.setText("");
+ int row = tbl_transportation_types.getSelectedRow(); 
+ if (row < 0) { 
+ return;
+ } 
+ to_transportation_types to = (to_transportation_types) tbl_transportation_types_ALM.get(row); 
+ int id=0; 
+ String transportation_type = tf_transportation_type.getText(); 
 
-        ret_data();
-        Alert.set(3, "");
-    }
+ to_transportation_types to1 = new to_transportation_types(id,transportation_type); 
+ Transportation_types.update_data(to1); 
+ tf_transportation_type.setText(""); 
+ret_data();
+        System.out.println("Successfully Updated");
+}
 
-    private void ret_data() {
-        Field.Combo region = (Field.Combo) tf_region;
-        String where = " where region_id = '" + region.getId() + "' order by province asc ";
-        List<Provinces.to_provinces> datas = Provinces.ret_data(where);
-        loadData_provinces(datas);
-    }
+ private void delete_transportation_types() { 
 
+ int row = tbl_transportation_types.getSelectedRow(); 
+ if (row < 0) { 
+ return;
+ } 
+ to_transportation_types to = (to_transportation_types) tbl_transportation_types_ALM.get(row); 
+ Transportation_types.delete_data(to); 
+ tf_transportation_type.setText(""); 
+ret_data();
+        System.out.println("Successfully Delete");
+}
+
+
+
+
+    
+    
 }

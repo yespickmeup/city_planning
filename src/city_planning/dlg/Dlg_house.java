@@ -195,9 +195,9 @@ public class Dlg_house extends javax.swing.JDialog {
         lbl_barangay1 = new javax.swing.JLabel();
         tf_barangay = new Field.Combo();
         lbl_purok1 = new javax.swing.JLabel();
-        tf_purok = new Field.Input();
+        tf_purok = new Field.Combo();
         jLabel23 = new javax.swing.JLabel();
-        tf_street = new Field.Input();
+        tf_street = new Field.Combo();
         jPanel3 = new javax.swing.JPanel();
         lbl_house_condition2 = new javax.swing.JLabel();
         lbl_no_rooms1 = new javax.swing.JLabel();
@@ -232,8 +232,8 @@ public class Dlg_house extends javax.swing.JDialog {
         jTextField119 = new Field.Input();
         tf_water_sources = new Field.Combo();
         jLabel208 = new javax.swing.JLabel();
-        tf_lighting = new Field.Combo();
         jLabel207 = new javax.swing.JLabel();
+        tf_lighting = new Field.Combo();
         jLabel206 = new javax.swing.JLabel();
         tf_cookings = new Field.Combo();
         jLabel212 = new javax.swing.JLabel();
@@ -295,12 +295,27 @@ public class Dlg_house extends javax.swing.JDialog {
         lbl_purok1.setText("Purok:");
 
         tf_purok.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_purok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_purokMouseClicked(evt);
+            }
+        });
+        tf_purok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_purokActionPerformed(evt);
+            }
+        });
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel23.setText("Street:");
 
         tf_street.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_street.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_streetMouseClicked(evt);
+            }
+        });
         tf_street.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tf_streetActionPerformed(evt);
@@ -373,6 +388,11 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_transportationsMouseClicked(evt);
             }
         });
+        tf_transportations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_transportationsActionPerformed(evt);
+            }
+        });
 
         lbl_facilities2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_facilities2.setText("[FACILITIES]");
@@ -381,6 +401,11 @@ public class Dlg_house extends javax.swing.JDialog {
         tf_buildings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_buildingsMouseClicked(evt);
+            }
+        });
+        tf_buildings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_buildingsActionPerformed(evt);
             }
         });
 
@@ -393,11 +418,21 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_disposalsMouseClicked(evt);
             }
         });
+        tf_disposals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_disposalsActionPerformed(evt);
+            }
+        });
 
         tf_kitchens.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tf_kitchens.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_kitchensMouseClicked(evt);
+            }
+        });
+        tf_kitchens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_kitchensActionPerformed(evt);
             }
         });
 
@@ -424,6 +459,11 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_toiletsMouseClicked(evt);
             }
         });
+        tf_toilets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_toiletsActionPerformed(evt);
+            }
+        });
 
         jLabel203.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel203.setText("Transportation Available:");
@@ -435,6 +475,11 @@ public class Dlg_house extends javax.swing.JDialog {
         tf_bathrooms.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_bathroomsMouseClicked(evt);
+            }
+        });
+        tf_bathrooms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_bathroomsActionPerformed(evt);
             }
         });
 
@@ -451,11 +496,21 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_roofsMouseClicked(evt);
             }
         });
+        tf_roofs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_roofsActionPerformed(evt);
+            }
+        });
 
         tf_walls.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tf_walls.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_wallsMouseClicked(evt);
+            }
+        });
+        tf_walls.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_wallsActionPerformed(evt);
             }
         });
 
@@ -477,11 +532,21 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_communicationsMouseClicked(evt);
             }
         });
+        tf_communications.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_communicationsActionPerformed(evt);
+            }
+        });
 
         tf_floors.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tf_floors.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_floorsMouseClicked(evt);
+            }
+        });
+        tf_floors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_floorsActionPerformed(evt);
             }
         });
 
@@ -618,9 +683,17 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_water_sourcesMouseClicked(evt);
             }
         });
+        tf_water_sources.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_water_sourcesActionPerformed(evt);
+            }
+        });
 
         jLabel208.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel208.setText("Main Source of Water for Drinking:");
+
+        jLabel207.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel207.setText("Lighting:");
 
         tf_lighting.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tf_lighting.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -628,9 +701,11 @@ public class Dlg_house extends javax.swing.JDialog {
                 tf_lightingMouseClicked(evt);
             }
         });
-
-        jLabel207.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel207.setText("Lighting:");
+        tf_lighting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_lightingActionPerformed(evt);
+            }
+        });
 
         jLabel206.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel206.setText("[FUEL MAINLY USED FOR]");
@@ -639,6 +714,11 @@ public class Dlg_house extends javax.swing.JDialog {
         tf_cookings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tf_cookingsMouseClicked(evt);
+            }
+        });
+        tf_cookings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_cookingsActionPerformed(evt);
             }
         });
 
@@ -867,7 +947,7 @@ public class Dlg_house extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tf_barangayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_barangayMouseClicked
-Initialize_house_field_types.init_barangays(tf_barangay);
+        Initialize_house_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_tf_barangayMouseClicked
 
     private void tf_house_numberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_house_numberActionPerformed
@@ -875,55 +955,55 @@ Initialize_house_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_tf_house_numberActionPerformed
 
     private void tf_disposalsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_disposalsMouseClicked
-
+        Initialize_house_field_types.init_solid(tf_disposals);
     }//GEN-LAST:event_tf_disposalsMouseClicked
 
     private void tf_buildingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_buildingsMouseClicked
-
+        Initialize_house_field_types.init_building(tf_buildings);
     }//GEN-LAST:event_tf_buildingsMouseClicked
 
     private void tf_kitchensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_kitchensMouseClicked
-
+        Initialize_house_field_types.init_kitchen(tf_kitchens);
     }//GEN-LAST:event_tf_kitchensMouseClicked
 
     private void tf_toiletsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_toiletsMouseClicked
-
+        Initialize_house_field_types.init_toilet(tf_toilets);
     }//GEN-LAST:event_tf_toiletsMouseClicked
 
     private void tf_bathroomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_bathroomsMouseClicked
-
+        Initialize_house_field_types.init_bathroom(tf_bathrooms);
     }//GEN-LAST:event_tf_bathroomsMouseClicked
 
     private void tf_transportationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_transportationsMouseClicked
-
+        Initialize_house_field_types.init_transportation_types(tf_transportations);
     }//GEN-LAST:event_tf_transportationsMouseClicked
 
     private void tf_floorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_floorsMouseClicked
-
+        Initialize_house_field_types.init_floor(tf_floors);
     }//GEN-LAST:event_tf_floorsMouseClicked
 
     private void tf_communicationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_communicationsMouseClicked
-
+        Initialize_house_field_types.init_communication(tf_communications);
     }//GEN-LAST:event_tf_communicationsMouseClicked
 
     private void tf_roofsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_roofsMouseClicked
-
+        Initialize_house_field_types.init_roof(tf_roofs);
     }//GEN-LAST:event_tf_roofsMouseClicked
 
     private void tf_wallsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_wallsMouseClicked
-
+        Initialize_house_field_types.init_wall(tf_walls);
     }//GEN-LAST:event_tf_wallsMouseClicked
 
     private void tf_water_sourcesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_water_sourcesMouseClicked
-
+        Initialize_house_field_types.init_water(tf_water_sources);
     }//GEN-LAST:event_tf_water_sourcesMouseClicked
 
     private void tf_lightingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_lightingMouseClicked
-
+        Initialize_house_field_types.init_cooking_lighting(tf_lighting);
     }//GEN-LAST:event_tf_lightingMouseClicked
 
     private void tf_cookingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_cookingsMouseClicked
-
+        Initialize_house_field_types.init_cooking_lighting(tf_cookings);
     }//GEN-LAST:event_tf_cookingsMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -931,7 +1011,7 @@ Initialize_house_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          disposed();
+        disposed();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -939,12 +1019,76 @@ Initialize_house_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tf_streetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_streetActionPerformed
-      
+        Initialize_house_field_types.init_streets(tf_street);
     }//GEN-LAST:event_tf_streetActionPerformed
 
     private void tf_barangayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangayActionPerformed
-            Initialize_house_field_types.init_barangays(tf_barangay);
+        Initialize_house_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_tf_barangayActionPerformed
+
+    private void tf_streetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_streetMouseClicked
+        Initialize_house_field_types.init_streets(tf_street);
+    }//GEN-LAST:event_tf_streetMouseClicked
+
+    private void tf_purokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_purokActionPerformed
+        Initialize_house_field_types.init_puroks(tf_purok);
+    }//GEN-LAST:event_tf_purokActionPerformed
+
+    private void tf_purokMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_purokMouseClicked
+        Initialize_house_field_types.init_puroks(tf_purok);
+    }//GEN-LAST:event_tf_purokMouseClicked
+
+    private void tf_roofsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_roofsActionPerformed
+        Initialize_house_field_types.init_roof(tf_roofs);
+    }//GEN-LAST:event_tf_roofsActionPerformed
+
+    private void tf_wallsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_wallsActionPerformed
+        Initialize_house_field_types.init_wall(tf_walls);
+    }//GEN-LAST:event_tf_wallsActionPerformed
+
+    private void tf_floorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_floorsActionPerformed
+        Initialize_house_field_types.init_floor(tf_floors);
+    }//GEN-LAST:event_tf_floorsActionPerformed
+
+    private void tf_communicationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_communicationsActionPerformed
+        Initialize_house_field_types.init_communication(tf_communications);
+    }//GEN-LAST:event_tf_communicationsActionPerformed
+
+    private void tf_buildingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_buildingsActionPerformed
+        Initialize_house_field_types.init_building(tf_buildings);
+    }//GEN-LAST:event_tf_buildingsActionPerformed
+
+    private void tf_toiletsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_toiletsActionPerformed
+        Initialize_house_field_types.init_toilet(tf_toilets);
+    }//GEN-LAST:event_tf_toiletsActionPerformed
+
+    private void tf_bathroomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_bathroomsActionPerformed
+        Initialize_house_field_types.init_bathroom(tf_bathrooms);
+    }//GEN-LAST:event_tf_bathroomsActionPerformed
+
+    private void tf_disposalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_disposalsActionPerformed
+        Initialize_house_field_types.init_solid(tf_disposals);
+    }//GEN-LAST:event_tf_disposalsActionPerformed
+
+    private void tf_kitchensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_kitchensActionPerformed
+        Initialize_house_field_types.init_kitchen(tf_kitchens);
+    }//GEN-LAST:event_tf_kitchensActionPerformed
+
+    private void tf_water_sourcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_water_sourcesActionPerformed
+        Initialize_house_field_types.init_water(tf_water_sources);
+    }//GEN-LAST:event_tf_water_sourcesActionPerformed
+
+    private void tf_lightingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_lightingActionPerformed
+        Initialize_house_field_types.init_cooking_lighting(tf_lighting);
+    }//GEN-LAST:event_tf_lightingActionPerformed
+
+    private void tf_cookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cookingsActionPerformed
+        Initialize_house_field_types.init_cooking_lighting(tf_cookings);
+    }//GEN-LAST:event_tf_cookingsActionPerformed
+
+    private void tf_transportationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_transportationsActionPerformed
+        Initialize_house_field_types.init_transportation_types(tf_transportations);
+    }//GEN-LAST:event_tf_transportationsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1031,7 +1175,7 @@ Initialize_house_field_types.init_barangays(tf_barangay);
     private void disposed() {
         this.dispose();
     }
-    
+
     private void init_key() {
         KeyMapping.mapKeyWIFW(getSurface(),
                               KeyEvent.VK_ESCAPE, new KeyAction() {
