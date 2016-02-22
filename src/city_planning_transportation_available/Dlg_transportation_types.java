@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package city_planning.cooking_lighting_types;
 
-import static city_planning.achievements.Achievements.add_data;
-import static city_planning.achievements.Achievements.delete_data;
-import static city_planning.achievements.Achievements.update_data;
-import city_planning.cooking_lighting_types.Cooking_lighting_types.to_cooking_lighting_types;
-import city_planning.templates.*;
+package city_planning_transportation_available;
+
+import static city_planning.initialize_fields.Initialize_search_record_field_types.ret_data;
+import city_planning_transportation_available.Transportation_types.to_transportation_types;
 import com.jgoodies.binding.adapter.AbstractTableAdapter;
 import com.jgoodies.binding.list.ArrayListModel;
-
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -29,63 +26,66 @@ import synsoftech.fields.Button;
 import synsoftech.fields.Field;
 import synsoftech.fields.Label;
 
+
+
+
+
 /**
  *
  * @author Guinness
  */
-public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
+public class Dlg_transportation_types extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Dlg_simple_crud
-     */
+    /** Creates new form Dlg_simple_crud */
     //<editor-fold defaultstate="collapsed" desc=" callback ">
     private Callback callback;
 
     public void setCallback(Callback callback) {
         this.callback = callback;
 
-    }
+
+}
 
     public static interface Callback {
 
-        void ok(CloseDialog closeDialog, OutputData data);
-    }
+    void ok(CloseDialog closeDialog, OutputData data);
+}
 
-    public static class InputData {
-    }
+public static class InputData {
+}
 
-    public static class OutputData {
-    }
+public static class OutputData {
+}
 //</editor-fold>
-
+ 
     //<editor-fold defaultstate="collapsed" desc=" Constructors ">
-    private Dlg_cooking_lightning_types(java.awt.Frame parent, boolean modal) {
+private Dlg_transportation_types(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setUndecorated(true);
         initComponents();
         myInit();
     }
 
-    private Dlg_cooking_lightning_types(java.awt.Dialog parent, boolean modal) {
+    private Dlg_transportation_types(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
-        setUndecorated(true);
+        setUndecorated(true);    
         initComponents();
         myInit();
     }
 
-    public Dlg_cooking_lightning_types() {
+    public Dlg_transportation_types() {
         super();
         setUndecorated(true);
         initComponents();
         myInit();
 
     }
-    private Dlg_cooking_lightning_types myRef;
+    private Dlg_transportation_types myRef;
 
-    public void setThisRef(Dlg_cooking_lightning_types myRef) {
+    private void setThisRef(Dlg_transportation_types myRef) {
         this.myRef = myRef;
     }
-    private static java.util.Map<Object, Dlg_cooking_lightning_types> dialogContainer = new java.util.HashMap();
+    private static java.util.Map<Object, Dlg_transportation_types> dialogContainer = new java.util.HashMap();
 
     public static void clearUpFirst(java.awt.Window parent) {
         if (dialogContainer.containsKey(parent)) {
@@ -93,7 +93,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         }
     }
 
-    public static Dlg_cooking_lightning_types create(java.awt.Window parent, boolean modal) {
+    public static Dlg_transportation_types create(java.awt.Window parent, boolean modal) {
 
         if (modal) {
             return create(parent, ModalityType.APPLICATION_MODAL);
@@ -103,14 +103,14 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
 
     }
 
-    public static Dlg_cooking_lightning_types create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
+    public static Dlg_transportation_types create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
 
         if (parent instanceof java.awt.Frame) {
 
-            Dlg_cooking_lightning_types dialog = dialogContainer.get(parent);
+            Dlg_transportation_types dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_cooking_lightning_types((java.awt.Frame) parent, false);
+                dialog = new Dlg_transportation_types((java.awt.Frame) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -124,10 +124,10 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         }
 
         if (parent instanceof java.awt.Dialog) {
-            Dlg_cooking_lightning_types dialog = dialogContainer.get(parent);
+            Dlg_transportation_types dialog = dialogContainer.get(parent);
 
             if (dialog == null) {
-                dialog = new Dlg_cooking_lightning_types((java.awt.Dialog) parent, false);
+                dialog = new Dlg_transportation_types((java.awt.Dialog) parent, false);
                 dialog.setModalityType(modalType);
                 dialogContainer.put(parent, dialog);
                 java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
@@ -154,7 +154,8 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
             throw new RuntimeException(e);
         }
 
-        Dlg_cooking_lightning_types dialog = Dlg_cooking_lightning_types.create(new javax.swing.JFrame(), true);
+
+        Dlg_transportation_types dialog = Dlg_transportation_types.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
 
     }
@@ -162,7 +163,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
 
     //<editor-fold defaultstate="collapsed" desc=" added ">
     @Override
-    public void setVisible(boolean visible) {
+        public void setVisible(boolean visible) {
         super.setVisible(visible);
         if (visible == true) {
             getContentPane().removeAll();
@@ -170,6 +171,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
             myInit();
             repaint();
         }
+
 
     }
 
@@ -183,10 +185,10 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
     }
     //</editor-fold>
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -194,13 +196,13 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_cooking_lighting_types = new javax.swing.JTable();
+        tbl_transportation_types = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tf_cooking_lighting_type = new Field.Input();
+        tf_transportation_type = new Field.Input();
         jTextField2 = new Field.Search();
         jLabel5 = new Label.Separator();
         jButton1 = new Button.Warning();
@@ -214,7 +216,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.setFocusable(false);
 
-        tbl_cooking_lighting_types.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_transportation_types.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -225,12 +227,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
 
             }
         ));
-        tbl_cooking_lighting_types.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_cooking_lighting_typesMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbl_cooking_lighting_types);
+        jScrollPane1.setViewportView(tbl_transportation_types);
 
         jLabel1.setText("No. of rows:");
 
@@ -243,9 +240,9 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         jLabel3.setText("Status:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Cooking:");
+        jLabel4.setText("Transportation Types");
 
-        tf_cooking_lighting_type.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_transportation_type.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -275,6 +272,11 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         });
 
         jButton4.setText("New");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -296,7 +298,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_cooking_lighting_type))
+                        .addComponent(tf_transportation_type))
                     .addComponent(jTextField2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -315,7 +317,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_cooking_lighting_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_transportation_type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -352,25 +354,26 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        add_cooking_lighting_types();
+        add_transportation_types();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        update_cooking_lighting_types();
+       update_transportation_types();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        delete_cooking_lighting_types();
+        delete_transportation_types();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void tbl_cooking_lighting_typesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_cooking_lighting_typesMouseClicked
-        select_cooking_lighting_types();
-    }//GEN-LAST:event_tbl_cooking_lighting_typesMouseClicked
 
     /**
      * @param args the command line arguments
      */
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -386,25 +389,26 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTable tbl_cooking_lighting_types;
-    private javax.swing.JTextField tf_cooking_lighting_type;
+    private javax.swing.JTable tbl_transportation_types;
+    private javax.swing.JTextField tf_transportation_type;
     // End of variables declaration//GEN-END:variables
+
+    
     private void myInit() {
         init_key();
-        init_tbl_cooking_lighting_types(tbl_cooking_lighting_types);
+        init_tbl_transportation_types(tbl_transportation_types);
         ret_data();
     }
 
-    private void ret_data() {
+     private void ret_data() {
         String where = "";
-        List<Cooking_lighting_types.to_cooking_lighting_types> datas = Cooking_lighting_types.ret_data(where);
-        loadData_cooking_lighting_types(datas);
+        List<Transportation_types.to_transportation_types> datas = Transportation_types.ret_data(where);
+        loadData_transportation_types(datas);
     }
-
-    public void do_pass() {
-
+    
+    public void do_pass(){
+ 
     }
-
     // <editor-fold defaultstate="collapsed" desc="Key">
     private void disposed() {
         this.dispose();
@@ -412,138 +416,136 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
 
     private void init_key() {
         KeyMapping.mapKeyWIFW(getSurface(),
-                              KeyEvent.VK_ESCAPE, new KeyAction() {
-
+                KeyEvent.VK_ESCAPE, new KeyAction() {
+            
             @Override
-            public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) {
 //                btn_0.doClick();
                 disposed();
             }
         });
     }
     // </editor-fold>
+    
+     //<editor-fold defaultstate="collapsed" desc=" transportation_types "> 
+public static ArrayListModel tbl_transportation_types_ALM; 
+public static Tbltransportation_typesModel tbl_transportation_types_M; 
 
-    //<editor-fold defaultstate="collapsed" desc=" cooking_lighting_types "> 
-    public static ArrayListModel tbl_cooking_lighting_types_ALM;
-    public static Tblcooking_lighting_typesModel tbl_cooking_lighting_types_M;
+public static void init_tbl_transportation_types(JTable tbl_transportation_types) {
+tbl_transportation_types_ALM= new ArrayListModel(); 
+tbl_transportation_types_M=  new Tbltransportation_typesModel(tbl_transportation_types_ALM); 
+tbl_transportation_types.setModel(tbl_transportation_types_M); 
+tbl_transportation_types.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION); 
+tbl_transportation_types.setRowHeight(25); 
+int[] tbl_widths_transportation_types= {100,100}; 
+for (int i = 0, n = tbl_widths_transportation_types.length; i < n; i++) { 
+if (i == 1) { 
+continue;
+}TableWidthUtilities.setColumnWidth(tbl_transportation_types, i, tbl_widths_transportation_types[i]);
+}
+Dimension d = tbl_transportation_types.getTableHeader(). getPreferredSize();
+d.height = 25;
+tbl_transportation_types.getTableHeader().setPreferredSize(d);
+tbl_transportation_types.getTableHeader().setFont(new java.awt.Font("Arial",0, 12)); 
+tbl_transportation_types.setRowHeight(25); 
+ tbl_transportation_types.setFont(new java.awt.Font("Arial", 0, 12)); 
+}
+public static void loadData_transportation_types(List<to_transportation_types> acc) { 
+tbl_transportation_types_ALM.clear(); 
+tbl_transportation_types_ALM.addAll(acc); 
+}
 
-    public static void init_tbl_cooking_lighting_types(JTable tbl_cooking_lighting_types) {
-        tbl_cooking_lighting_types_ALM = new ArrayListModel();
-        tbl_cooking_lighting_types_M = new Tblcooking_lighting_typesModel(tbl_cooking_lighting_types_ALM);
-        tbl_cooking_lighting_types.setModel(tbl_cooking_lighting_types_M);
-        tbl_cooking_lighting_types.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        tbl_cooking_lighting_types.setRowHeight(25);
-        int[] tbl_widths_cooking_lighting_types = {0, 100};
-        for (int i = 0, n = tbl_widths_cooking_lighting_types.length; i < n; i++) {
-            if (i == 1) {
-                continue;
-            }
-            TableWidthUtilities.setColumnWidth(tbl_cooking_lighting_types, i, tbl_widths_cooking_lighting_types[i]);
-        }
-        Dimension d = tbl_cooking_lighting_types.getTableHeader().getPreferredSize();
-        d.height = 25;
-        tbl_cooking_lighting_types.getTableHeader().setPreferredSize(d);
-        tbl_cooking_lighting_types.getTableHeader().setFont(new java.awt.Font("Arial", 0, 12));
-        tbl_cooking_lighting_types.setRowHeight(25);
-        tbl_cooking_lighting_types.setFont(new java.awt.Font("Arial", 0, 12));
-    }
+public static class Tbltransportation_typesModel extends AbstractTableAdapter { 
 
-    public static void loadData_cooking_lighting_types(List<to_cooking_lighting_types> acc) {
-        tbl_cooking_lighting_types_ALM.clear();
-        tbl_cooking_lighting_types_ALM.addAll(acc);
-    }
-
-    public static class Tblcooking_lighting_typesModel extends AbstractTableAdapter {
-
-        public static String[] COLUMNS = {
-            "Cooking Lightning Types", "Cooking Lightning Types"
-        };
-
-        public Tblcooking_lighting_typesModel(ListModel listmodel) {
-            super(listmodel, COLUMNS);
-        }
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            if (column == 100) {
-                return true;
-            }
-            return false;
-        }
-
-        @Override
-        public Class getColumnClass(int col) {
-            if (col == 1000) {
-                return Boolean.class;
-            }
-            return Object.class;
-        }
-
-        @Override
-        public Object getValueAt(int row, int col) {
-            to_cooking_lighting_types tt = (to_cooking_lighting_types) getRow(row);
-            switch (col) {
-                case 0:
-                    return tt.id;
-                default:
-                    return tt.cooking_lighting_type;
-            }
-        }
-    }
+public static String[] COLUMNS = {
+"id","transportation_type"
+ };
+public Tbltransportation_typesModel(ListModel listmodel) {
+ super(listmodel, COLUMNS); 
+}
+@Override 
+ public boolean isCellEditable(int row, int column) {
+if (column == 100) {
+  return true;
+ }
+ return false; 
+ } 
+@Override 
+ public Class getColumnClass(int col) {
+ if (col == 1000) {
+  return Boolean.class;
+ }
+ return Object.class;
+ } 
+@Override 
+ public Object getValueAt(int row, int col) {
+ to_transportation_types tt = (to_transportation_types) getRow(row);
+  switch (col) {
+ case 0:
+ return tt.id;default:
+ return tt.transportation_type;
+}
+}
+}
 //</editor-fold> 
 
-    private void add_cooking_lighting_types() {
+ private void add_transportation_types() { 
 
-        int id = 0;
-        String cooking_lighting_type = tf_cooking_lighting_type.getText();
+ int id=0; 
+ String transportation_type = tf_transportation_type.getText(); 
 
-        to_cooking_lighting_types to = new to_cooking_lighting_types(id, cooking_lighting_type);
-        Cooking_lighting_types.add_data(to);
-        tf_cooking_lighting_type.setText("");
-        ret_data();
+ to_transportation_types to = new to_transportation_types(id,transportation_type); 
+ Transportation_types.add_data(to); 
+ tf_transportation_type.setText(""); 
+ ret_data();
         System.out.println("Successfully Added");
-    }
 
-    private void select_cooking_lighting_types() {
+}
 
-        int row = tbl_cooking_lighting_types.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_cooking_lighting_types to = (to_cooking_lighting_types) tbl_cooking_lighting_types_ALM.get(row);
-        tf_cooking_lighting_type.setText(to.cooking_lighting_type);
+ private void select_transportation_types() { 
 
-    }
+ int row = tbl_transportation_types.getSelectedRow(); 
+ if (row < 0) { 
+ return;
+ } 
+ to_transportation_types to = (to_transportation_types) tbl_transportation_types_ALM.get(row); 
+ tf_transportation_type.setText(to.transportation_type); 
 
-    private void update_cooking_lighting_types() {
+}
 
-        int row = tbl_cooking_lighting_types.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_cooking_lighting_types to = (to_cooking_lighting_types) tbl_cooking_lighting_types_ALM.get(row);
-        int id = 0;
-        String cooking_lighting_type = tf_cooking_lighting_type.getText();
+ private void update_transportation_types() { 
 
-        to_cooking_lighting_types to1 = new to_cooking_lighting_types(id, cooking_lighting_type);
-        Cooking_lighting_types.update_data(to1);
-        tf_cooking_lighting_type.setText("");
-        ret_data();
-        System.out.println("Successfully Update");
-    }
+ int row = tbl_transportation_types.getSelectedRow(); 
+ if (row < 0) { 
+ return;
+ } 
+ to_transportation_types to = (to_transportation_types) tbl_transportation_types_ALM.get(row); 
+ int id=0; 
+ String transportation_type = tf_transportation_type.getText(); 
 
-    private void delete_cooking_lighting_types() {
+ to_transportation_types to1 = new to_transportation_types(id,transportation_type); 
+ Transportation_types.update_data(to1); 
+ tf_transportation_type.setText(""); 
+ret_data();
+        System.out.println("Successfully Updated");
+}
 
-        int row = tbl_cooking_lighting_types.getSelectedRow();
-        if (row < 0) {
-            return;
-        }
-        to_cooking_lighting_types to = (to_cooking_lighting_types) tbl_cooking_lighting_types_ALM.get(row);
-        Cooking_lighting_types.delete_data(to);
-        tf_cooking_lighting_type.setText("");
-        ret_data();
-        System.out.println("Successfully Deleted");
+ private void delete_transportation_types() { 
 
-    }
+ int row = tbl_transportation_types.getSelectedRow(); 
+ if (row < 0) { 
+ return;
+ } 
+ to_transportation_types to = (to_transportation_types) tbl_transportation_types_ALM.get(row); 
+ Transportation_types.delete_data(to); 
+ tf_transportation_type.setText(""); 
+ret_data();
+        System.out.println("Successfully Delete");
+}
 
+
+
+
+    
+    
 }
