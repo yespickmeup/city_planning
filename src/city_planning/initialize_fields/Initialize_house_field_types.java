@@ -72,7 +72,6 @@ public class Initialize_house_field_types {
         transportation = Transportation_types.ret_data("order by transportation_type asc");
         floor = Floor_types.ret_data("order by floor_type asc");
         communication = Communication_types.ret_data("order by communication_type asc");
-        
 
     }
 
@@ -209,6 +208,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Building_types ">
     public static void init_building(final JTextField tf) {
@@ -235,6 +235,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Toilet_types ">
     public static void init_toilet(final JTextField tf) {
@@ -261,6 +262,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Kitchen_types ">
     public static void init_kitchen(final JTextField tf) {
@@ -287,6 +289,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Water Sources ">
     public static void init_water(final JTextField tf) {
@@ -313,7 +316,8 @@ public class Initialize_house_field_types {
             }
         });
     }
-  //</editor-fold>    
+
+    //</editor-fold>    
     //<editor-fold defaultstate="collapsed" desc=" Disposal_Methods ">
     public static void init_solid(final JTextField tf) {
 
@@ -339,6 +343,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Cooking_Lighting_types ">
     public static void init_cooking_lighting(final JTextField tf) {
@@ -365,6 +370,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc=" Transportation_types ">
     public static void init_transportation_types(final JTextField tf) {
@@ -391,6 +397,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Bathroom_types ">
     public static void init_bathroom(final JTextField tf) {
@@ -417,6 +424,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Roof_types ">
     public static void init_roof(final JTextField tf) {
@@ -443,6 +451,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold> 
     //<editor-fold defaultstate="collapsed" desc=" Wall_types ">
     public static void init_wall(final JTextField tf) {
@@ -469,6 +478,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Floor_types ">
     public static void init_floor(final JTextField tf) {
@@ -495,6 +505,7 @@ public class Initialize_house_field_types {
             }
         });
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Communication/s_types ">
     public static void init_communication(final JTextField tf) {
