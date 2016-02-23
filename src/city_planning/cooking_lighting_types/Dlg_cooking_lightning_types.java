@@ -392,10 +392,10 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
     private void myInit() {
         init_key();
         init_tbl_cooking_lighting_types(tbl_cooking_lighting_types);
-        data_disbursements();
+        ret_data();
     }
 
-    private void data_disbursements() {
+    private void ret_data() {
         String where = "";
         List<Cooking_lighting_types.to_cooking_lighting_types> datas = Cooking_lighting_types.ret_data(where);
         loadData_cooking_lighting_types(datas);
@@ -500,7 +500,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         to_cooking_lighting_types to = new to_cooking_lighting_types(id, cooking_lighting_type);
         Cooking_lighting_types.add_data(to);
         tf_cooking_lighting_type.setText("");
-        data_disbursements();
+        ret_data();
         System.out.println("Successfully Added");
     }
 
@@ -528,7 +528,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         to_cooking_lighting_types to1 = new to_cooking_lighting_types(id, cooking_lighting_type);
         Cooking_lighting_types.update_data(to1);
         tf_cooking_lighting_type.setText("");
-        data_disbursements();
+        ret_data();
         System.out.println("Successfully Update");
     }
 
@@ -541,7 +541,7 @@ public class Dlg_cooking_lightning_types extends javax.swing.JDialog {
         to_cooking_lighting_types to = (to_cooking_lighting_types) tbl_cooking_lighting_types_ALM.get(row);
         Cooking_lighting_types.delete_data(to);
         tf_cooking_lighting_type.setText("");
-        data_disbursements();
+        ret_data();
         System.out.println("Successfully Deleted");
 
     }
