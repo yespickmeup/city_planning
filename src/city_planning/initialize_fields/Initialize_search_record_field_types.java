@@ -132,7 +132,7 @@ public class Initialize_search_record_field_types {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Cities ">
-    public static void init_cities(final JTextField tf) {
+    public static void init_cities(final JTextField tf, final JTextField tf_province, final JTextField tf_region) {
 
         Object[][] obj = null;
         int i = 0;
@@ -154,6 +154,7 @@ public class Initialize_search_record_field_types {
             for (Cities.to_cities to : in_search) {
                 obj[i][0] = " " + to.city;
                 i++;
+
             }
         }
 
@@ -168,8 +169,17 @@ public class Initialize_search_record_field_types {
             public void ok(TableRenderer.OutputData data) {
                 Cities.to_cities to = cities.get(data.selected_row);
                 Field.Combo field = (Field.Combo) tf;
+                Field.Combo field_province = (Field.Combo) tf_province;
+                Field.Combo field_region = (Field.Combo) tf_region;
+
                 field.setText(to.city);
                 field.setId("" + to.id);
+
+                field_province.setText(to.province);
+                field_province.setId(to.province_id);
+
+                field_region.setText(to.region);
+                field_region.setId(to.region_id);
 
             }
         });
@@ -177,13 +187,29 @@ public class Initialize_search_record_field_types {
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" Barangays ">
-    public static void init_barangays(final JTextField tf) {
+    public static void init_barangays(final JTextField tf, final JTextField tf_city, final JTextField tf_province, final JTextField tf_region) {
 
         Object[][] obj = new Object[barangays.size()][1];
         int i = 0;
-        for (Barangays.to_barangays to : barangays) {
-            obj[i][0] = " " + to.barangay;
-            i++;
+        if (tf.getText().isEmpty()) {
+            obj = new Object[barangays.size()][1];
+            for (Barangays.to_barangays to : barangays) {
+                obj[i][0] = " " + to.barangay;
+                i++;
+            }
+        } else {
+            List<Barangays.to_barangays> in_search = new ArrayList();
+            for (Barangays.to_barangays to : barangays) {
+                boolean contains = StringUtils.containsIgnoreCase(to.barangay, tf.getText());
+                if (contains) {
+                    in_search.add(to);
+                }
+            }
+            obj = new Object[in_search.size()][1];
+            for (Barangays.to_barangays to : in_search) {
+                obj[i][0] = " " + to.barangay;
+                i++;
+            }
         }
         JLabel[] labels = {};
         int[] tbl_widths_customers = {tf.getWidth()};
@@ -196,21 +222,43 @@ public class Initialize_search_record_field_types {
             public void ok(TableRenderer.OutputData data) {
                 Barangays.to_barangays to = barangays.get(data.selected_row);
                 Field.Combo field = (Field.Combo) tf;
+                Field.Combo field_city = (Field.Combo) tf_city;
+                Field.Combo field_province = (Field.Combo) tf_province;
+                Field.Combo field_region = (Field.Combo) tf_region;
+
                 field.setText(to.barangay);
                 field.setId("" + to.id);
+
+              
             }
         });
     }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc=" puroks "> 
-    public static void init_puroks(final JTextField tf) {
+    public static void init_puroks(final JTextField tf, final JTextField tf_barangay, final JTextField tf_city, final JTextField tf_province, final JTextField tf_region) {
 
         Object[][] obj = new Object[puroks.size()][1];
         int i = 0;
-        for (Puroks.to_puroks to : puroks) {
-            obj[i][0] = " " + to.purok;
-            i++;
+        if (tf.getText().isEmpty()) {
+            obj = new Object[puroks.size()][1];
+            for (Puroks.to_puroks to : puroks) {
+                obj[i][0] = " " + to.purok;
+                i++;
+            }
+        } else {
+            List<Puroks.to_puroks> in_search = new ArrayList();
+            for (Puroks.to_puroks to : puroks) {
+                boolean contains = StringUtils.containsIgnoreCase(to.purok, tf.getText());
+                if (contains) {
+                    in_search.add(to);
+                }
+            }
+            obj = new Object[in_search.size()][1];
+            for (Puroks.to_puroks to : in_search) {
+                obj[i][0] = " " + to.purok;
+                i++;
+            }
         }
         JLabel[] labels = {};
         int[] tbl_widths_customers = {tf.getWidth()};
@@ -223,8 +271,18 @@ public class Initialize_search_record_field_types {
             public void ok(TableRenderer.OutputData data) {
                 Puroks.to_puroks to = puroks.get(data.selected_row);
                 Field.Combo field = (Field.Combo) tf;
+                Field.Combo field_barangay = (Field.Combo) tf_barangay;
+                Field.Combo field_city = (Field.Combo) tf_city;
+                Field.Combo field_province = (Field.Combo) tf_province;
+                Field.Combo field_region = (Field.Combo) tf_region;
+
                 field.setText(to.purok);
                 field.setId("" + to.id);
+
+                field_city.setText(to.barangay);
+                field_city.setId(to.barangay_id);
+
+              
             }
         });
     }
