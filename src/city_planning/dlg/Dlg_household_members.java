@@ -373,9 +373,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
         jTextField144 = new Field.Input();
         jLabel258 = new javax.swing.JLabel();
         jTextField145 = new Field.Input();
-        jButton9 = new Button.Primary();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTable11 = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         cb_status_unemployed2 = new javax.swing.JCheckBox();
@@ -389,11 +386,8 @@ public class Dlg_household_members extends javax.swing.JDialog {
         jLabel260 = new javax.swing.JLabel();
         jLabel261 = new javax.swing.JLabel();
         jLabel262 = new javax.swing.JLabel();
-        jLabel263 = new javax.swing.JLabel();
-        jCheckBox247 = new javax.swing.JCheckBox();
         jLabel264 = new javax.swing.JLabel();
         jTextField149 = new Field.Input();
-        jCheckBox248 = new javax.swing.JCheckBox();
         jLabel265 = new javax.swing.JLabel();
         jTextField150 = new Field.Input();
         jTextField151 = new Field.Input();
@@ -2016,29 +2010,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
             }
         });
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/add13.png"))); // NOI18N
-        jButton9.setText("Add Work Experience");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jTable11.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane11.setViewportView(jTable11);
-
         jLabel21.setText("No. of rows:");
 
         jLabel22.setText("0");
@@ -2065,7 +2036,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_facilities15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
                                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2083,34 +2053,32 @@ public class Dlg_household_members extends javax.swing.JDialog {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                            .addComponent(cb_status_unemployed1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jRadioButton5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jRadioButton6)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                            .addComponent(cb_status_employed1)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(cb_employment_worker1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cb_employment_employee1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cb_employment_self_employed1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cb_employment_director1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(cb_employment_office_holder1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(cb_employment_ofw1))
-                                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                            .addGap(105, 105, 105)
-                                            .addComponent(jRadioButton8)))
-                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel15Layout.createSequentialGroup()
+                                        .addComponent(cb_status_unemployed1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jRadioButton5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jRadioButton6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel15Layout.createSequentialGroup()
+                                        .addComponent(cb_status_employed1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cb_employment_worker1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cb_employment_employee1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cb_employment_self_employed1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cb_employment_director1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cb_employment_office_holder1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cb_employment_ofw1))
+                                    .addGroup(jPanel15Layout.createSequentialGroup()
+                                        .addGap(105, 105, 105)
+                                        .addComponent(jRadioButton8)))))
                         .addGap(446, 446, 446))))
         );
         jPanel15Layout.setVerticalGroup(
@@ -2148,12 +2116,8 @@ public class Dlg_household_members extends javax.swing.JDialog {
                     .addComponent(jTextField145, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel258, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_status_unemployed2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_status_unemployed2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel22)))
@@ -2197,12 +2161,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
         jLabel262.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel262.setText("Type of Business:");
 
-        jLabel263.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel263.setText("Homebased Business? ");
-
-        jCheckBox247.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCheckBox247.setText("yes");
-
         jLabel264.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel264.setText("Financial Assistant Amount:");
 
@@ -2210,14 +2168,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
         jTextField149.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField149ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox248.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCheckBox248.setText("no");
-        jCheckBox248.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox248ActionPerformed(evt);
             }
         });
 
@@ -2270,12 +2220,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
                         .addComponent(jTextField151))
                     .addComponent(jLabel264)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel263)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox247, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox248))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel259, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel260, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2314,12 +2258,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField142, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel262, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel263, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox247, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox248, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel264, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(jTextField149, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2335,7 +2274,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField152, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel267, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -3193,10 +3132,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField145ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void cb_status_unemployed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_status_unemployed2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_status_unemployed2ActionPerformed
@@ -3208,10 +3143,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private void jTextField149ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField149ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField149ActionPerformed
-
-    private void jCheckBox248ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox248ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox248ActionPerformed
 
     private void jTextField150ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField150ActionPerformed
         // TODO add your handling code here:
@@ -3381,7 +3312,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox192;
     private javax.swing.JCheckBox jCheckBox193;
     private javax.swing.JCheckBox jCheckBox194;
@@ -3436,8 +3366,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private javax.swing.JCheckBox jCheckBox243;
     private javax.swing.JCheckBox jCheckBox244;
     private javax.swing.JCheckBox jCheckBox245;
-    private javax.swing.JCheckBox jCheckBox247;
-    private javax.swing.JCheckBox jCheckBox248;
     private javax.swing.JCheckBox jCheckBox28;
     private javax.swing.JCheckBox jCheckBox83;
     private javax.swing.JCheckBox jCheckBox84;
@@ -3523,7 +3451,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel260;
     private javax.swing.JLabel jLabel261;
     private javax.swing.JLabel jLabel262;
-    private javax.swing.JLabel jLabel263;
     private javax.swing.JLabel jLabel264;
     private javax.swing.JLabel jLabel265;
     private javax.swing.JLabel jLabel266;
@@ -3561,7 +3488,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -3571,7 +3497,6 @@ public class Dlg_household_members extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable10;
-    private javax.swing.JTable jTable11;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;

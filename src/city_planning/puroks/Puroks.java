@@ -151,13 +151,15 @@ public class Puroks {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",province_id"
-                    + ",province"
-                    + ",city_id"
-                    + ",city"
+                    + ",purok"
                     + ",barangay_id"
                     + ",barangay"
-                    + ",purok"
+                    + ",city_id"
+                    + ",city"
+                    + ",province_id"
+                    + ",province"
+                    + ",region_id"
+                    + ",region"
                     + ",street"
                     + " from puroks"
                     + " " + where;
@@ -166,19 +168,18 @@ public class Puroks {
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                int province_id = rs.getInt(2);
-                String province = rs.getString(3);
-                int city_id = rs.getInt(4);
-                String city = rs.getString(5);
-                String barangay_id = rs.getString(6);
-                String barangay = rs.getString(7);
-                String purok = rs.getString(8);
-                String street = rs.getString(9);
+                String purok = rs.getString(2);
+                int barangay_id = rs.getInt(3);
+                String barangay = rs.getString(4);
+                int city_id = rs.getInt(5);
+                String city = rs.getString(6);
+                int province_id = rs.getInt(7);
+                String province = rs.getString(8);
+                int region_id = rs.getInt(9);
+                String region = rs.getString(10);
+                String street = rs.getString(11);
 
-      
-
-                to_puroks to = new to_puroks(street, id, purok_id, purok, barangay_id, barangay, city_id, city, province_id, province, region_id, region);
-                
+                to_puroks to = new to_puroks(id, province_id, province, city_id, city, barangay, barangay, purok, street);
                 datas.add(to);
             }
             return datas;
