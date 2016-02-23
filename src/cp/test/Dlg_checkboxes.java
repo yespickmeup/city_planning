@@ -312,7 +312,6 @@ public class Dlg_checkboxes extends javax.swing.JDialog {
                         }
                         i++;
                     }
-
                 }
                 jTextField1.setText(values);
             }
