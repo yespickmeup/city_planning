@@ -24,32 +24,26 @@ public class Puroks {
 
     public static class to_puroks {
 
-        public final String street;
         public final int id;
-        public final String purok_id;
-        public final String purok;
+        public final int province_id;
+        public final String province;
+        public final int city_id;
+        public final String city;
         public final String barangay_id;
         public final String barangay;
-        public final String city_id;
-        public final String city;
-        public final String province_id;
-        public final String province;
-        public final String region;
-        public final String region_id;
+        public final String purok;
+        public final String street;
 
-        public to_puroks(String street, int id, String purok_id, String purok, String barangay_id, String barangay, String city_id, String city, String province_id, String province, String region_id, String region) {
-            this.street = street;
+        public to_puroks(int id, int province_id, String province, int city_id, String city, String barangay_id, String barangay, String purok, String street) {
             this.id = id;
-            this.purok_id = purok_id;
-            this.purok = purok;
-            this.barangay_id = barangay_id;
-            this.barangay = barangay;
-            this.city_id = city_id;
-            this.city = city;
             this.province_id = province_id;
             this.province = province;
-            this.region = region;
-            this.region_id = region_id;
+            this.city_id = city_id;
+            this.city = city;
+            this.barangay_id = barangay_id;
+            this.barangay = barangay;
+            this.purok = purok;
+            this.street = street;
         }
     }
 
@@ -77,11 +71,9 @@ public class Puroks {
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("region_id", to_puroks.region_id)
-                    .setString("region", to_puroks.region)
-                    .setString("province_id", to_puroks.province_id)
+                    .setNumber("province_id", to_puroks.province_id)
                     .setString("province", to_puroks.province)
-                    .setString("city_id", to_puroks.city_id)
+                    .setNumber("city_id", to_puroks.city_id)
                     .setString("city", to_puroks.city)
                     .setString("barangay_id", to_puroks.barangay_id)
                     .setString("barangay", to_puroks.barangay)
@@ -115,11 +107,9 @@ public class Puroks {
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("region_id", to_puroks.region_id)
-                    .setString("region", to_puroks.region)
-                    .setString("province_id", to_puroks.province_id)
+                    .setNumber("province_id", to_puroks.province_id)
                     .setString("province", to_puroks.province)
-                    .setString("city_id", to_puroks.city_id)
+                    .setNumber("city_id", to_puroks.city_id)
                     .setString("city", to_puroks.city)
                     .setString("barangay_id", to_puroks.barangay_id)
                     .setString("barangay", to_puroks.barangay)
@@ -175,18 +165,15 @@ public class Puroks {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
-                String street = rs.getString(1);
-                int id = rs.getInt(2);
-                String purok_id = rs.getString(3);
-                String purok = rs.getString(4);
-                String barangay_id = rs.getString(5);
-                String barangay = rs.getString(6);
-                String city_id = rs.getString(7);
-                String city = rs.getString(8);
-                String province_id = rs.getString(9);
-                String province = rs.getString(10);
-                String region_id = rs.getString(11);
-                String region = rs.getString(12);
+                int id = rs.getInt(1);
+                int province_id = rs.getInt(2);
+                String province = rs.getString(3);
+                int city_id = rs.getInt(4);
+                String city = rs.getString(5);
+                String barangay_id = rs.getString(6);
+                String barangay = rs.getString(7);
+                String purok = rs.getString(8);
+                String street = rs.getString(9);
 
       
 

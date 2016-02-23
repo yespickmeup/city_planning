@@ -67,7 +67,7 @@ public class Items {
             public void keyTyped(KeyEvent ke) {
 
                 System.out.println("mouseevent");
-                String where = " where basic_needs like '" + selected.getText() + "%'  order by basic_needs asc";
+                String where = " where basic_needs like '" + selected.getText() + "%' AND city_id='108' order by basic_needs asc";
                 item_list.clear();
                 item_list = S1_basic_needs.ret_data(where);
                 Object[][] obj = new Object[item_list.size()][1];

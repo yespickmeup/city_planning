@@ -210,7 +210,7 @@ public class Dlg_search_record extends javax.swing.JDialog {
         lbl_barangay5 = new javax.swing.JLabel();
         lbl_barangay6 = new javax.swing.JLabel();
         jCheckBox5 = new javax.swing.JCheckBox();
-        tf_purok = new Field.Combo();
+        tf_barangays4 = new Field.Combo();
         lbl_barangay7 = new javax.swing.JLabel();
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
@@ -338,15 +338,15 @@ public class Dlg_search_record extends javax.swing.JDialog {
         jCheckBox5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCheckBox5.setText("All");
 
-        tf_purok.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tf_purok.addMouseListener(new java.awt.event.MouseAdapter() {
+        tf_barangays4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_barangays4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tf_purokMouseClicked(evt);
+                tf_barangays4MouseClicked(evt);
             }
         });
-        tf_purok.addActionListener(new java.awt.event.ActionListener() {
+        tf_barangays4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_purokActionPerformed(evt);
+                tf_barangays4ActionPerformed(evt);
             }
         });
 
@@ -450,7 +450,7 @@ public class Dlg_search_record extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_purok)))))
+                                .addComponent(tf_barangays4)))))
                 .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
@@ -477,7 +477,7 @@ public class Dlg_search_record extends javax.swing.JDialog {
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_barangay6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_purok, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_barangays4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox5))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -528,16 +528,16 @@ public class Dlg_search_record extends javax.swing.JDialog {
     }//GEN-LAST:event_tf_provinceMouseClicked
 
     private void tf_cityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_cityMouseClicked
-        Initialize_search_record_field_types.init_cities(tf_city, tf_province, tf_region);
+        Initialize_search_record_field_types.init_cities(tf_city);
     }//GEN-LAST:event_tf_cityMouseClicked
 
     private void tf_barangayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_barangayMouseClicked
-        Initialize_search_record_field_types.init_barangays(tf_barangay, tf_city, tf_province, tf_region);
+        Initialize_search_record_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_tf_barangayMouseClicked
 
-    private void tf_purokMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_purokMouseClicked
-        Initialize_search_record_field_types.init_puroks(tf_purok, tf_barangay, tf_city, tf_province, tf_region);
-    }//GEN-LAST:event_tf_purokMouseClicked
+    private void tf_barangays4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_barangays4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_barangays4MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Initialize_search_record_field_types.ret_data();
@@ -552,20 +552,20 @@ public class Dlg_search_record extends javax.swing.JDialog {
     }//GEN-LAST:event_tf_provinceActionPerformed
 
     private void tf_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cityActionPerformed
-        Initialize_search_record_field_types.init_cities(tf_city, tf_province, tf_region);
+        Initialize_search_record_field_types.init_cities(tf_city);
     }//GEN-LAST:event_tf_cityActionPerformed
 
     private void tf_barangayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangayActionPerformed
-        Initialize_search_record_field_types.init_barangays(tf_barangay, tf_city, tf_province, tf_region);
+        Initialize_search_record_field_types.init_barangays(tf_barangay);
     }//GEN-LAST:event_tf_barangayActionPerformed
 
     private void tf_regionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_regionActionPerformed
         Initialize_search_record_field_types.init_regions(tf_region);
     }//GEN-LAST:event_tf_regionActionPerformed
 
-    private void tf_purokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_purokActionPerformed
-        Initialize_search_record_field_types.init_puroks(tf_purok, tf_barangay, tf_city, tf_province, tf_region);
-    }//GEN-LAST:event_tf_purokActionPerformed
+    private void tf_barangays4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_barangays4ActionPerformed
+        Initialize_search_record_field_types.init_puroks(tf_barangays4);
+    }//GEN-LAST:event_tf_barangays4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -603,9 +603,9 @@ public class Dlg_search_record extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_barangay6;
     private javax.swing.JLabel lbl_barangay7;
     private javax.swing.JTextField tf_barangay;
+    private javax.swing.JTextField tf_barangays4;
     private javax.swing.JTextField tf_city;
     private javax.swing.JTextField tf_province;
-    private javax.swing.JTextField tf_purok;
     private javax.swing.JTextField tf_region;
     // End of variables declaration//GEN-END:variables
 

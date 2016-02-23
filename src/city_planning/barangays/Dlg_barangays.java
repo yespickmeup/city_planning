@@ -151,7 +151,6 @@ public class Dlg_barangays extends javax.swing.JDialog {
 
         Dlg_barangays dialog = Dlg_barangays.create(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-        System.out.println("paSA");
 
     }
     //</editor-fold>

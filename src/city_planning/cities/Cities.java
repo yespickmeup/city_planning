@@ -25,19 +25,15 @@ public class Cities {
     public static class to_cities {
 
         public final int id;
-        public final String city;
-        public final String province_id;
+        public final int province_id;
         public final String province;
-        public final String region;
-        public final String region_id;
+        public final String city;
 
-        public to_cities(int id, String province_id, String province, String city, String region, String region_id) {
+        public to_cities(int id, int province_id, String province, String city) {
             this.id = id;
             this.province_id = province_id;
             this.province = province;
             this.city = city;
-            this.region = region;
-            this.region_id = region_id;
         }
     }
 
@@ -52,14 +48,10 @@ public class Cities {
                     + ":province_id"
                     + ",:province"
                     + ",:city"
-                    + "region"
-                    + ",region_id"
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("province_id", to_cities.region_id)
-                    .setString("province", to_cities.region)
-                    .setString("province_id", to_cities.province_id)
+                    .setNumber("province_id", to_cities.province_id)
                     .setString("province", to_cities.province)
                     .setString("city", to_cities.city)
                     .ok();
@@ -81,15 +73,11 @@ public class Cities {
                     + "province_id= :province_id "
                     + ",province= :province "
                     + ",city= :city "
-                    + " region= :region "
-                    + ",region_id= :region_id "
                     + " where id='" + to_cities.id + "' "
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setString("province_id", to_cities.region_id)
-                    .setString("province", to_cities.region)
-                    .setString("province_id", to_cities.province_id)
+                    .setNumber("province_id", to_cities.province_id)
                     .setString("province", to_cities.province)
                     .setString("city", to_cities.city)
                     .ok();
@@ -128,8 +116,6 @@ public class Cities {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",region"
-                    + ",region_id"
                     + ",province_id"
                     + ",province"
                     + ",city"
@@ -140,13 +126,11 @@ public class Cities {
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                String region = rs.getString(2);
-                String region_id = rs.getString(3);
-                String province_id = rs.getString(4);
-                String province = rs.getString(5);
-                String city = rs.getString(6);
+                int province_id = rs.getInt(2);
+                String province = rs.getString(3);
+                String city = rs.getString(4);
 
-                to_cities to = new to_cities(id, region, region_id, province_id, province, city);
+                to_cities to = new to_cities(id, province_id, province, city);
                 datas.add(to);
             }
             return datas;

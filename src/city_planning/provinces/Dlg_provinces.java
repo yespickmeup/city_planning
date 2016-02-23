@@ -242,7 +242,7 @@ public class Dlg_provinces extends javax.swing.JDialog {
         jLabel3.setText("Status:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Province:");
+        jLabel4.setText("Name:");
 
         tf_province.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
