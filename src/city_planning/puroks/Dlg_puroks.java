@@ -789,7 +789,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
         String purok = tf_purok.getText();
         String street = tf_street.getText();
 
-        to_puroks to = new to_puroks(id, province_id, province, city_id, city, barangay_id, barangay, purok, street);
+        to_puroks to = new to_puroks(street, id, purok, purok, barangay_id, barangay, city, city, province, province, barangay_id, purok);
         Puroks.add_data(to);
 
         tf_province.setText("");
@@ -845,7 +845,7 @@ public class Dlg_puroks extends javax.swing.JDialog {
         String purok = tf_purok.getText();
         String street = tf_street.getText();
 
-        to_puroks to1 = new to_puroks(id, province_id, province, city_id, city, barangay_id, barangay, purok, street);
+        to_puroks to1 = new to_puroks(street, id, purok, purok, barangay_id, barangay, city, city, province, province, barangay_id, purok);
         Puroks.update_data(to1);
 
         tf_province.setText("");

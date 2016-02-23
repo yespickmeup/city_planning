@@ -190,7 +190,8 @@ public class Puroks {
 
       
 
-                to_puroks to = new to_puroks(String street, int id, String purok_id, String purok, String barangay_id, String barangay, String city_id, String city, String province_id, String province, String region_id, String region);
+                to_puroks to = new to_puroks(street, id, purok_id, purok, barangay_id, barangay, city_id, city, province_id, province, region_id, region);
+                
                 datas.add(to);
             }
             return datas;
