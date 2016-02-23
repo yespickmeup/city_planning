@@ -25,19 +25,23 @@ public class Barangays {
     public static class to_barangays {
 
         public final int id;
-        public final int province_id;
-        public final String province;
-        public final int city_id;
-        public final String city;
         public final String barangay;
+        public final String city_id;
+        public final String city;
+        public final String province_id;
+        public final String province;
+        public final String region;
+        public final String region_id;
 
-        public to_barangays(int id, int province_id, String province, int city_id, String city, String barangay) {
+        public to_barangays(int id, String province_id, String province, String city_id, String city, String barangay, String region, String region_id) {
             this.id = id;
-            this.province_id = province_id;
-            this.province = province;
+            this.barangay = barangay;
             this.city_id = city_id;
             this.city = city;
-            this.barangay = barangay;
+            this.province_id = province_id;
+            this.province = province;
+            this.region = region;
+            this.region_id = region_id;
         }
     }
 
@@ -59,9 +63,11 @@ public class Barangays {
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setNumber("province_id", to_barangays.province_id)
+                    .setString("province_id", to_barangays.region_id)
+                    .setString("province", to_barangays.region)
+                    .setString("province_id", to_barangays.province_id)
                     .setString("province", to_barangays.province)
-                    .setNumber("city_id", to_barangays.city_id)
+                    .setString("city_id", to_barangays.city_id)
                     .setString("city", to_barangays.city)
                     .setString("barangay", to_barangays.barangay)
                     .ok();
@@ -80,6 +86,8 @@ public class Barangays {
         try {
             Connection conn = MyConnection.connect();
             String s0 = "update barangays set "
+                    + " region= :region "
+                    + ",region_id= :region_id "
                     + "province_id= :province_id "
                     + ",province= :province "
                     + ",city_id= :city_id "
@@ -89,9 +97,11 @@ public class Barangays {
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
-                    .setNumber("province_id", to_barangays.province_id)
+                    .setString("province_id", to_barangays.region_id)
+                    .setString("province", to_barangays.region)
+                    .setString("province_id", to_barangays.province_id)
                     .setString("province", to_barangays.province)
-                    .setNumber("city_id", to_barangays.city_id)
+                    .setString("city_id", to_barangays.city_id)
                     .setString("city", to_barangays.city)
                     .setString("barangay", to_barangays.barangay)
                     .ok();
@@ -130,6 +140,8 @@ public class Barangays {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
+                    + ",region"
+                    + ",region_id"
                     + ",province_id"
                     + ",province"
                     + ",city_id"
@@ -142,13 +154,15 @@ public class Barangays {
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                int province_id = rs.getInt(2);
-                String province = rs.getString(3);
-                int city_id = rs.getInt(4);
-                String city = rs.getString(5);
-                String barangay = rs.getString(6);
+                String region = rs.getString(2);
+                String region_id = rs.getString(3);
+                String province_id = rs.getString(4);
+                String province = rs.getString(5);
+                String city_id = rs.getString(6);
+                String city = rs.getString(7);
+                String barangay = rs.getString(8);
 
-                to_barangays to = new to_barangays(id, province_id, province, city_id, city, barangay);
+                to_barangays to = new to_barangays(id, region, region_id, province_id, province, city_id, city, barangay);
                 datas.add(to);
             }
             return datas;
