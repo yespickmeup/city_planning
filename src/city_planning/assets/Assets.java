@@ -123,4 +123,26 @@ public class Assets {
         }
     }
 
+        public static void save_data(to_assets to_assets) {
+        try {
+            Connection conn = MyConnection.connect();
+            String s0 = "insert into assets("
+                    + "asset"
+                    + ")values("
+                    + ":asset"
+                    + ")";
+
+            s0 = SqlStringUtil.parse(s0)
+                    .setString("asset", to_assets.asset)
+                    .ok();
+
+            PreparedStatement stmt = conn.prepareStatement(s0);
+            stmt.execute();
+            Lg.s(Assets.class, "Successfully Added");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            MyConnection.close();
+        }
+    }
 }
