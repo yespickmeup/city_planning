@@ -167,5 +167,43 @@ public class Household_consumptions {
             MyConnection.close();
         }
     }
+    public static void save_data(to_household_consumptions to_household_consumptions) {
+        try {
+            Connection conn = MyConnection.connect();
+            String s0 = "insert into household_consumptions("
+                    + "house_no"
+                    + ",household_no"
+                    + ",basic_need"
+                    + ",amount"
+                    + ",consumption_date"
+                    + ",date_added"
+                    + ")values("
+                    + ":house_no"
+                    + ",:household_no"
+                    + ",:basic_need"
+                    + ",:amount"
+                    + ",:consumption_date"
+                    + ",:date_added"
+                    + ")";
 
+            s0 = SqlStringUtil.parse(s0)
+                    .setString("house_no", to_household_consumptions.house_no)
+                    .setNumber("household_no", to_household_consumptions.household_no)
+                    .setString("basic_need", to_household_consumptions.basic_need)
+                    .setNumber("amount", to_household_consumptions.amount)
+                    .setString("consumption_date", to_household_consumptions.consumption_date)
+                    .setString("date_added", to_household_consumptions.date_added)
+                    .ok();
+
+            PreparedStatement stmt = conn.prepareStatement(s0);
+            stmt.execute();
+            Lg.s(Household_consumptions.class, "Successfully Added");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            MyConnection.close();
+        }
+    }
+    
+    
 }

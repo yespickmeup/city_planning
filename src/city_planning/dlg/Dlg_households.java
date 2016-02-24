@@ -200,14 +200,14 @@ public class Dlg_households extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         lbl_facilities2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_house = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
-        jTextField19 = new Field.Input();
+        tf_Quantity = new Field.Input();
         jLabel51 = new javax.swing.JLabel();
         jTextField20 = new Field.Input();
-        jButton1 = new Button.Primary();
+        tf_assets = new Button.Primary();
         jPanel4 = new javax.swing.JPanel();
         lbl_facilities3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -217,7 +217,7 @@ public class Dlg_households extends javax.swing.JDialog {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jButton2 = new Button.Primary();
-        jTextField23 = new Field.Input();
+        tf_Items = new Field.Input();
         jTextField24 = new Field.Input();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
@@ -449,7 +449,7 @@ public class Dlg_households extends javax.swing.JDialog {
         lbl_facilities2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_facilities2.setText("[ASSETS]");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_house.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"2", "Cars", "Update", "Delete"},
                 {"4", "Bike", "Update", "Delete"},
@@ -463,7 +463,7 @@ public class Dlg_households extends javax.swing.JDialog {
                 "Qty", "Asset", "", ""
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_house);
 
         jLabel1.setText("No. of rows:");
 
@@ -472,10 +472,10 @@ public class Dlg_households extends javax.swing.JDialog {
         jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel50.setText("Quantity:");
 
-        jTextField19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
+        tf_Quantity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_Quantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
+                tf_QuantityActionPerformed(evt);
             }
         });
 
@@ -489,8 +489,13 @@ public class Dlg_households extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/add13.png"))); // NOI18N
-        jButton1.setText("Add Asset");
+        tf_assets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/add13.png"))); // NOI18N
+        tf_assets.setText("Add Asset");
+        tf_assets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_assetsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -503,7 +508,7 @@ public class Dlg_households extends javax.swing.JDialog {
                     .addComponent(lbl_facilities2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_assets, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -516,7 +521,7 @@ public class Dlg_households extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField20)
-                            .addComponent(jTextField19))))
+                            .addComponent(tf_Quantity))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -526,14 +531,14 @@ public class Dlg_households extends javax.swing.JDialog {
                 .addComponent(lbl_facilities2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_assets, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -576,10 +581,10 @@ public class Dlg_households extends javax.swing.JDialog {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/add13.png"))); // NOI18N
         jButton2.setText("Add Consumption");
 
-        jTextField23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField23.addActionListener(new java.awt.event.ActionListener() {
+        tf_Items.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_Items.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField23ActionPerformed(evt);
+                tf_ItemsActionPerformed(evt);
             }
         });
 
@@ -617,7 +622,7 @@ public class Dlg_households extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField24)
-                            .addComponent(jTextField23)))
+                            .addComponent(tf_Items)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -645,7 +650,7 @@ public class Dlg_households extends javax.swing.JDialog {
                     .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_Items, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1352,17 +1357,17 @@ public class Dlg_households extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void tf_QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_QuantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
+    }//GEN-LAST:event_tf_QuantityActionPerformed
 
     private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField20ActionPerformed
 
-    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
+    private void tf_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ItemsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField23ActionPerformed
+    }//GEN-LAST:event_tf_ItemsActionPerformed
 
     private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
         // TODO add your handling code here:
@@ -1392,13 +1397,16 @@ public class Dlg_households extends javax.swing.JDialog {
         
     }//GEN-LAST:event_jTextField41ActionPerformed
 
+    private void tf_assetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_assetsActionPerformed
+       
+    }//GEN-LAST:event_tf_assetsActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1478,16 +1486,13 @@ public class Dlg_households extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
@@ -1526,6 +1531,10 @@ public class Dlg_households extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_facilities4;
     private javax.swing.JLabel lbl_facilities5;
     private javax.swing.JLabel lbl_facilities6;
+    private javax.swing.JTable tbl_house;
+    private javax.swing.JTextField tf_Items;
+    private javax.swing.JTextField tf_Quantity;
+    private javax.swing.JButton tf_assets;
     // End of variables declaration//GEN-END:variables
 
     private void myInit() {
@@ -1554,18 +1563,18 @@ public class Dlg_households extends javax.swing.JDialog {
     }
     // </editor-fold>
     
-    private void add_household_member() {
+     private void add_household_member() {
         Window p = (Window) this;
         Dlg_household_members nd = Dlg_household_members.create(p, true);
         nd.setTitle("");
         nd.setCallback(new Dlg_household_members.Callback() {
 
-            @Override
+ @Override
             public void ok(CloseDialog closeDialog, Dlg_household_members.OutputData data) {
                 closeDialog.ok();
 
             }
-        });
+            });
         nd.setLocationRelativeTo(this);
         nd.setVisible(true);
     }
