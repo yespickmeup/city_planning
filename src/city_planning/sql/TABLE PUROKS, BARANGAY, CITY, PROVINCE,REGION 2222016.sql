@@ -1,7 +1,7 @@
 --
 -- Definition of table `streets`
 --
---PASA--
+--Please cooperate-
 DROP TABLE IF EXISTS `streets`;
 CREATE TABLE `streets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
