@@ -25,63 +25,85 @@ public class Household_members {
     public static class to_household_members {
 
         public final int id;
+        public final String created_at;
+        public final String updated_at;
+        public final String created_by;
+        public final String updated_by;
+        public final String region;
+        public final String region_id;
+        public final String province;
+        public final String province_id;
+        public final String city;
+        public final String city_id;
+        public final String barangay;
+        public final String barangay_id;
+        public final String purok;
+        public final String purok_id;
+        public final int status;
         public final String house_no;
         public final String household_no;
-        public final String province;
-        public final int province_id;
-        public final int city_id;
-        public final String city;
-        public final int barangay_id;
-        public final String barangay;
-        public final int purok_id;
-        public final String purok;
-        public final int street_id;
-        public final String street;
-        public final String household_f_name;
-        public final String household_m_name;
-        public final String household_l_name;
+        public final String household_member_no;
+        public final String fname;
+        public final String mname;
+        public final String lname;
+        public final String sname;
         public final String gender;
-        public final int age;
         public final String marital_status;
-        public final String no_occupancy_year;
-        public final String birthdate;
+        public final String bday;
+        public final double occupancy_years;
+        public final String height;
+        public final String weight;
         public final String birth_place;
-        public final String prior_residence;
-        public final String email_address;
+        public final String present_address;
         public final String relation_to_household;
-        public final String citizenship;
         public final String religion;
-        public final String skills;
+        public final String citizenship;
+        public final String email_address;
+        public final String blood_type;
+        public final String languages_spoken;
+        public final int is_registered_voter;
+        public final String voters_id_no;
 
-        public to_household_members(int id, String house_no, String household_no, String province, int province_id, int city_id, String city, int barangay_id, String barangay, int purok_id, String purok, int street_id, String street, String household_f_name, String household_m_name, String household_l_name, String gender, int age, String marital_status, String no_occupancy_year, String birthdate, String birth_place, String prior_residence, String email_address, String relation_to_household, String citizenship, String religion, String skills) {
+        public to_household_members(int id, String created_at, String updated_at, String created_by, String updated_by, String region, String region_id, String province, String province_id, String city, String city_id, String barangay, String barangay_id, String purok, String purok_id, int status, String house_no, String household_no, String household_member_no, String fname, String mname, String lname, String sname, String gender, String marital_status, String bday, double occupancy_years, String height, String weight, String birth_place, String present_address, String relation_to_household, String religion, String citizenship, String email_address, String blood_type, String languages_spoken, int is_registered_voter, String voters_id_no) {
             this.id = id;
-            this.house_no = house_no;
-            this.household_no = household_no;
+            this.created_at = created_at;
+            this.updated_at = updated_at;
+            this.created_by = created_by;
+            this.updated_by = updated_by;
+            this.region = region;
+            this.region_id = region_id;
             this.province = province;
             this.province_id = province_id;
-            this.city_id = city_id;
             this.city = city;
-            this.barangay_id = barangay_id;
+            this.city_id = city_id;
             this.barangay = barangay;
-            this.purok_id = purok_id;
+            this.barangay_id = barangay_id;
             this.purok = purok;
-            this.street_id = street_id;
-            this.street = street;
-            this.household_f_name = household_f_name;
-            this.household_m_name = household_m_name;
-            this.household_l_name = household_l_name;
+            this.purok_id = purok_id;
+            this.status = status;
+            this.house_no = house_no;
+            this.household_no = household_no;
+            this.household_member_no = household_member_no;
+            this.fname = fname;
+            this.mname = mname;
+            this.lname = lname;
+            this.sname = sname;
             this.gender = gender;
-            this.age = age;
             this.marital_status = marital_status;
-            this.no_occupancy_year = no_occupancy_year;
-            this.birthdate = birthdate;
+            this.bday = bday;
+            this.occupancy_years = occupancy_years;
+            this.height = height;
+            this.weight = weight;
             this.birth_place = birth_place;
-            this.prior_residence = prior_residence;
-            this.email_address = email_address;
+            this.present_address = present_address;
             this.relation_to_household = relation_to_household;
-            this.citizenship = citizenship;
             this.religion = religion;
-            this.skills = skills;
+            this.citizenship = citizenship;
+            this.email_address = email_address;
+            this.blood_type = blood_type;
+            this.languages_spoken = languages_spoken;
+            this.is_registered_voter = is_registered_voter;
+            this.voters_id_no = voters_id_no;
         }
     }
 
@@ -89,91 +111,124 @@ public class Household_members {
         try {
             Connection conn = MyConnection.connect();
             String s0 = "insert into household_members("
-                    + "house_no"
-                    + ",household_no"
+                    + "created_at"
+                    + ",updated_at"
+                    + ",created_by"
+                    + ",updated_by"
+                    + ",region"
+                    + ",region_id"
                     + ",province"
                     + ",province_id"
-                    + ",city_id"
                     + ",city"
-                    + ",barangay_id"
+                    + ",city_id"
                     + ",barangay"
-                    + ",purok_id"
+                    + ",barangay_id"
                     + ",purok"
-                    + ",street_id"
-                    + ",street"
-                    + ",household_f_name"
-                    + ",household_m_name"
-                    + ",household_l_name"
+                    + ",purok_id"
+                    + ",status"
+                    + ",house_no"
+                    + ",household_no"
+                    + ",household_member_no"
+                    + ",fname"
+                    + ",mname"
+                    + ",lname"
+                    + ",sname"
                     + ",gender"
-                    + ",age"
                     + ",marital_status"
-                    + ",no_occupancy_year"
-                    + ",birthdate"
+                    + ",bday"
+                    + ",occupancy_years"
+                    + ",height"
+                    + ",weight"
                     + ",birth_place"
-                    + ",prior_residence"
-                    + ",email_address"
+                    + ",present_address"
                     + ",relation_to_household"
-                    + ",citizenship"
                     + ",religion"
-                    + ",skills"
+                    + ",citizenship"
+                    + ",email_address"
+                    + ",blood_type"
+                    + ",languages_spoken"
+                    + ",is_registered_voter"
+                    + ",voters_id_no"
                     + ")values("
-                    + ":house_no"
-                    + ",:household_no"
+                    + ":created_at"
+                    + ",:updated_at"
+                    + ",:created_by"
+                    + ",:updated_by"
+                    + ",:region"
+                    + ",:region_id"
                     + ",:province"
                     + ",:province_id"
-                    + ",:city_id"
                     + ",:city"
-                    + ",:barangay_id"
+                    + ",:city_id"
                     + ",:barangay"
-                    + ",:purok_id"
+                    + ",:barangay_id"
                     + ",:purok"
-                    + ",:street_id"
-                    + ",:street"
-                    + ",:household_f_name"
-                    + ",:household_m_name"
-                    + ",:household_l_name"
+                    + ",:purok_id"
+                    + ",:status"
+                    + ",:house_no"
+                    + ",:household_no"
+                    + ",:household_member_no"
+                    + ",:fname"
+                    + ",:mname"
+                    + ",:lname"
+                    + ",:sname"
                     + ",:gender"
-                    + ",:age"
                     + ",:marital_status"
-                    + ",:no_occupancy_year"
-                    + ",:birthdate"
+                    + ",:bday"
+                    + ",:occupancy_years"
+                    + ",:height"
+                    + ",:weight"
                     + ",:birth_place"
-                    + ",:prior_residence"
-                    + ",:email_address"
+                    + ",:present_address"
                     + ",:relation_to_household"
-                    + ",:citizenship"
                     + ",:religion"
-                    + ",:skills"
+                    + ",:citizenship"
+                    + ",:email_address"
+                    + ",:blood_type"
+                    + ",:languages_spoken"
+                    + ",:is_registered_voter"
+                    + ",:voters_id_no"
                     + ")";
 
             s0 = SqlStringUtil.parse(s0)
+                    .setString("created_at", to_household_members.created_at)
+                    .setString("updated_at", to_household_members.updated_at)
+                    .setString("created_by", to_household_members.created_by)
+                    .setString("updated_by", to_household_members.updated_by)
+                    .setString("region", to_household_members.region)
+                    .setString("region_id", to_household_members.region_id)
+                    .setString("province", to_household_members.province)
+                    .setString("province_id", to_household_members.province_id)
+                    .setString("city", to_household_members.city)
+                    .setString("city_id", to_household_members.city_id)
+                    .setString("barangay", to_household_members.barangay)
+                    .setString("barangay_id", to_household_members.barangay_id)
+                    .setString("purok", to_household_members.purok)
+                    .setString("purok_id", to_household_members.purok_id)
+                    .setNumber("status", to_household_members.status)
                     .setString("house_no", to_household_members.house_no)
                     .setString("household_no", to_household_members.household_no)
-                    .setString("province", to_household_members.province)
-                    .setNumber("province_id", to_household_members.province_id)
-                    .setNumber("city_id", to_household_members.city_id)
-                    .setString("city", to_household_members.city)
-                    .setNumber("barangay_id", to_household_members.barangay_id)
-                    .setString("barangay", to_household_members.barangay)
-                    .setNumber("purok_id", to_household_members.purok_id)
-                    .setString("purok", to_household_members.purok)
-                    .setNumber("street_id", to_household_members.street_id)
-                    .setString("street", to_household_members.street)
-                    .setString("household_f_name", to_household_members.household_f_name)
-                    .setString("household_m_name", to_household_members.household_m_name)
-                    .setString("household_l_name", to_household_members.household_l_name)
+                    .setString("household_member_no", to_household_members.household_member_no)
+                    .setString("fname", to_household_members.fname)
+                    .setString("mname", to_household_members.mname)
+                    .setString("lname", to_household_members.lname)
+                    .setString("sname", to_household_members.sname)
                     .setString("gender", to_household_members.gender)
-                    .setNumber("age", to_household_members.age)
                     .setString("marital_status", to_household_members.marital_status)
-                    .setString("no_occupancy_year", to_household_members.no_occupancy_year)
-                    .setString("birthdate", to_household_members.birthdate)
+                    .setString("bday", to_household_members.bday)
+                    .setNumber("occupancy_years", to_household_members.occupancy_years)
+                    .setString("height", to_household_members.height)
+                    .setString("weight", to_household_members.weight)
                     .setString("birth_place", to_household_members.birth_place)
-                    .setString("prior_residence", to_household_members.prior_residence)
-                    .setString("email_address", to_household_members.email_address)
+                    .setString("present_address", to_household_members.present_address)
                     .setString("relation_to_household", to_household_members.relation_to_household)
-                    .setString("citizenship", to_household_members.citizenship)
                     .setString("religion", to_household_members.religion)
-                    .setString("skills", to_household_members.skills)
+                    .setString("citizenship", to_household_members.citizenship)
+                    .setString("email_address", to_household_members.email_address)
+                    .setString("blood_type", to_household_members.blood_type)
+                    .setString("languages_spoken", to_household_members.languages_spoken)
+                    .setNumber("is_registered_voter", to_household_members.is_registered_voter)
+                    .setString("voters_id_no", to_household_members.voters_id_no)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -190,64 +245,86 @@ public class Household_members {
         try {
             Connection conn = MyConnection.connect();
             String s0 = "update household_members set "
-                    + "house_no= :house_no "
-                    + ",household_no= :household_no "
+                    + "created_at= :created_at "
+                    + ",updated_at= :updated_at "
+                    + ",created_by= :created_by "
+                    + ",updated_by= :updated_by "
+                    + ",region= :region "
+                    + ",region_id= :region_id "
                     + ",province= :province "
                     + ",province_id= :province_id "
-                    + ",city_id= :city_id "
                     + ",city= :city "
-                    + ",barangay_id= :barangay_id "
+                    + ",city_id= :city_id "
                     + ",barangay= :barangay "
-                    + ",purok_id= :purok_id "
+                    + ",barangay_id= :barangay_id "
                     + ",purok= :purok "
-                    + ",street_id= :street_id "
-                    + ",street= :street "
-                    + ",household_f_name= :household_f_name "
-                    + ",household_m_name= :household_m_name "
-                    + ",household_l_name= :household_l_name "
+                    + ",purok_id= :purok_id "
+                    + ",status= :status "
+                    + ",house_no= :house_no "
+                    + ",household_no= :household_no "
+                    + ",household_member_no= :household_member_no "
+                    + ",fname= :fname "
+                    + ",mname= :mname "
+                    + ",lname= :lname "
+                    + ",sname= :sname "
                     + ",gender= :gender "
-                    + ",age= :age "
                     + ",marital_status= :marital_status "
-                    + ",no_occupancy_year= :no_occupancy_year "
-                    + ",birthdate= :birthdate "
+                    + ",bday= :bday "
+                    + ",occupancy_years= :occupancy_years "
+                    + ",height= :height "
+                    + ",weight= :weight "
                     + ",birth_place= :birth_place "
-                    + ",prior_residence= :prior_residence "
-                    + ",email_address= :email_address "
+                    + ",present_address= :present_address "
                     + ",relation_to_household= :relation_to_household "
-                    + ",citizenship= :citizenship "
                     + ",religion= :religion "
-                    + ",skills= :skills "
+                    + ",citizenship= :citizenship "
+                    + ",email_address= :email_address "
+                    + ",blood_type= :blood_type "
+                    + ",languages_spoken= :languages_spoken "
+                    + ",is_registered_voter= :is_registered_voter "
+                    + ",voters_id_no= :voters_id_no "
                     + " where id='" + to_household_members.id + "' "
                     + " ";
 
             s0 = SqlStringUtil.parse(s0)
+                    .setString("created_at", to_household_members.created_at)
+                    .setString("updated_at", to_household_members.updated_at)
+                    .setString("created_by", to_household_members.created_by)
+                    .setString("updated_by", to_household_members.updated_by)
+                    .setString("region", to_household_members.region)
+                    .setString("region_id", to_household_members.region_id)
+                    .setString("province", to_household_members.province)
+                    .setString("province_id", to_household_members.province_id)
+                    .setString("city", to_household_members.city)
+                    .setString("city_id", to_household_members.city_id)
+                    .setString("barangay", to_household_members.barangay)
+                    .setString("barangay_id", to_household_members.barangay_id)
+                    .setString("purok", to_household_members.purok)
+                    .setString("purok_id", to_household_members.purok_id)
+                    .setNumber("status", to_household_members.status)
                     .setString("house_no", to_household_members.house_no)
                     .setString("household_no", to_household_members.household_no)
-                    .setString("province", to_household_members.province)
-                    .setNumber("province_id", to_household_members.province_id)
-                    .setNumber("city_id", to_household_members.city_id)
-                    .setString("city", to_household_members.city)
-                    .setNumber("barangay_id", to_household_members.barangay_id)
-                    .setString("barangay", to_household_members.barangay)
-                    .setNumber("purok_id", to_household_members.purok_id)
-                    .setString("purok", to_household_members.purok)
-                    .setNumber("street_id", to_household_members.street_id)
-                    .setString("street", to_household_members.street)
-                    .setString("household_f_name", to_household_members.household_f_name)
-                    .setString("household_m_name", to_household_members.household_m_name)
-                    .setString("household_l_name", to_household_members.household_l_name)
+                    .setString("household_member_no", to_household_members.household_member_no)
+                    .setString("fname", to_household_members.fname)
+                    .setString("mname", to_household_members.mname)
+                    .setString("lname", to_household_members.lname)
+                    .setString("sname", to_household_members.sname)
                     .setString("gender", to_household_members.gender)
-                    .setNumber("age", to_household_members.age)
                     .setString("marital_status", to_household_members.marital_status)
-                    .setString("no_occupancy_year", to_household_members.no_occupancy_year)
-                    .setString("birthdate", to_household_members.birthdate)
+                    .setString("bday", to_household_members.bday)
+                    .setNumber("occupancy_years", to_household_members.occupancy_years)
+                    .setString("height", to_household_members.height)
+                    .setString("weight", to_household_members.weight)
                     .setString("birth_place", to_household_members.birth_place)
-                    .setString("prior_residence", to_household_members.prior_residence)
-                    .setString("email_address", to_household_members.email_address)
+                    .setString("present_address", to_household_members.present_address)
                     .setString("relation_to_household", to_household_members.relation_to_household)
-                    .setString("citizenship", to_household_members.citizenship)
                     .setString("religion", to_household_members.religion)
-                    .setString("skills", to_household_members.skills)
+                    .setString("citizenship", to_household_members.citizenship)
+                    .setString("email_address", to_household_members.email_address)
+                    .setString("blood_type", to_household_members.blood_type)
+                    .setString("languages_spoken", to_household_members.languages_spoken)
+                    .setNumber("is_registered_voter", to_household_members.is_registered_voter)
+                    .setString("voters_id_no", to_household_members.voters_id_no)
                     .ok();
 
             PreparedStatement stmt = conn.prepareStatement(s0);
@@ -284,33 +361,44 @@ public class Household_members {
             Connection conn = MyConnection.connect();
             String s0 = "select "
                     + "id"
-                    + ",house_no"
-                    + ",household_no"
+                    + ",created_at"
+                    + ",updated_at"
+                    + ",created_by"
+                    + ",updated_by"
+                    + ",region"
+                    + ",region_id"
                     + ",province"
                     + ",province_id"
-                    + ",city_id"
                     + ",city"
-                    + ",barangay_id"
+                    + ",city_id"
                     + ",barangay"
-                    + ",purok_id"
+                    + ",barangay_id"
                     + ",purok"
-                    + ",street_id"
-                    + ",street"
-                    + ",household_f_name"
-                    + ",household_m_name"
-                    + ",household_l_name"
+                    + ",purok_id"
+                    + ",status"
+                    + ",house_no"
+                    + ",household_no"
+                    + ",household_member_no"
+                    + ",fname"
+                    + ",mname"
+                    + ",lname"
+                    + ",sname"
                     + ",gender"
-                    + ",age"
                     + ",marital_status"
-                    + ",no_occupancy_year"
-                    + ",birthdate"
+                    + ",bday"
+                    + ",occupancy_years"
+                    + ",height"
+                    + ",weight"
                     + ",birth_place"
-                    + ",prior_residence"
-                    + ",email_address"
+                    + ",present_address"
                     + ",relation_to_household"
-                    + ",citizenship"
                     + ",religion"
-                    + ",skills"
+                    + ",citizenship"
+                    + ",email_address"
+                    + ",blood_type"
+                    + ",languages_spoken"
+                    + ",is_registered_voter"
+                    + ",voters_id_no"
                     + " from household_members"
                     + " " + where;
 
@@ -318,35 +406,46 @@ public class Household_members {
             ResultSet rs = stmt.executeQuery(s0);
             while (rs.next()) {
                 int id = rs.getInt(1);
-                String house_no = rs.getString(2);
-                String household_no = rs.getString(3);
-                String province = rs.getString(4);
-                int province_id = rs.getInt(5);
-                int city_id = rs.getInt(6);
-                String city = rs.getString(7);
-                int barangay_id = rs.getInt(8);
-                String barangay = rs.getString(9);
-                int purok_id = rs.getInt(10);
-                String purok = rs.getString(11);
-                int street_id = rs.getInt(12);
-                String street = rs.getString(13);
-                String household_f_name = rs.getString(14);
-                String household_m_name = rs.getString(15);
-                String household_l_name = rs.getString(16);
-                String gender = rs.getString(17);
-                int age = rs.getInt(18);
-                String marital_status = rs.getString(19);
-                String no_occupancy_year = rs.getString(20);
-                String birthdate = rs.getString(21);
-                String birth_place = rs.getString(22);
-                String prior_residence = rs.getString(23);
-                String email_address = rs.getString(24);
-                String relation_to_household = rs.getString(25);
-                String citizenship = rs.getString(26);
-                String religion = rs.getString(27);
-                String skills = rs.getString(28);
+                String created_at = rs.getString(2);
+                String updated_at = rs.getString(3);
+                String created_by = rs.getString(4);
+                String updated_by = rs.getString(5);
+                String region = rs.getString(6);
+                String region_id = rs.getString(7);
+                String province = rs.getString(8);
+                String province_id = rs.getString(9);
+                String city = rs.getString(10);
+                String city_id = rs.getString(11);
+                String barangay = rs.getString(12);
+                String barangay_id = rs.getString(13);
+                String purok = rs.getString(14);
+                String purok_id = rs.getString(15);
+                int status = rs.getInt(16);
+                String house_no = rs.getString(17);
+                String household_no = rs.getString(18);
+                String household_member_no = rs.getString(19);
+                String fname = rs.getString(20);
+                String mname = rs.getString(21);
+                String lname = rs.getString(22);
+                String sname = rs.getString(23);
+                String gender = rs.getString(24);
+                String marital_status = rs.getString(25);
+                String bday = rs.getString(26);
+                double occupancy_years = rs.getDouble(27);
+                String height = rs.getString(28);
+                String weight = rs.getString(29);
+                String birth_place = rs.getString(30);
+                String present_address = rs.getString(31);
+                String relation_to_household = rs.getString(32);
+                String religion = rs.getString(33);
+                String citizenship = rs.getString(34);
+                String email_address = rs.getString(35);
+                String blood_type = rs.getString(36);
+                String languages_spoken = rs.getString(37);
+                int is_registered_voter = rs.getInt(38);
+                String voters_id_no = rs.getString(39);
 
-                to_household_members to = new to_household_members(id, house_no, household_no, province, province_id, city_id, city, barangay_id, barangay, purok_id, purok, street_id, street, household_f_name, household_m_name, household_l_name, gender, age, marital_status, no_occupancy_year, birthdate, birth_place, prior_residence, email_address, relation_to_household, citizenship, religion, skills);
+                to_household_members to = new to_household_members(id, created_at, updated_at, created_by, updated_by, region, region_id, province, province_id, city, city_id, barangay, barangay_id, purok, purok_id, status, house_no, household_no, household_member_no, fname, mname, lname, sname, gender, marital_status, bday, occupancy_years, height, weight, birth_place, present_address, relation_to_household, religion, citizenship, email_address, blood_type, languages_spoken, is_registered_voter, voters_id_no);
                 datas.add(to);
             }
             return datas;

@@ -6,6 +6,7 @@
 package city_planning.dlg;
 
 import city_planning.initialize_fields.Initialize_house_field_types;
+import city_planning.initialize_fields.Initialize_search_record_field_types;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -198,6 +199,12 @@ public class Dlg_house extends javax.swing.JDialog {
         tf_purok = new Field.Combo();
         jLabel23 = new javax.swing.JLabel();
         tf_street = new Field.Combo();
+        lbl_barangay3 = new javax.swing.JLabel();
+        tf_region = new Field.Combo();
+        lbl_barangay2 = new javax.swing.JLabel();
+        tf_province = new Field.Combo();
+        lbl_barangay4 = new javax.swing.JLabel();
+        tf_city = new Field.Combo();
         jPanel3 = new javax.swing.JPanel();
         lbl_house_condition2 = new javax.swing.JLabel();
         lbl_no_rooms1 = new javax.swing.JLabel();
@@ -322,6 +329,54 @@ public class Dlg_house extends javax.swing.JDialog {
             }
         });
 
+        lbl_barangay3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_barangay3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_barangay3.setText("Region:");
+
+        tf_region.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_region.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_regionMouseClicked(evt);
+            }
+        });
+        tf_region.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_regionActionPerformed(evt);
+            }
+        });
+
+        lbl_barangay2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_barangay2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_barangay2.setText("Province:");
+
+        tf_province.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_province.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_provinceMouseClicked(evt);
+            }
+        });
+        tf_province.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_provinceActionPerformed(evt);
+            }
+        });
+
+        lbl_barangay4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_barangay4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_barangay4.setText("City/Municipality:");
+
+        tf_city.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tf_city.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_cityMouseClicked(evt);
+            }
+        });
+        tf_city.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_cityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -329,23 +384,25 @@ public class Dlg_house extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_basic_Information1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_barangay4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_barangay2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_barangay3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(lbl_house_number1)
+                            .addComponent(lbl_barangay1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_purok1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_street)
-                            .addComponent(tf_purok)))
-                    .addComponent(lbl_basic_Information1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbl_house_number1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_barangay1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_barangay)
-                            .addComponent(tf_house_number))))
+                            .addComponent(tf_street, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_purok, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_barangay, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_house_number)
+                            .addComponent(tf_province, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_city)
+                            .addComponent(tf_region))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -359,17 +416,29 @@ public class Dlg_house extends javax.swing.JDialog {
                     .addComponent(tf_house_number, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_barangay1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_barangay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_barangay3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_region, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_purok1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_purok, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_province, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_barangay2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_street, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                    .addComponent(lbl_barangay4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_city, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_barangay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_barangay1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_purok, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_purok1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_street, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -670,7 +739,7 @@ public class Dlg_house extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_communications, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel205, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -887,7 +956,7 @@ public class Dlg_house extends javax.swing.JDialog {
                         .addGap(2, 2, 2)
                         .addComponent(lbl_house_condition4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -1090,6 +1159,30 @@ public class Dlg_house extends javax.swing.JDialog {
         Initialize_house_field_types.init_transportation_types(tf_transportations);
     }//GEN-LAST:event_tf_transportationsActionPerformed
 
+    private void tf_regionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_regionMouseClicked
+        Initialize_search_record_field_types.init_regions(tf_region);
+    }//GEN-LAST:event_tf_regionMouseClicked
+
+    private void tf_regionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_regionActionPerformed
+        Initialize_search_record_field_types.init_regions(tf_region);
+    }//GEN-LAST:event_tf_regionActionPerformed
+
+    private void tf_provinceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_provinceMouseClicked
+        Initialize_search_record_field_types.init_provinces(tf_province, tf_region);
+    }//GEN-LAST:event_tf_provinceMouseClicked
+
+    private void tf_provinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_provinceActionPerformed
+        Initialize_search_record_field_types.init_provinces(tf_province, tf_region);
+    }//GEN-LAST:event_tf_provinceActionPerformed
+
+    private void tf_cityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_cityMouseClicked
+        Initialize_search_record_field_types.init_cities(tf_city);
+    }//GEN-LAST:event_tf_cityMouseClicked
+
+    private void tf_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cityActionPerformed
+        Initialize_search_record_field_types.init_cities(tf_city);
+    }//GEN-LAST:event_tf_cityActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1131,6 +1224,9 @@ public class Dlg_house extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField117;
     private javax.swing.JTextField jTextField119;
     private javax.swing.JLabel lbl_barangay1;
+    private javax.swing.JLabel lbl_barangay2;
+    private javax.swing.JLabel lbl_barangay3;
+    private javax.swing.JLabel lbl_barangay4;
     private javax.swing.JLabel lbl_basic_Information1;
     private javax.swing.JLabel lbl_facilities2;
     private javax.swing.JLabel lbl_facilities3;
@@ -1143,6 +1239,7 @@ public class Dlg_house extends javax.swing.JDialog {
     private javax.swing.JTextField tf_barangay;
     private javax.swing.JTextField tf_bathrooms;
     private javax.swing.JTextField tf_buildings;
+    private javax.swing.JTextField tf_city;
     private javax.swing.JTextField tf_communications;
     private javax.swing.JTextField tf_compartments;
     private javax.swing.JTextField tf_compartments1;
@@ -1153,7 +1250,9 @@ public class Dlg_house extends javax.swing.JDialog {
     private javax.swing.JTextField tf_kitchens;
     private javax.swing.JTextField tf_lighting;
     private javax.swing.JTextField tf_no_rooms1;
+    private javax.swing.JTextField tf_province;
     private javax.swing.JTextField tf_purok;
+    private javax.swing.JTextField tf_region;
     private javax.swing.JTextField tf_roofs;
     private javax.swing.JTextField tf_street;
     private javax.swing.JTextField tf_toilets;

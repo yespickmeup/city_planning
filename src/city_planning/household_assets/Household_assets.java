@@ -42,8 +42,8 @@ public class Household_assets {
         public final int status;
         public final String house_no;
         public final String household_no;
-        public final double qty;
-        public final String assets;
+        public  double qty;
+        public  String assets;
 
         public to_household_assets(int id, String created_at, String updated_at, String created_by, String updated_by, String region, String region_id, String province, String province_id, String city, String city_id, String barangay, String barangay_id, String purok, String purok_id, int status, String house_no, String household_no, double qty, String assets) {
             this.id = id;
@@ -67,6 +67,23 @@ public class Household_assets {
             this.qty = qty;
             this.assets = assets;
         }
+
+        public double getQty() {
+            return qty;
+        }
+
+        public void setQty(double qty) {
+            this.qty = qty;
+        }
+
+        public String getAssets() {
+            return assets;
+        }
+
+        public void setAssets(String assets) {
+            this.assets = assets;
+        }
+        
     }
 
     public static void add_data(to_household_assets to_household_assets) {

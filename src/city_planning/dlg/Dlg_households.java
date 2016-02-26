@@ -5,24 +5,22 @@
  */
 package city_planning.dlg;
 
-import static city_planning.household_assets.Household_assets.add_data;
-import city_planning.household_assets.Household_assets.to_household_assets;
-import com.jgoodies.binding.adapter.AbstractTableAdapter;
-import com.jgoodies.binding.list.ArrayListModel;
-import java.awt.Dimension;
+import city_planning.household_assets.Household_assets;
+import city_planning.households.Households;
+import city_planning.houses.Houses;
+import city_planning.initialize_fields.Initialize_search_record_field_types;
+import city_planning.users.MyUser;
+import city_planning.util.Alert;
+import city_planning.util.DateType;
+import city_planning.util.Dlg_confirm_action;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.List;
 import java.util.logging.Level;
-import javax.swing.JTable;
-import javax.swing.ListModel;
-import javax.swing.ListSelectionModel;
 import mijzcx.synapse.desk.utils.CloseDialog;
 import mijzcx.synapse.desk.utils.FitIn;
 import mijzcx.synapse.desk.utils.KeyMapping;
 import mijzcx.synapse.desk.utils.KeyMapping.KeyAction;
-import mijzcx.synapse.desk.utils.TableWidthUtilities;
 import synsoftech.fields.Button;
 import synsoftech.fields.Field;
 
@@ -211,7 +209,7 @@ public class Dlg_households extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         lbl_facilities2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_house = new javax.swing.JTable();
+        tbl_household_assets = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
@@ -219,10 +217,11 @@ public class Dlg_households extends javax.swing.JDialog {
         jLabel51 = new javax.swing.JLabel();
         tf_Asset = new Field.Input();
         tf_assets = new Button.Primary();
+        tf_assets1 = new Button.Default();
         jPanel5 = new javax.swing.JPanel();
         lbl_facilities4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tbl_household_expenditures = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -296,7 +295,7 @@ public class Dlg_households extends javax.swing.JDialog {
         jTextField55 = new Field.Input();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tbl_household_members = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbl_facilities6 = new javax.swing.JLabel();
@@ -304,7 +303,7 @@ public class Dlg_households extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         lbl_facilities3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbl_household_consumptions = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
@@ -381,8 +380,19 @@ public class Dlg_households extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(287, 287, 287)
+                .addGap(271, 271, 271)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField17)
+                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -399,40 +409,29 @@ public class Dlg_households extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jCheckBox6)
                             .addComponent(jCheckBox4)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox2)
-                            .addGap(103, 103, 103))))
-                .addContainerGap(302, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBox2)))
+                .addGap(318, 318, 318))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(138, 138, 138)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,11 +445,11 @@ public class Dlg_households extends javax.swing.JDialog {
                             .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("BASIC INFORMATION", jPanel2);
@@ -460,7 +459,7 @@ public class Dlg_households extends javax.swing.JDialog {
         lbl_facilities2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_facilities2.setText("[ASSETS]");
 
-        tbl_house.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_household_assets.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"2", "Cars", "Update", "Delete"},
                 {"4", "Bike", "Update", "Delete"},
@@ -474,11 +473,16 @@ public class Dlg_households extends javax.swing.JDialog {
                 "Qty", "Asset", "", ""
             }
         ));
-        jScrollPane1.setViewportView(tbl_house);
+        tbl_household_assets.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_household_assetsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbl_household_assets);
 
         jLabel1.setText("No. of rows:");
 
-        jLabel3.setText("6");
+        jLabel3.setText("0");
 
         jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel50.setText("Quantity:");
@@ -500,11 +504,19 @@ public class Dlg_households extends javax.swing.JDialog {
             }
         });
 
-        tf_assets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/add13.png"))); // NOI18N
-        tf_assets.setText("Add Asset");
+        tf_assets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/download-arrow.png"))); // NOI18N
+        tf_assets.setText("Save");
         tf_assets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tf_assetsActionPerformed(evt);
+            }
+        });
+
+        tf_assets1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/city_planning/img_city_planning/new-file.png"))); // NOI18N
+        tf_assets1.setText("New");
+        tf_assets1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_assets1ActionPerformed(evt);
             }
         });
 
@@ -515,11 +527,13 @@ public class Dlg_households extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE)
                     .addComponent(lbl_facilities2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tf_assets, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_assets1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_assets, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -549,9 +563,11 @@ public class Dlg_households extends javax.swing.JDialog {
                     .addComponent(tf_Asset, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tf_assets, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_assets, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_assets1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -566,7 +582,7 @@ public class Dlg_households extends javax.swing.JDialog {
         lbl_facilities4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_facilities4.setText("[EXPENDITURES]");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_household_expenditures.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"January", "5,000.00", "Update", "Delete"},
                 {"February", "5,000.00", "Update", "Delete"},
@@ -585,7 +601,7 @@ public class Dlg_households extends javax.swing.JDialog {
                 "Month", "Amount", "", ""
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tbl_household_expenditures);
 
         jLabel6.setText("No. of rows:");
 
@@ -1130,7 +1146,7 @@ public class Dlg_households extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("CONCERNS", jPanel6);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_household_members.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1141,7 +1157,7 @@ public class Dlg_households extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tbl_household_members);
 
         jLabel8.setText("No. of rows:");
 
@@ -1200,7 +1216,7 @@ public class Dlg_households extends javax.swing.JDialog {
         lbl_facilities3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_facilities3.setText("[CONSUMPTION]");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_household_consumptions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"January 2016", "Rice,Fish,Meat,Chicken", "10,000.00", "Update", "Delete"},
                 {"February 2016", "Rice,Fish,Meat,Chicken", "10,000.00", "Update", "Delete"},
@@ -1211,7 +1227,7 @@ public class Dlg_households extends javax.swing.JDialog {
                 "Date", "Items", "Amount", "", ""
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tbl_household_consumptions);
 
         jLabel4.setText("No. of rows:");
 
@@ -1402,7 +1418,7 @@ public class Dlg_households extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        add_household_member();
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -1414,12 +1430,20 @@ public class Dlg_households extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField41ActionPerformed
 
     private void tf_assetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_assetsActionPerformed
-
+        save_household_asset();
     }//GEN-LAST:event_tf_assetsActionPerformed
 
     private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField25ActionPerformed
+
+    private void tbl_household_assetsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_household_assetsMouseClicked
+        select_household_asset();
+    }//GEN-LAST:event_tbl_household_assetsMouseClicked
+
+    private void tf_assets1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_assets1ActionPerformed
+        clear_household_asset();
+    }//GEN-LAST:event_tf_assets1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1506,9 +1530,6 @@ public class Dlg_households extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
@@ -1550,19 +1571,30 @@ public class Dlg_households extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_facilities4;
     private javax.swing.JLabel lbl_facilities5;
     private javax.swing.JLabel lbl_facilities6;
-    private javax.swing.JTable tbl_house;
+    private javax.swing.JTable tbl_household_assets;
+    private javax.swing.JTable tbl_household_consumptions;
+    private javax.swing.JTable tbl_household_expenditures;
+    private javax.swing.JTable tbl_household_members;
     private javax.swing.JTextField tf_Asset;
     private javax.swing.JTextField tf_Items;
     private javax.swing.JButton tf_assets;
+    private javax.swing.JButton tf_assets1;
     private javax.swing.JTextField tf_qty;
     // End of variables declaration//GEN-END:variables
 
     private void myInit() {
         init_key();
+        Initialize_search_record_field_types.ret_data();
+        Initialize_table_households.init_tbl_household_assets(tbl_household_assets);
+        Initialize_table_households.init_tbl_household_expenditures(tbl_household_expenditures);
+        Initialize_table_households.init_tbl_household_consumptions(tbl_household_consumptions);
+        Initialize_table_households.init_tbl_household_members(tbl_household_members);
     }
 
-    public void do_pass() {
+    Households.to_households household = new Households.to_households(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
+    public void do_pass(Households.to_households household1) {
+        household = household1;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Key">
@@ -1582,156 +1614,133 @@ public class Dlg_households extends javax.swing.JDialog {
         });
     }
     // </editor-fold>
-    //<editor-fold defaultstate="collapsed" desc=" household_assets "> 
-    public static ArrayListModel tbl_household_assets_ALM;
-    public static Tblhousehold_assetsModel tbl_household_assets_M;
 
-    public static void init_tbl_household_assets(JTable tbl_household_assets) {
-        tbl_household_assets_ALM = new ArrayListModel();
-        tbl_household_assets_M = new Tblhousehold_assetsModel(tbl_household_assets_ALM);
-        tbl_household_assets.setModel(tbl_household_assets_M);
-        tbl_household_assets.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        tbl_household_assets.setRowHeight(25);
-        int[] tbl_widths_household_assets = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
-        for (int i = 0, n = tbl_widths_household_assets.length; i < n; i++) {
-            if (i == 100) {
-                continue;
+    //<editor-fold defaultstate="collapsed" desc=" CRUD Household Assets ">
+    private void save_household_asset() {
+        int row = tbl_household_assets.getSelectedRow();
+        if (row < 0) {
+            int id = 0;
+            String created_at = DateType.now();
+            String updated_at = DateType.now();
+            String created_by = MyUser.getUser_id();
+            String updated_by = MyUser.getUser_id();
+            String region = household.region;
+            String region_id = household.region_id;
+            String province = household.province;
+            String province_id = household.province_id;
+            String city = household.city;
+            String city_id = household.city_id;
+            String barangay = household.barangay;
+            String barangay_id = household.barangay_id;
+            String purok = household.purok;
+            String purok_id = household.purok_id;
+            int status = 0;
+            String house_no = household.house_no;
+            String household_no = jTextField16.getText();
+            double qty = FitIn.toDouble(tf_qty.getText());
+            String assets = tf_Asset.getText();
+
+            Household_assets.to_household_assets asset = new Household_assets.to_household_assets(id, created_at, updated_at, created_by, updated_by, region, region_id, province, province_id, city, city_id, barangay, barangay_id, purok, purok_id, status, house_no, household_no, qty, assets);
+            if (household.id == 0) {
+                Initialize_table_households.tbl_household_assets_ALM.add(asset);
+                jLabel3.setText("" + Initialize_table_households.tbl_household_assets_ALM.size());
+                Alert.set(1, "");
+            } else {
+                Household_assets.add_data(asset);
+                String where = " where household_no='" + jTextField16.getText() + "'";
+                Initialize_table_households.ret_household_assets(assets);
+                jLabel3.setText("" + Initialize_table_households.tbl_household_assets_ALM.size());
+                Alert.set(1, "");
             }
-            TableWidthUtilities.setColumnWidth(tbl_household_assets, i, tbl_widths_household_assets[i]);
+        } else {
+            Household_assets.to_household_assets asset = (Household_assets.to_household_assets) Initialize_table_households.tbl_household_assets_ALM.get(row);
+            int id = asset.id;
+            String created_at = asset.created_at;
+            String updated_at = asset.updated_at;
+            String created_by = asset.created_by;
+            String updated_by = asset.updated_by;
+            String region = asset.region;
+            String region_id = asset.region_id;
+            String province = asset.province;
+            String province_id = asset.province_id;
+            String city = asset.city;
+            String city_id = asset.city_id;
+            String barangay = asset.barangay;
+            String barangay_id = asset.barangay_id;
+            String purok = asset.purok;
+            String purok_id = asset.purok_id;
+            int status = asset.status;
+            String house_no = asset.house_no;
+            String household_no = asset.household_no;
+            double qty = FitIn.toDouble(tf_qty.getText());
+            String assets = tf_Asset.getText();
+
+            if (household.id == 0) {
+                asset.setAssets(assets);
+                asset.setQty(qty);
+                Initialize_table_households.tbl_household_assets_M.fireTableDataChanged();
+
+                Alert.set(2, "");
+            } else {
+                Household_assets.to_household_assets new_asset = new Household_assets.to_household_assets(id, created_at, updated_at, created_by, updated_by, region, region_id, province, province_id, city, city_id, barangay, barangay_id, purok, purok_id, status, house_no, household_no, qty, assets);
+                Household_assets.update_data(new_asset);
+                String where = " where household_no='" + jTextField16.getText() + "'";
+                Initialize_table_households.ret_household_assets(where);
+                Alert.set(2, "");
+            }
         }
-        Dimension d = tbl_household_assets.getTableHeader().getPreferredSize();
-        d.height = 25;
-        tbl_household_assets.getTableHeader().setPreferredSize(d);
-        tbl_household_assets.getTableHeader().setFont(new java.awt.Font("Arial", 0, 12));
-        tbl_household_assets.setRowHeight(25);
-        tbl_household_assets.setFont(new java.awt.Font("Arial", 0, 12));
+
+        clear_household_asset();
     }
 
-    public static void loadData_household_assets(List<to_household_assets> acc) {
-        tbl_household_assets_ALM.clear();
-        tbl_household_assets_ALM.addAll(acc);
+    private void select_household_asset() {
+        final int row = tbl_household_assets.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        final Household_assets.to_household_assets asset = (Household_assets.to_household_assets) Initialize_table_households.tbl_household_assets_ALM.get(row);
+        int col = tbl_household_assets.getSelectedColumn();
+        if (col == 2) {
+
+            tf_qty.setText(FitIn.fmt_woc(asset.qty));
+            tf_Asset.setText(asset.assets);
+        }
+        if (col == 3) {
+            Window p = (Window) this;
+            Dlg_confirm_action nd = Dlg_confirm_action.create(p, true);
+            nd.setTitle("");
+            nd.setCallback(new Dlg_confirm_action.Callback() {
+
+                @Override
+                public void ok(CloseDialog closeDialog, Dlg_confirm_action.OutputData data) {
+                    closeDialog.ok();
+                    if (household.id == 0) {
+                        Initialize_table_households.tbl_household_assets_ALM.remove(row);
+                        Initialize_table_households.tbl_household_assets_M.fireTableDataChanged();
+                        jLabel3.setText("" + Initialize_table_households.tbl_household_assets_ALM.size());
+                        Alert.set(3, "");
+                    } else {
+                        Household_assets.delete_data(asset);
+                        String where = " where household_no='" + jTextField16.getText() + "'";
+                        Initialize_table_households.ret_household_assets(where);
+                        Alert.set(3, "");
+                    }
+                    clear_household_asset();
+                }
+            });
+            nd.setLocationRelativeTo(this);
+            nd.setVisible(true);
+
+        }
+
     }
 
-    public static class Tblhousehold_assetsModel extends AbstractTableAdapter {
-
-        public static String[] COLUMNS = {
-            "id", "created_at", "updated_at", "created_by", "updated_by", "region", "region_id", "province", "province_id", "city", "city_id", "barangay", "barangay_id", "purok", "purok_id", "status", "house_no", "household_no", "qty", "assets"
-        };
-
-        public Tblhousehold_assetsModel(ListModel listmodel) {
-            super(listmodel, COLUMNS);
-        }
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            if (column == 100) {
-                return true;
-            }
-            return false;
-        }
-
-        @Override
-        public Class getColumnClass(int col) {
-            if (col == 1000) {
-                return Boolean.class;
-            }
-            return Object.class;
-        }
-
-        @Override
-        public Object getValueAt(int row, int col) {
-            to_household_assets tt = (to_household_assets) getRow(row);
-            switch (col) {
-                case 0:
-                    return tt.id;
-                case 1:
-                    return tt.created_at;
-                case 2:
-                    return tt.updated_at;
-                case 3:
-                    return tt.created_by;
-                case 4:
-                    return tt.updated_by;
-                case 5:
-                    return tt.region;
-                case 6:
-                    return tt.region_id;
-                case 7:
-                    return tt.province;
-                case 8:
-                    return tt.province_id;
-                case 9:
-                    return tt.city;
-                case 10:
-                    return tt.city_id;
-                case 11:
-                    return tt.barangay;
-                case 12:
-                    return tt.barangay_id;
-                case 13:
-                    return tt.purok;
-                case 14:
-                    return tt.purok_id;
-                case 15:
-                    return tt.status;
-                case 16:
-                    return tt.house_no;
-                case 17:
-                    return tt.household_no;
-                case 18:
-                    return tt.qty;
-                default:
-                    return tt.assets;
-            }
-        }
-    }
-//</editor-fold> 
-
-    private void add_household_member() {
-        Window p = (Window) this;
-        Dlg_household_members nd = Dlg_household_members.create(p, true);
-        nd.setTitle("");
-        nd.setCallback(new Dlg_household_members.Callback() {
-
-            @Override
-            public void ok(CloseDialog closeDialog, Dlg_household_members.OutputData data) {
-                closeDialog.ok();
-
-            }
-        });
-        nd.setLocationRelativeTo(this);
-        nd.setVisible(true);
-    }
-
-    private void add_household_assets() {
-
-        int id = 0;
-        String created_at = "";
-        String updated_at = "";
-        String created_by = "";
-        String updated_by = "";
-        String region = "";
-        String region_id = "";
-        String province = "";
-        String province_id = "";
-        String city = "";
-        String city_id = "";
-        String barangay ="";
-        String barangay_id = "";
-        String purok = "";
-        String purok_id = "";
-        int status = 0;
-        String house_no = "";
-        String household_no = "";
-        double qty = FitIn.toDouble(tf_qty.getText());
-        String assets = tf_assets.getText();
-
-        to_household_assets to = new to_household_assets(id, created_at, updated_at, created_by, updated_by, region, region_id, province, province_id, city, city_id, barangay, barangay_id, purok, purok_id, status, house_no, household_no, qty, assets);
-        add_data(to);
-       
+    private void clear_household_asset() {
         tf_qty.setText("");
-        tf_assets.setText("");
-
+        tf_Asset.setText("");
+        tbl_household_assets.getSelectionModel().clearSelection();
+        tf_qty.grabFocus();
     }
 
+    //</editor-fold>
 }
