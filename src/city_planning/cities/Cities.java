@@ -22,6 +22,7 @@ import mijzcx.synapse.desk.utils.SqlStringUtil;
  */
 public class Cities {
 
+    
     public static class to_cities {
 
         public final int id;
