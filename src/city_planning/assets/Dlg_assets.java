@@ -493,7 +493,7 @@ public class Dlg_assets extends javax.swing.JDialog {
         Assets.add_data(to);
         tf_assets.setText("");
         ret_data();
-        System.out.println("Successfully Added");
+        System.out.println("Sureccessfully Added");
 
     }
 
