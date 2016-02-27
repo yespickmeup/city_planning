@@ -1702,52 +1702,36 @@ public class Dlg_households extends javax.swing.JDialog {
         nd.setLocationRelativeTo(this);
         nd.setVisible(true);
     }
-    
-     private void add_household_assets() { 
 
- int id=0; 
- String created_at = tf_created_at.getText(); 
- String updated_at = tf_updated_at.getText(); 
- String created_by = tf_created_by.getText(); 
- String updated_by = tf_updated_by.getText(); 
- String region = tf_region.getText(); 
- String region_id = tf_region_id.getText(); 
- String province = tf_province.getText(); 
- String province_id = tf_province_id.getText(); 
- String city = tf_city.getText(); 
- String city_id = tf_city_id.getText(); 
- String barangay = tf_barangay.getText(); 
- String barangay_id = tf_barangay_id.getText(); 
- String purok = tf_purok.getText(); 
- String purok_id = tf_purok_id.getText(); 
- String status = tf_status.getText(); 
- String house_no = tf_house_no.getText(); 
- String household_no = tf_household_no.getText(); 
- double qty = FitIn.toDouble(tf_qty.getText()); 
- String assets = tf_assets.getText(); 
+    private void add_household_assets() {
 
- to_household_assets to = new to_household_assets(id,created_at,updated_at,created_by,updated_by,region,region_id,province,province_id,city,city_id,barangay,barangay_id,purok,purok_id,status,house_no,household_no,qty,assets); 
- add_data(to); 
- tf_created_at.setText(""); 
- tf_updated_at.setText(""); 
- tf_created_by.setText(""); 
- tf_updated_by.setText(""); 
- tf_region.setText(""); 
- tf_region_id.setText(""); 
- tf_province.setText(""); 
- tf_province_id.setText(""); 
- tf_city.setText(""); 
- tf_city_id.setText(""); 
- tf_barangay.setText(""); 
- tf_barangay_id.setText(""); 
- tf_purok.setText(""); 
- tf_purok_id.setText(""); 
- tf_status.setText(""); 
- tf_house_no.setText(""); 
- tf_household_no.setText(""); 
- tf_qty.setText(""); 
- tf_assets.setText(""); 
+        int id = 0;
+        String created_at = "";
+        String updated_at = "";
+        String created_by = "";
+        String updated_by = "";
+        String region = "";
+        String region_id = "";
+        String province = "";
+        String province_id = "";
+        String city = "";
+        String city_id = "";
+        String barangay ="";
+        String barangay_id = "";
+        String purok = "";
+        String purok_id = "";
+        int status = 0;
+        String house_no = "";
+        String household_no = "";
+        double qty = FitIn.toDouble(tf_qty.getText());
+        String assets = tf_assets.getText();
 
-}
+        to_household_assets to = new to_household_assets(id, created_at, updated_at, created_by, updated_by, region, region_id, province, province_id, city, city_id, barangay, barangay_id, purok, purok_id, status, house_no, household_no, qty, assets);
+        add_data(to);
+       
+        tf_qty.setText("");
+        tf_assets.setText("");
+
+    }
 
 }
