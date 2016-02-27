@@ -4153,9 +4153,7 @@ public class Dlg_household_members extends javax.swing.JDialog {
 
     }
     //</editor-fold> 
-    
- 
-
+   
     //<editor-fold defaultstate="collapsed" desc="TABLE Household Member Prefered Works "> 
     private void ret_data_Prefered_Works() {
         String where = "";
